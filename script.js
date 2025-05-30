@@ -642,3 +642,141 @@ document.head.insertAdjacentHTML('beforeend', particleStyles);
 
 // Initialize particles when page loads
 document.addEventListener('DOMContentLoaded', createParticles);
+
+// Bot Showcase Animation
+class BotShowcase {
+    constructor() {
+        this.isPlaying = false;
+        this.init();
+    }
+
+    init() {
+        const playBtn = document.getElementById('play-demo');
+        const replayBtn = document.getElementById('replay-demo');
+        
+        if (playBtn) {
+            playBtn.addEventListener('click', () => this.startDemo());
+        }
+        
+        if (replayBtn) {
+            replayBtn.addEventListener('click', () => this.startDemo());
+        }
+    }
+
+    async startDemo() {
+        if (this.isPlaying) return;
+        
+        this.isPlaying = true;
+        const playBtn = document.getElementById('play-demo');
+        const replayBtn = document.getElementById('replay-demo');
+        const botAssistant = document.getElementById('bot-assistant');
+        const responseText = document.querySelector('.response-text');
+        const confidenceFill = document.getElementById('confidence-fill');
+        const confidenceText = document.getElementById('confidence-text');
+        const options = document.querySelectorAll('.option');
+        
+        // Hide buttons
+        playBtn.style.display = 'none';
+        replayBtn.style.display = 'none';
+        
+        // Reset state
+        options.forEach(option => option.classList.remove('correct'));
+        botAssistant.classList.remove('active');
+        confidenceFill.style.width = '0%';
+        
+        // Step 1: Show bot thinking
+        await this.delay(500);
+        botAssistant.classList.add('active');
+        responseText.textContent = 'Analyzing question...';
+        confidenceText.textContent = 'Calculating...';
+        
+        // Step 2: Simulate thinking process
+        await this.delay(2000);
+        responseText.textContent = 'Processing calculus rules...';
+        
+        // Step 3: Show confidence building
+        await this.delay(1500);
+        responseText.textContent = 'Applying derivative formulas...';
+        confidenceFill.style.width = '45%';
+        confidenceText.textContent = '45%';
+        
+        // Step 4: Higher confidence
+        await this.delay(1000);
+        responseText.textContent = 'Verifying calculation...';
+        confidenceFill.style.width = '78%';
+        confidenceText.textContent = '78%';
+        
+        // Step 5: Final answer
+        await this.delay(1000);
+        responseText.textContent = '✅ Found the correct answer! The derivative of f(x) = x² + 3x - 5 is f\'(x) = 2x + 3';
+        confidenceFill.style.width = '95%';
+        confidenceText.textContent = '95% High';
+        
+        // Step 6: Highlight correct answer
+        await this.delay(800);
+        const correctOption = document.querySelector('[data-option="b"]');
+        if (correctOption) {
+            correctOption.classList.add('correct');
+            const radio = correctOption.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+        }
+        
+        // Step 7: Show replay button
+        await this.delay(2000);
+        replayBtn.style.display = 'inline-flex';
+        this.isPlaying = false;
+    }
+
+    delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+}
+
+// Additional animations for existing code
+document.addEventListener('DOMContentLoaded', function() {
+    // ...existing code...
+    
+    // Initialize bot showcase
+    new BotShowcase();
+    
+    // Intersection Observer for showcase animations
+    const showcaseObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+    
+    // Observe showcase elements
+    const showcaseElements = document.querySelectorAll('.feature-highlight, .animated-demo');
+    showcaseElements.forEach(el => {
+        showcaseObserver.observe(el);
+    });
+    
+    // Auto-play demo when section comes into view
+    const showcaseSection = document.querySelector('.bot-showcase');
+    if (showcaseSection) {
+        const autoPlayObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !sessionStorage.getItem('demoPlayed')) {
+                    setTimeout(() => {
+                        const playBtn = document.getElementById('play-demo');
+                        if (playBtn && playBtn.style.display !== 'none') {
+                            playBtn.click();
+                            sessionStorage.setItem('demoPlayed', 'true');
+                        }
+                    }, 1000);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        
+        autoPlayObserver.observe(showcaseSection);
+    }
+    
+    // ...rest of existing code...
+});
