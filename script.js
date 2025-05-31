@@ -17,9 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const demoTabs = document.querySelectorAll('.demo-tab');
     const demoPanels = document.querySelectorAll('.demo-panel');
     
-    demoTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
+    demoTabs.forEach((tab, index) => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            
             const targetDemo = tab.getAttribute('data-demo');
+            const targetPanel = document.getElementById(`demo-${targetDemo}`);
+            
+            if (!targetPanel) {
+                console.error('Target panel not found:', `demo-${targetDemo}`);
+                return;
+            }
             
             // Remove active class from all tabs and panels
             demoTabs.forEach(t => t.classList.remove('active'));
@@ -27,9 +35,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add active class to clicked tab and corresponding panel
             tab.classList.add('active');
-            document.getElementById(`demo-${targetDemo}`).classList.add('active');
+            targetPanel.classList.add('active');
+            
+            // Add visual feedback
+            tab.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                tab.style.transform = '';
+            }, 150);
         });
     });
+    
+    // Ensure first tab is active on load
+    if (demoTabs.length > 0 && demoPanels.length > 0) {
+        demoTabs[0].classList.add('active');
+        demoPanels[0].classList.add('active');
+    }
 });
 
 // Theme switcher functionality
@@ -937,88 +957,111 @@ class ExtensionDemo {
 document.addEventListener('DOMContentLoaded', function() {
     new ExtensionDemo();
 });
-        
-        // Reset state
-        options.forEach(option => option.classList.remove('correct'));
-        botAssistant.classList.remove('active');
-        confidenceFill.style.width = '0%';
-        
-        // Step 1: Show bot thinking
-        await this.delay(500);
-        botAssistant.classList.add('active');
-        responseText.textContent = 'Analyzing question...';
-        confidenceText.textContent = 'Calculating...';
-        
-        // Step 2: Simulate thinking process
-        await this.delay(2000);
-        responseText.textContent = 'Processing calculus rules...';
-        
-        // Step 3: Show confidence building
-        await this.delay(1500);
-        responseText.textContent = 'Applying derivative formulas...';
-        confidenceFill.style.width = '45%';
-        confidenceText.textContent = '45%';
-        
-        // Step 4: Higher confidence
-        await this.delay(1000);
-        responseText.textContent = 'Verifying calculation...';
-        confidenceFill.style.width = '78%';
-        confidenceText.textContent = '78%';
-        
-        // Step 5: Final answer
-        await this.delay(1000);
-        responseText.textContent = '✅ Found the correct answer! The derivative of f(x) = x² + 3x - 5 is f\'(x) = 2x + 3';
-        confidenceFill.style.width = '95%';
-        confidenceText.textContent = '95% High';
-        
-        // Step 6: Highlight correct answer
-        await this.delay(800);
-        const correctOption = document.querySelector('[data-option="b"]');
-        if (correctOption) {
-            correctOption.classList.add('correct');
-            const radio = correctOption.querySelector('input[type="radio"]');
-            if (radio) radio.checked = true;
-        }
-        
-        // Step 7: Show replay button
-        await this.delay(2000);// Additional animations for existing code
+
+// Extension Interface Demo Interactivity
 document.addEventListener('DOMContentLoaded', function() {
-    // Intersection Observer for showcase animations
-    const showcaseObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
+    // Helper function to update status with animation
+    function updateStatus(message, color) {
+        const statusEl = document.getElementById('demo-status');
+        if (statusEl) {
+            statusEl.classList.add('updating');
+            statusEl.textContent = message;
+            statusEl.style.color = color;
+            
+            setTimeout(() => {
+                statusEl.classList.remove('updating');
+            }, 300);
+        }
+    }
+    
+    // Mode button functionality
+    const demoModeButtons = document.querySelectorAll('.demo-mode-btn');
+    demoModeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all mode buttons
+            demoModeButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = '#6b7280';
+            });
+            
+            // Add active class and color to clicked button
+            button.classList.add('active');
+            button.style.background = '#10b981';
+            
+            // Update status message based on mode
+            const mode = button.getAttribute('data-mode');
+            switch(mode) {
+                case 'study':
+                    updateStatus('📚 Study Mode Activated - Detailed explanations enabled', '#10b981');
+                    break;
+                case 'exam':
+                    updateStatus('🎯 Exam Mode Activated - Minimal hints only', '#f59e0b');
+                    break;
+                case 'hint':
+                    updateStatus('💡 Hint Mode Activated - Guidance without answers', '#8b5cf6');
+                    break;
+            }
+            
+            // Add click animation
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+        });
+    });
+
+    // Flashcard button functionality
+    const flashcardBtn = document.querySelector('.demo-flashcard-btn');
+    const flashcardCount = document.getElementById('demo-flashcard-count');
+    
+    if (flashcardBtn && flashcardCount) {
+        flashcardBtn.addEventListener('click', () => {
+            // Simulate reviewing flashcards
+            let currentCount = parseInt(flashcardCount.textContent);
+            if (currentCount > 0) {
+                currentCount--;
+                flashcardCount.textContent = currentCount;
+                
+                // Visual feedback
+                flashcardBtn.style.background = 'rgba(16,185,129,0.9)';
+                flashcardBtn.style.transform = 'scale(0.98)';
+                
+                setTimeout(() => {
+                    flashcardBtn.style.background = 'rgba(16,185,129,0.7)';
+                    flashcardBtn.style.transform = '';
+                }, 200);
+                
+                updateStatus(`📚 Reviewed flashcard! ${currentCount} remaining`, '#10b981');
+            } else {
+                // All done
+                updateStatus('🎉 All flashcards reviewed! Great job!', '#22c55e');
+                flashcardCount.textContent = '0';
             }
         });
-    }, {
-        threshold: 0.3
-    });
-    
-    // Observe showcase elements
-    const showcaseElements = document.querySelectorAll('.feature-highlight, .animated-demo');
-    showcaseElements.forEach(el => {
-        showcaseObserver.observe(el);
-    });
-    
-    // Auto-play extension demo when section comes into view
-    const showcaseSection = document.querySelector('.bot-showcase');
-    if (showcaseSection) {
-        const autoPlayObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !sessionStorage.getItem('extensionDemoPlayed')) {
-                    setTimeout(() => {
-                        const playBtn = document.getElementById('play-extension-demo');
-                        if (playBtn && playBtn.style.display !== 'none') {
-                            playBtn.click();
-                            sessionStorage.setItem('extensionDemoPlayed', 'true');
-                        }
-                    }, 1000);
-                }
-            });
-        }, {
-            threshold: 0.5
-        });
-        
-        autoPlayObserver.observe(showcaseSection);
     }
+
+    // Other interactive buttons
+    const demoButtons = document.querySelectorAll('.demo-manage-btn, .demo-settings-btn, .demo-help-btn, .demo-save-btn');
+    demoButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Add click animation
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+            
+            // Show feedback based on button type
+            if (button.classList.contains('demo-manage-btn')) {
+                updateStatus('💳 Opening payment management...', '#2563eb');
+            } else if (button.classList.contains('demo-settings-btn')) {
+                updateStatus('⚙️ Opening settings panel...', '#6366f1');
+            } else if (button.classList.contains('demo-help-btn')) {
+                updateStatus('❓ Opening help documentation...', '#059669');
+            } else if (button.classList.contains('demo-save-btn')) {
+                updateStatus('✅ API Key saved successfully!', '#22c55e');
+            }
+        });
+    });
 });
+
+// ...existing code...

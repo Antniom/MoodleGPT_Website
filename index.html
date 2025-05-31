@@ -422,53 +422,76 @@
                     <button class="demo-tab" data-demo="flashcards">Flashcard System</button>
                     <button class="demo-tab" data-demo="themes">Custom Themes</button>
                 </div>
-                <div class="demo-content">
-                    <!-- Extension Interface Demo -->
+                <div class="demo-content">                    <!-- Extension Interface Demo -->
                     <div class="demo-panel active" id="demo-extension">
                         <div class="demo-mockup">
-                            <h3>MoodleGPT Pro Extension Interface</h3>
+                            <h3>Real MoodleGPT Pro Extension Interface</h3>
                             <div class="extension-interface-demo">
-                                <div class="popup-mockup">
-                                    <div class="popup-header-demo">
-                                        <span class="popup-title">🎓 MoodleGPT Pro</span>
-                                        <div class="popup-actions">
-                                            <button class="theme-toggle">🎨</button>
-                                            <button class="close-btn">×</button>
-                                        </div>
-                                    </div>
-                                    <div class="popup-body-demo">
-                                        <div class="api-section-demo">
-                                            <label>Gemini API Key:</label>
-                                            <input type="password" value="••••••••••••••••" readonly>
-                                            <button class="save-btn-demo">✓ Saved</button>
-                                        </div>
-                                        <div class="modes-section">
-                                            <h4>🎯 Quick Modes:</h4>
-                                            <div class="mode-buttons-demo">
-                                                <button class="mode-btn-demo active">Study</button>
-                                                <button class="mode-btn-demo">Exam</button>
-                                                <button class="mode-btn-demo">Hint</button>
-                                            </div>
-                                        </div>
-                                        <div class="flashcard-section-demo">
-                                            <button class="flashcard-btn-demo">
-                                                📚 Review Flashcards (12)
+                                <!-- Exact replica of the real popup -->
+                                <div class="vision-os-card" style="background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(40px) saturate(200%); border: 1.5px solid rgba(255, 255, 255, 0.25); box-shadow: 0 16px 60px -10px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0,0,0,0.05) inset; border-radius: 24px; width: 400px; padding: 16px 14px; min-height: 520px; display: flex; flex-direction: column;">
+                                    
+                                    <header style="text-align:center; margin-bottom: 8px;">
+                                        <h1 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; color: #334155;">MoodleGPT</h1>
+                                    </header>
+                                    
+                                    <main style="flex-grow:1; overflow: hidden; display:flex; flex-direction:column; gap: 6px; height: auto;">
+                                        
+                                        <button class="demo-manage-btn" style="width:100%; background:#2563eb; color:#fff; font-weight:500; border:none; border-radius:8px; padding:7px 0; margin-bottom:6px; font-size:13px; display:flex; align-items:center; justify-content:center; gap:6px; cursor:pointer;">
+                                            <span style="font-size:18px;">💳</span>
+                                            <span>Manage Payments</span>
+                                        </button>
+                                        
+                                        <div style="display:flex; gap:4px; margin-bottom:6px; width: 100%; box-sizing: border-box;">
+                                            <button class="demo-settings-btn" style="flex:1; background:#6366f1; color:#fff; font-weight:500; border:none; border-radius:8px; padding:7px 2px; font-size:12px; display:flex; align-items:center; justify-content:center; gap:3px; cursor:pointer;">
+                                                <span style="font-size:16px;">⚙️</span>
+                                                <span>Settings</span>
+                                            </button>
+                                            <button class="demo-help-btn" style="flex:1; background:#059669; color:#fff; font-weight:500; border:none; border-radius:8px; padding:7px 2px; font-size:12px; display:flex; align-items:center; justify-content:center; gap:3px; cursor:pointer;">
+                                                <span style="font-size:16px;">❓</span>
+                                                <span>Help</span>
                                             </button>
                                         </div>
-                                        <div class="hotkeys-demo">
-                                            <h4>⌨️ Hotkeys:</h4>
-                                            <div class="hotkey-list">
-                                                <span><kbd>Alt + S</kbd> Extract answers</span>
-                                                <span><kbd>Alt + X</kbd> Toggle results</span>
+                                        
+                                        <div style="margin-bottom:6px;">
+                                            <div style="display:flex; align-items:center; gap:4px; width: 100%; box-sizing: border-box;">
+                                                <input style="flex:1; padding:6px 6px; border-radius:7px; border:1px solid #d1d5db; font-size:12px; min-width: 0;" placeholder="Gemini API Key" type="password" value="sk-••••••••••••••••••••••••••••••••" readonly/>
+                                                <button class="demo-save-btn" style="background:#22c55e; color:#fff; border:none; border-radius:7px; padding:6px 10px; font-size:12px; font-weight:500; cursor:pointer;">✓ Saved</button>
                                             </div>
+                                            <p style="font-size:11px; color:#64748b; text-align:center; margin:4px 0 0 0;">Your API key is stored securely in your browser's local storage.</p>
                                         </div>
-                                        <div class="confidence-status">
-                                            <div class="status-indicator high">High Confidence (95%)</div>
-                                            <div class="progress-bar">
-                                                <div class="progress-fill" style="width: 95%"></div>
+                                        
+                                        <div id="demo-status" style="font-size:12px; text-align:center; color: #22c55e; margin-bottom: 3px;">✅ Connected & Ready</div>
+                                        
+                                        <!-- Quick Learning Mode Toggle -->
+                                        <div style="padding-top:3px; border-top:1px solid #f1f5f9; margin-top:3px;">
+                                            <h2 style="font-size:13px; font-weight:500; color:#334155; margin-bottom:4px;">� Quick Mode:</h2>
+                                            <div style="display:flex; gap:3px; width: 100%; box-sizing: border-box;">
+                                                <button class="demo-mode-btn active" data-mode="study" style="flex:1; background:#10b981; color:#fff; border:none; border-radius:6px; padding:6px 2px; font-size:11px; font-weight:500; cursor:pointer;">Study</button>
+                                                <button class="demo-mode-btn" data-mode="exam" style="flex:1; background:#6b7280; color:#fff; border:none; border-radius:6px; padding:6px 2px; font-size:11px; font-weight:500; cursor:pointer;">Exam</button>
+                                                <button class="demo-mode-btn" data-mode="hint" style="flex:1; background:#6b7280; color:#fff; border:none; border-radius:6px; padding:6px 2px; font-size:11px; font-weight:500; cursor:pointer;">Hint</button>
                                             </div>
+                                            <div style="padding-top:6px;">
+                                                <button class="demo-flashcard-btn" style="width:100%; padding:6px; background:rgba(16,185,129,0.7); border:1px solid rgba(16,185,129,0.3); color:white; border-radius:8px; font-size:11px; font-weight:500; cursor:pointer;">
+                                                    📚 Review Flashcards (<span id="demo-flashcard-count">12</span>)
+                                                </button>
+                                            </div>
+                                            <p style="font-size:10px; color:#64748b; text-align:center; margin:4px 0 0 0;">For more options, visit Settings</p>
                                         </div>
-                                    </div>
+                                        
+                                        <div style="padding-top:2px;">
+                                            <h2 style="font-size:13px; font-weight:500; color:#334155; margin-bottom:2px;">Hotkeys:</h2>
+                                            <ul style="list-style:disc inside; font-size:11px; color:#475569; margin:0 0 0 10px; padding:0;">
+                                                <li><kbd style="font-family:monospace; background:#e5e7eb; padding:1px 5px; border-radius:4px; color:#334155;">Alt + S</kbd>: Extract answer(s).</li>
+                                                <li><kbd style="font-family:monospace; background:#e5e7eb; padding:1px 5px; border-radius:4px; color:#334155;">Alt + X</kbd>: Toggle results panel.</li>
+                                            </ul>
+                                        </div>
+                                    </main>
+                                    
+                                    <footer style="text-align:center; margin-top:auto; padding-top:7px; border-top:1px solid #f1f5f9;">
+                                        <p style="font-size:11px; color:#ea580c; font-weight:500; display:flex; align-items:center; justify-content:center; gap:3px;">
+                                            Paid 🔥
+                                        </p>
+                                    </footer>
                                 </div>
                             </div>
                         </div>
