@@ -414,13 +414,19 @@
             <div class="section-header">
                 <h2>See MoodleGPT Pro in Action</h2>
                 <p>Experience the power of AI-assisted learning</p>
-            </div>            <div class="demo-container">
-                <div class="demo-tabs">
+            </div>            <div class="demo-container">                <div class="demo-tabs">
                     <button class="demo-tab active" data-demo="extension">Extension Interface</button>
-                    <button class="demo-tab" data-demo="confidence">Confidence Indicators</button>
+                    <button class="demo-tab" data-demo="confidence">AI Confidence</button>
                     <button class="demo-tab" data-demo="database">Q&A Database</button>
                     <button class="demo-tab" data-demo="flashcards">Flashcard System</button>
+                    <button class="demo-tab" data-demo="progress">Progress Analytics</button>
                     <button class="demo-tab" data-demo="themes">Custom Themes</button>
+                    <button class="demo-tab" data-demo="settings">Complete Settings</button>
+                    <button class="demo-tab" data-demo="languages">Multi-Language</button>
+                    <button class="demo-tab" data-demo="modes">Learning Modes</button>
+                    <button class="demo-tab" data-demo="batch">Batch Processing</button>
+                    <button class="demo-tab" data-demo="hotkeys">Hotkeys & Shortcuts</button>
+                    <button class="demo-tab" data-demo="integrations">Integrations</button>
                 </div>
                 <div class="demo-content">                    <!-- Extension Interface Demo -->
                     <div class="demo-panel active" id="demo-extension">
@@ -496,38 +502,105 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Confidence Demo -->
+                      <!-- AI Confidence Demo -->
                     <div class="demo-panel" id="demo-confidence">
                         <div class="demo-mockup">
                             <div class="confidence-demo">
-                                <h3>AI Confidence Analysis</h3>
-                                <div class="question">
-                                    <p><strong>Question:</strong> Which programming language is primarily used for web development?</p>
-                                    <div class="options">
-                                        <div class="option">A) Python</div>
-                                        <div class="option selected">B) JavaScript</div>
-                                        <div class="option">C) C++</div>
-                                        <div class="option">D) Java</div>
+                                <h3>AI Confidence Analysis System</h3>
+                                <p>See how MoodleGPT Pro analyzes confidence levels for every answer:</p>
+                                
+                                <!-- Question Example 1 -->
+                                <div class="question-demo">
+                                    <div class="question-header">
+                                        <span class="question-number">Q1</span>
+                                        <span class="question-type">Multiple Choice</span>
+                                    </div>
+                                    <p><strong>Question:</strong> Which HTTP status code indicates a successful request?</p>
+                                    <div class="options-demo">
+                                        <div class="option-demo">A) 404</div>
+                                        <div class="option-demo">B) 500</div>
+                                        <div class="option-demo selected">C) 200</div>
+                                        <div class="option-demo">D) 302</div>
+                                    </div>
+                                    <div class="confidence-result">
+                                        <div class="confidence-display">
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill high" style="width: 97%"></div>
+                                            </div>
+                                            <div class="confidence-text">
+                                                <span class="confidence-level high">Very High Confidence</span>
+                                                <span class="confidence-percentage">97%</span>
+                                            </div>
+                                        </div>
+                                        <p class="confidence-explanation">
+                                            ✅ <strong>Highly confident:</strong> HTTP 200 is the standard success response code. 
+                                            This is a fundamental web development concept with clear documentation.
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="confidence-display">
-                                    <div class="confidence-bar">
-                                        <div class="confidence-fill" style="width: 92%"></div>
+
+                                <!-- Question Example 2 -->
+                                <div class="question-demo">
+                                    <div class="question-header">
+                                        <span class="question-number">Q2</span>
+                                        <span class="question-type">True/False</span>
                                     </div>
-                                    <div class="confidence-text">
-                                        <span class="confidence-level high">High Confidence</span>
-                                        <span class="confidence-percentage">92%</span>
+                                    <p><strong>Question:</strong> Machine learning algorithms always require labeled data for training.</p>
+                                    <div class="options-demo">
+                                        <div class="option-demo selected">True</div>
+                                        <div class="option-demo">False</div>
                                     </div>
-                                    <p class="confidence-explanation">
-                                        JavaScript is the most widely used language for web development, 
-                                        making this a highly confident answer.
-                                    </p>
+                                    <div class="confidence-result">
+                                        <div class="confidence-display">
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill medium" style="width: 68%"></div>
+                                            </div>
+                                            <div class="confidence-text">
+                                                <span class="confidence-level medium">Medium Confidence</span>
+                                                <span class="confidence-percentage">68%</span>
+                                            </div>
+                                        </div>
+                                        <p class="confidence-explanation">
+                                            ⚠️ <strong>Medium confidence:</strong> This is actually FALSE. While supervised learning requires labeled data, 
+                                            unsupervised learning (clustering, dimensionality reduction) and reinforcement learning work without labels.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Question Example 3 -->
+                                <div class="question-demo">
+                                    <div class="question-header">
+                                        <span class="question-number">Q3</span>
+                                        <span class="question-type">Open Ended</span>
+                                    </div>
+                                    <p><strong>Question:</strong> Explain the potential impact of quantum computing on current encryption methods.</p>
+                                    <div class="answer-demo">
+                                        <textarea readonly>Quantum computing could potentially break current RSA encryption through Shor's algorithm, which can efficiently factor large integers. This would compromise most current public-key cryptography systems...</textarea>
+                                    </div>
+                                    <div class="confidence-result">
+                                        <div class="confidence-display">
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill low" style="width: 45%"></div>
+                                            </div>
+                                            <div class="confidence-text">
+                                                <span class="confidence-level low">Lower Confidence</span>
+                                                <span class="confidence-percentage">45%</span>
+                                            </div>
+                                        </div>
+                                        <p class="confidence-explanation">
+                                            🔍 <strong>Lower confidence:</strong> Complex topic with evolving research. While the technical explanation is accurate, 
+                                            quantum computing timelines and practical implications remain uncertain. Consider consulting recent academic sources.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="confidence-controls">
+                                    <button class="confidence-btn demo-analyze-more">Analyze Another Question</button>
+                                    <button class="confidence-btn secondary demo-view-details">View Detailed Analysis</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="demo-panel" id="demo-database">
+                    </div>                    <div class="demo-panel" id="demo-database">
                         <div class="demo-mockup">
                             <div class="database-demo">
                                 <h3>Community Q&A Database</h3>
@@ -535,14 +608,14 @@
                                     <div class="stat-card">
                                         <i class="fas fa-question-circle"></i>
                                         <div>
-                                            <span class="stat-number">50,247</span>
+                                            <span class="stat-number">200+</span>
                                             <span class="stat-label">Questions</span>
                                         </div>
                                     </div>
                                     <div class="stat-card">
                                         <i class="fas fa-users"></i>
                                         <div>
-                                            <span class="stat-number">12,485</span>
+                                            <span class="stat-number">150+</span>
                                             <span class="stat-label">Contributors</span>
                                         </div>
                                     </div>
@@ -554,53 +627,187 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="search-example">
-                                    <input type="text" placeholder="Search 200+ questions..." readonly>
-                                    <div class="search-results">
-                                        <div class="result-item">
-                                            <span class="result-match">95% match</span>
-                                            <p>What is the time complexity of binary search?</p>
+                                
+                                <div class="search-demo">
+                                    <div class="search-input-demo">
+                                        <input type="text" class="db-search-input" placeholder="Search 200+ questions..." value="">
+                                        <button class="search-btn-demo">🔍</button>
+                                    </div>
+                                    
+                                    <div class="search-filters">
+                                        <button class="filter-btn active" data-filter="all">All</button>
+                                        <button class="filter-btn" data-filter="programming">Programming</button>
+                                        <button class="filter-btn" data-filter="math">Mathematics</button>
+                                        <button class="filter-btn" data-filter="science">Science</button>
+                                        <button class="filter-btn" data-filter="business">Business</button>
+                                    </div>
+                                    
+                                    <div class="search-results" id="db-search-results">
+                                        <div class="result-item" data-category="programming">
+                                            <div class="result-header">
+                                                <span class="result-match">98% match</span>
+                                                <span class="result-category">Programming</span>
+                                            </div>
+                                            <p class="result-question">What is the time complexity of binary search algorithm?</p>
+                                            <p class="result-answer">O(log n) - Binary search eliminates half of the remaining elements in each iteration...</p>
+                                            <div class="result-meta">
+                                                <span>✅ Verified • 45 upvotes • Used 120 times</span>
+                                            </div>
                                         </div>
-                                        <div class="result-item">
-                                            <span class="result-match">87% match</span>
-                                            <p>Which algorithm has O(log n) complexity?</p>
+                                        
+                                        <div class="result-item" data-category="programming">
+                                            <div class="result-header">
+                                                <span class="result-match">92% match</span>
+                                                <span class="result-category">Programming</span>
+                                            </div>
+                                            <p class="result-question">How does React's useState hook work?</p>
+                                            <p class="result-answer">useState returns an array with the current state value and a setter function...</p>
+                                            <div class="result-meta">
+                                                <span>✅ Verified • 32 upvotes • Used 87 times</span>
+                                            </div>
                                         </div>
+                                        
+                                        <div class="result-item" data-category="math">
+                                            <div class="result-header">
+                                                <span class="result-match">89% match</span>
+                                                <span class="result-category">Mathematics</span>
+                                            </div>
+                                            <p class="result-question">What is the derivative of sin(x)?</p>
+                                            <p class="result-answer">The derivative of sin(x) is cos(x). This is a fundamental trigonometric derivative...</p>
+                                            <div class="result-meta">
+                                                <span>✅ Verified • 67 upvotes • Used 203 times</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="result-item" data-category="science">
+                                            <div class="result-header">
+                                                <span class="result-match">85% match</span>
+                                                <span class="result-category">Science</span>
+                                            </div>
+                                            <p class="result-question">What is photosynthesis and how does it work?</p>
+                                            <p class="result-answer">Photosynthesis is the process by which plants convert light energy into chemical energy...</p>
+                                            <div class="result-meta">
+                                                <span>✅ Verified • 28 upvotes • Used 156 times</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="database-controls">
+                                        <button class="db-btn demo-contribute">Contribute Answer</button>
+                                        <button class="db-btn secondary demo-bookmark">Bookmark Results</button>
+                                        <button class="db-btn secondary demo-export">Export to Study Set</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                    <!-- Progress Analytics Demo -->
                     <div class="demo-panel" id="demo-progress">
                         <div class="demo-mockup">
                             <div class="progress-demo">
-                                <h3>Progress Tracking Dashboard</h3>
-                                <div class="progress-cards">
-                                    <div class="progress-card">
-                                        <h4>Quiz Performance</h4>
-                                        <div class="progress-circle">
-                                            <svg viewBox="0 0 36 36">
-                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#eee" stroke-width="3"/>
-                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#4CAF50" stroke-width="3" stroke-dasharray="87, 100"/>
-                                            </svg>
-                                            <span class="progress-percentage">87%</span>
+                                <h3>📊 Advanced Progress Analytics</h3>
+                                <div class="analytics-grid">
+                                    <div class="analytics-card">
+                                        <h4>📈 Performance Trends</h4>
+                                        <div class="chart-container">
+                                            <div class="chart-bars">
+                                                <div class="bar" style="height: 60%"><span>Mon</span></div>
+                                                <div class="bar" style="height: 75%"><span>Tue</span></div>
+                                                <div class="bar" style="height: 85%"><span>Wed</span></div>
+                                                <div class="bar" style="height: 70%"><span>Thu</span></div>
+                                                <div class="bar" style="height: 90%"><span>Fri</span></div>
+                                                <div class="bar" style="height: 95%"><span>Sat</span></div>
+                                                <div class="bar" style="height: 88%"><span>Sun</span></div>
+                                            </div>
                                         </div>
-                                        <p>Average Score</p>
+                                        <p>Average improvement: +12% this week</p>
                                     </div>
-                                    <div class="progress-card">
-                                        <h4>Study Streak</h4>
-                                        <div class="streak-counter">
-                                            <i class="fas fa-fire"></i>
-                                            <span>15 days</span>
+                                    
+                                    <div class="analytics-card">
+                                        <h4>🎯 Subject Mastery</h4>
+                                        <div class="subject-progress">
+                                            <div class="subject-item">
+                                                <span>Mathematics</span>
+                                                <div class="progress-bar-small">
+                                                    <div class="progress-fill-small" style="width: 92%"></div>
+                                                </div>
+                                                <span>92%</span>
+                                            </div>
+                                            <div class="subject-item">
+                                                <span>Programming</span>
+                                                <div class="progress-bar-small">
+                                                    <div class="progress-fill-small" style="width: 87%"></div>
+                                                </div>
+                                                <span>87%</span>
+                                            </div>
+                                            <div class="subject-item">
+                                                <span>Science</span>
+                                                <div class="progress-bar-small">
+                                                    <div class="progress-fill-small" style="width: 79%"></div>
+                                                </div>
+                                                <span>79%</span>
+                                            </div>
+                                            <div class="subject-item">
+                                                <span>History</span>
+                                                <div class="progress-bar-small">
+                                                    <div class="progress-fill-small" style="width: 65%"></div>
+                                                </div>
+                                                <span>65%</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="progress-card">
-                                        <h4>Questions Answered</h4>
-                                        <div class="question-count">
-                                            <span class="count">1,247</span>
-                                            <span class="period">this month</span>
+                                    
+                                    <div class="analytics-card">
+                                        <h4>⏱️ Study Time</h4>
+                                        <div class="time-stats">
+                                            <div class="time-item">
+                                                <span class="time-value">2h 34m</span>
+                                                <span class="time-label">Today</span>
+                                            </div>
+                                            <div class="time-item">
+                                                <span class="time-value">18h 12m</span>
+                                                <span class="time-label">This Week</span>
+                                            </div>
+                                            <div class="time-item">
+                                                <span class="time-value">67h 45m</span>
+                                                <span class="time-label">This Month</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>                            </div>
+                                    
+                                    <div class="analytics-card">
+                                        <h4>🔥 Achievement Streaks</h4>
+                                        <div class="streak-grid">
+                                            <div class="streak-item">
+                                                <div class="streak-icon">📚</div>
+                                                <div class="streak-info">
+                                                    <span class="streak-count">15</span>
+                                                    <span class="streak-label">Day Study Streak</span>
+                                                </div>
+                                            </div>
+                                            <div class="streak-item">
+                                                <div class="streak-icon">🎯</div>
+                                                <div class="streak-info">
+                                                    <span class="streak-count">8</span>
+                                                    <span class="streak-label">Perfect Scores</span>
+                                                </div>
+                                            </div>
+                                            <div class="streak-item">
+                                                <div class="streak-icon">⚡</div>
+                                                <div class="streak-info">
+                                                    <span class="streak-count">156</span>
+                                                    <span class="streak-label">Questions Solved</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-controls">
+                                    <button class="progress-btn demo-export-progress">Export Report</button>
+                                    <button class="progress-btn secondary demo-set-goals">Set Goals</button>
+                                    <button class="progress-btn secondary demo-detailed-view">Detailed View</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
@@ -702,15 +909,999 @@
                                             </div>
                                         </div>
                                         <span>High Contrast</span>
+                                    </div>                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Complete Settings Demo -->
+                    <div class="demo-panel" id="demo-settings">
+                        <div class="demo-mockup">
+                            <h3>Complete Settings Configuration</h3>
+                            <div class="settings-demo-container">
+                                <div class="settings-sections">
+                                    <div class="settings-section active" data-section="general">
+                                        <h4><i class="fas fa-cog"></i> General Settings</h4>
+                                        <div class="setting-row">
+                                            <label>Interface Language:</label>
+                                            <select class="demo-language-select">
+                                                <option>English</option>
+                                                <option>Español</option>
+                                                <option>Français</option>
+                                                <option>Deutsch</option>
+                                                <option>Português</option>
+                                            </select>
+                                        </div>
+                                        <div class="setting-row">
+                                            <label>Response Language:</label>
+                                            <select class="demo-response-lang">
+                                                <option>Auto-detect</option>
+                                                <option>English</option>
+                                                <option>Spanish</option>
+                                                <option>French</option>
+                                            </select>
+                                        </div>
+                                        <div class="setting-row">
+                                            <label>UI Layout:</label>
+                                            <div class="layout-options">
+                                                <button class="layout-btn active" data-layout="compact">Compact</button>
+                                                <button class="layout-btn" data-layout="expanded">Expanded</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="settings-section" data-section="features">
+                                        <h4><i class="fas fa-star"></i> Feature Settings</h4>
+                                        <div class="setting-row toggle-row">
+                                            <label>Show Confidence Indicator:</label>
+                                            <div class="toggle-switch active"></div>
+                                        </div>
+                                        <div class="setting-row toggle-row">
+                                            <label>Flashcard Mode:</label>
+                                            <div class="toggle-switch active"></div>
+                                        </div>
+                                        <div class="setting-row toggle-row">
+                                            <label>Context Menu API Fallback:</label>
+                                            <div class="toggle-switch active"></div>
+                                        </div>
+                                        <div class="setting-row toggle-row">
+                                            <label>Auto-sync Q&A Database:</label>
+                                            <div class="toggle-switch active"></div>
+                                        </div>
+                                        <div class="setting-row">
+                                            <label>API Timeout:</label>
+                                            <input type="range" min="5" max="60" value="30" class="range-slider">
+                                            <span class="range-value">30s</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="settings-section" data-section="database">
+                                        <h4><i class="fas fa-database"></i> Database Management</h4>
+                                        <div class="setting-row">
+                                            <label>Sync Frequency:</label>
+                                            <select class="demo-sync-frequency">
+                                                <option>Daily</option>
+                                                <option>Weekly</option>
+                                                <option>Manual Only</option>
+                                            </select>
+                                        </div>
+                                        <div class="setting-row">
+                                            <button class="settings-action-btn">
+                                                <i class="fas fa-sync"></i> Sync Database Now
+                                            </button>
+                                        </div>
+                                        <div class="setting-row">
+                                            <div class="sync-status">
+                                                <span class="status-indicator online"></span>
+                                                Last sync: 2 hours ago (4,729 questions)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="settings-section" data-section="stats">
+                                        <h4><i class="fas fa-chart-bar"></i> Usage Statistics</h4>
+                                        <div class="stats-grid-settings">
+                                            <div class="stat-item">
+                                                <div class="stat-number">1,247</div>
+                                                <div class="stat-label">Questions Answered</div>
+                                            </div>
+                                            <div class="stat-item">
+                                                <div class="stat-number">389</div>
+                                                <div class="stat-label">Flashcards Created</div>
+                                            </div>
+                                            <div class="stat-item">
+                                                <div class="stat-number">23</div>
+                                                <div class="stat-label">Q&A Contributions</div>
+                                            </div>
+                                            <div class="stat-item">
+                                                <div class="stat-number">87%</div>
+                                                <div class="stat-label">Cache Hit Rate</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="settings-tabs">
+                                    <button class="settings-tab active" data-target="general">General</button>
+                                    <button class="settings-tab" data-target="features">Features</button>
+                                    <button class="settings-tab" data-target="database">Database</button>
+                                    <button class="settings-tab" data-target="stats">Statistics</button>
+                                </div>
+
+                                <div class="settings-actions">
+                                    <button class="settings-action-btn secondary">
+                                        <i class="fas fa-download"></i> Export Settings
+                                    </button>
+                                    <button class="settings-action-btn secondary">
+                                        <i class="fas fa-upload"></i> Import Settings
+                                    </button>
+                                    <button class="settings-action-btn danger">
+                                        <i class="fas fa-undo"></i> Reset to Defaults
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Language Demo -->
+                    <div class="demo-panel" id="demo-languages">
+                        <div class="demo-mockup">
+                            <h3>Multi-Language Support</h3>
+                            <div class="language-demo-container">
+                                <div class="language-showcase">
+                                    <div class="language-example active" data-lang="en">
+                                        <div class="language-header">
+                                            <img src="https://flagcdn.com/w20/us.png" alt="English">
+                                            <span>English</span>
+                                        </div>
+                                        <div class="example-question">
+                                            <strong>Question:</strong> What is the capital of France?
+                                        </div>
+                                        <div class="example-answer">
+                                            <span class="confidence-badge high">High Confidence: 98%</span>
+                                            <p><strong>Answer:</strong> The capital of France is Paris. Paris is located in the north-central part of France and serves as the country's political, economic, and cultural center.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="language-example" data-lang="es">
+                                        <div class="language-header">
+                                            <img src="https://flagcdn.com/w20/es.png" alt="Spanish">
+                                            <span>Español</span>
+                                        </div>
+                                        <div class="example-question">
+                                            <strong>Pregunta:</strong> ¿Cuál es la capital de Francia?
+                                        </div>
+                                        <div class="example-answer">
+                                            <span class="confidence-badge high">Alta Confianza: 98%</span>
+                                            <p><strong>Respuesta:</strong> La capital de Francia es París. París está ubicada en la parte centro-norte de Francia y sirve como el centro político, económico y cultural del país.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="language-example" data-lang="fr">
+                                        <div class="language-header">
+                                            <img src="https://flagcdn.com/w20/fr.png" alt="French">
+                                            <span>Français</span>
+                                        </div>
+                                        <div class="example-question">
+                                            <strong>Question:</strong> Quelle est la capitale de la France?
+                                        </div>
+                                        <div class="example-answer">
+                                            <span class="confidence-badge high">Haute Confiance: 98%</span>
+                                            <p><strong>Réponse:</strong> La capitale de la France est Paris. Paris est située dans la partie centre-nord de la France et sert de centre politique, économique et culturel du pays.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="language-example" data-lang="de">
+                                        <div class="language-header">
+                                            <img src="https://flagcdn.com/w20/de.png" alt="German">
+                                            <span>Deutsch</span>
+                                        </div>
+                                        <div class="example-question">
+                                            <strong>Frage:</strong> Was ist die Hauptstadt von Frankreich?
+                                        </div>
+                                        <div class="example-answer">
+                                            <span class="confidence-badge high">Hohe Sicherheit: 98%</span>
+                                            <p><strong>Antwort:</strong> Die Hauptstadt von Frankreich ist Paris. Paris liegt im nördlich-zentralen Teil Frankreichs und dient als politisches, wirtschaftliches und kulturelles Zentrum des Landes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="language-selector">
+                                    <button class="lang-btn active" data-lang="en">🇺🇸 English</button>
+                                    <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+                                    <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+                                    <button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+                                </div>
+
+                                <div class="language-features">
+                                    <div class="language-feature">
+                                        <i class="fas fa-globe"></i>
+                                        <div>
+                                            <h5>Auto Language Detection</h5>
+                                            <p>Automatically detects question language and responds appropriately</p>
+                                        </div>
+                                    </div>
+                                    <div class="language-feature">
+                                        <i class="fas fa-translate"></i>
+                                        <div>
+                                            <h5>Smart Translation</h5>
+                                            <p>Maintains context and technical accuracy across languages</p>
+                                        </div>
+                                    </div>
+                                    <div class="language-feature">
+                                        <i class="fas fa-keyboard"></i>
+                                        <div>
+                                            <h5>Localized Interface</h5>
+                                            <p>Complete UI translation with cultural adaptations</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learning Modes Demo -->
+                    <div class="demo-panel" id="demo-modes">
+                        <div class="demo-mockup">
+                            <h3>Intelligent Learning Modes</h3>
+                            <div class="modes-demo-container">
+                                <div class="mode-selector">
+                                    <button class="mode-btn active" data-mode="study">
+                                        <i class="fas fa-book"></i>
+                                        <span>Study Mode</span>
+                                    </button>
+                                    <button class="mode-btn" data-mode="exam">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Exam Mode</span>
+                                    </button>
+                                    <button class="mode-btn" data-mode="hint">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span>Hint Mode</span>
+                                    </button>
+                                </div>
+
+                                <div class="mode-demo active" data-mode="study">
+                                    <div class="mode-header">
+                                        <h4><i class="fas fa-book"></i> Study Mode</h4>
+                                        <p>Comprehensive learning with detailed explanations</p>
+                                    </div>
+                                    <div class="mode-example">
+                                        <div class="question-box">
+                                            <strong>Question:</strong> What is the time complexity of binary search?
+                                        </div>
+                                        <div class="answer-box study-mode">
+                                            <div class="confidence-indicator">
+                                                <span class="confidence-badge high">High Confidence: 99%</span>
+                                            </div>
+                                            <div class="answer-content">
+                                                <p><strong>Answer:</strong> O(log n)</p>
+                                                <div class="explanation">
+                                                    <h5>📚 Detailed Explanation:</h5>
+                                                    <p>Binary search has a time complexity of O(log n) because:</p>
+                                                    <ul>
+                                                        <li>Each comparison eliminates half of the remaining elements</li>
+                                                        <li>The search space is divided by 2 at each step</li>
+                                                        <li>Maximum comparisons needed = log₂(n)</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="related-concepts">
+                                                    <h5>🔗 Related Concepts:</h5>
+                                                    <span class="concept-tag">Logarithmic Complexity</span>
+                                                    <span class="concept-tag">Divide and Conquer</span>
+                                                    <span class="concept-tag">Sorted Arrays</span>
+                                                </div>
+                                            </div>
+                                            <button class="action-btn">
+                                                <i class="fas fa-plus"></i> Create Flashcard
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mode-demo" data-mode="exam">
+                                    <div class="mode-header">
+                                        <h4><i class="fas fa-clock"></i> Exam Mode</h4>
+                                        <p>Quick answers without explanations to avoid cheating</p>
+                                    </div>
+                                    <div class="mode-example">
+                                        <div class="question-box">
+                                            <strong>Question:</strong> What is the time complexity of binary search?
+                                        </div>
+                                        <div class="answer-box exam-mode">
+                                            <div class="exam-restriction">
+                                                <i class="fas fa-shield-alt"></i>
+                                                <p>Exam Mode Active - Limited Information</p>
+                                            </div>
+                                            <div class="answer-content">
+                                                <p><strong>Quick Answer:</strong> O(log n)</p>
+                                                <div class="exam-note">
+                                                    <p>💡 Full explanation available after exam completion</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mode-demo" data-mode="hint">
+                                    <div class="mode-header">
+                                        <h4><i class="fas fa-lightbulb"></i> Hint Mode</h4>
+                                        <p>Gentle guidance to help you find the answer yourself</p>
+                                    </div>
+                                    <div class="mode-example">
+                                        <div class="question-box">
+                                            <strong>Question:</strong> What is the time complexity of binary search?
+                                        </div>
+                                        <div class="answer-box hint-mode">
+                                            <div class="hint-progression">
+                                                <div class="hint-step active">
+                                                    <span class="hint-number">1</span>
+                                                    <p>💭 Think about how binary search works - what happens at each step?</p>
+                                                </div>
+                                                <div class="hint-step">
+                                                    <span class="hint-number">2</span>
+                                                    <p>🔍 Consider: If you have 1000 elements, how many times do you need to divide by 2 to reach 1?</p>
+                                                </div>
+                                                <div class="hint-step">
+                                                    <span class="hint-number">3</span>
+                                                    <p>📐 The answer involves logarithms...</p>
+                                                </div>
+                                            </div>
+                                            <div class="hint-controls">
+                                                <button class="hint-btn">Next Hint</button>
+                                                <button class="hint-btn secondary">Show Answer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mode-features">
+                                    <div class="feature-card">
+                                        <i class="fas fa-brain"></i>
+                                        <h5>Adaptive Learning</h5>
+                                        <p>Mode automatically adjusts based on context and user preferences</p>
+                                    </div>
+                                    <div class="feature-card">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h5>Academic Integrity</h5>
+                                        <p>Exam mode prevents cheating while still providing helpful guidance</p>
+                                    </div>
+                                    <div class="feature-card">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <h5>Progressive Learning</h5>
+                                        <p>Hint mode encourages critical thinking and problem-solving skills</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Batch Processing Demo -->
+                    <div class="demo-panel" id="demo-batch">
+                        <div class="demo-mockup">
+                            <h3>Unlimited Batch Processing</h3>
+                            <div class="batch-demo-container">
+                                <div class="batch-input-section">
+                                    <h4><i class="fas fa-list"></i> Input Questions</h4>
+                                    <div class="batch-input-methods">
+                                        <button class="input-method-btn active" data-method="paste">
+                                            <i class="fas fa-paste"></i> Paste Text
+                                        </button>
+                                        <button class="input-method-btn" data-method="upload">
+                                            <i class="fas fa-upload"></i> Upload File
+                                        </button>
+                                        <button class="input-method-btn" data-method="scan">
+                                            <i class="fas fa-camera"></i> Scan Page
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="input-area">
+                                        <textarea class="batch-input" placeholder="Paste your questions here, one per line or separated by numbers...
+
+1. What is the capital of France?
+2. Explain photosynthesis
+3. What is 2+2?
+4. Define machine learning
+5. How does TCP/IP work?
+...and many more!"></textarea>
+                                        <div class="input-stats">
+                                            <span class="question-count">5 questions detected</span>
+                                            <span class="processing-time">Estimated time: 45 seconds</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="batch-processing-section">
+                                    <h4><i class="fas fa-cogs"></i> Processing Status</h4>
+                                    <div class="batch-progress">
+                                        <div class="progress-header">
+                                            <span>Processing Questions...</span>
+                                            <span class="progress-text">3/5 Complete</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 60%"></div>
+                                        </div>
+                                        <div class="processing-details">
+                                            <div class="processing-item completed">
+                                                <i class="fas fa-check"></i>
+                                                <span>What is the capital of France?</span>
+                                                <span class="confidence">98%</span>
+                                            </div>
+                                            <div class="processing-item completed">
+                                                <i class="fas fa-check"></i>
+                                                <span>Explain photosynthesis</span>
+                                                <span class="confidence">95%</span>
+                                            </div>
+                                            <div class="processing-item processing">
+                                                <i class="fas fa-spinner fa-spin"></i>
+                                                <span>What is 2+2?</span>
+                                                <span class="confidence">--</span>
+                                            </div>
+                                            <div class="processing-item pending">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Define machine learning</span>
+                                                <span class="confidence">--</span>
+                                            </div>
+                                            <div class="processing-item pending">
+                                                <i class="fas fa-clock"></i>
+                                                <span>How does TCP/IP work?</span>
+                                                <span class="confidence">--</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="batch-results-section">
+                                    <h4><i class="fas fa-download"></i> Export Results</h4>
+                                    <div class="export-options">
+                                        <button class="export-btn">
+                                            <i class="fas fa-file-pdf"></i> PDF Report
+                                        </button>
+                                        <button class="export-btn">
+                                            <i class="fas fa-file-word"></i> Word Document
+                                        </button>
+                                        <button class="export-btn">
+                                            <i class="fas fa-file-excel"></i> Excel Spreadsheet
+                                        </button>
+                                        <button class="export-btn">
+                                            <i class="fas fa-file-code"></i> JSON Data
+                                        </button>
+                                        <button class="export-btn">
+                                            <i class="fas fa-copy"></i> Copy to Clipboard
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="batch-stats">
+                                        <div class="stat-item">
+                                            <div class="stat-number">247</div>
+                                            <div class="stat-label">Questions Processed</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">89%</div>
+                                            <div class="stat-label">Avg. Confidence</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">2.3s</div>
+                                            <div class="stat-label">Avg. Response Time</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">15</div>
+                                            <div class="stat-label">Flashcards Created</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="batch-features">
+                                    <div class="batch-feature">
+                                        <i class="fas fa-infinity"></i>
+                                        <div>
+                                            <h5>Unlimited Questions</h5>
+                                            <p>Process hundreds or thousands of questions in a single batch</p>
+                                        </div>
+                                    </div>
+                                    <div class="batch-feature">
+                                        <i class="fas fa-bolt"></i>
+                                        <div>
+                                            <h5>Lightning Fast</h5>
+                                            <p>Parallel processing for maximum speed and efficiency</p>
+                                        </div>
+                                    </div>
+                                    <div class="batch-feature">
+                                        <i class="fas fa-file-alt"></i>
+                                        <div>
+                                            <h5>Multiple Formats</h5>
+                                            <p>Support for text, PDF, Word, images, and more</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hotkeys & Shortcuts Demo -->
+                    <div class="demo-panel" id="demo-hotkeys">
+                        <div class="demo-mockup">
+                            <h3>Powerful Hotkeys & Shortcuts</h3>
+                            <div class="hotkeys-demo-container">
+                                <div class="hotkey-categories">
+                                    <button class="category-btn active" data-category="main">
+                                        <i class="fas fa-bolt"></i> Main Actions
+                                    </button>
+                                    <button class="category-btn" data-category="navigation">
+                                        <i class="fas fa-arrows-alt"></i> Navigation
+                                    </button>
+                                    <button class="category-btn" data-category="modes">
+                                        <i class="fas fa-exchange-alt"></i> Mode Switching
+                                    </button>
+                                    <button class="category-btn" data-category="advanced">
+                                        <i class="fas fa-magic"></i> Advanced
+                                    </button>
+                                </div>
+
+                                <div class="hotkey-list active" data-category="main">
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>S</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Extract Answers</h5>
+                                            <p>Automatically find and extract answers from the current page</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+s">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>X</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Toggle Results Panel</h5>
+                                            <p>Show or hide the results panel with answers and explanations</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+x">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>F</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Create Flashcard</h5>
+                                            <p>Instantly create a flashcard from the current question and answer</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+f">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>Q</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Quick Search Database</h5>
+                                            <p>Search the Q&A database for similar questions</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+q">Test</button>
+                                    </div>
+                                </div>
+
+                                <div class="hotkey-list" data-category="navigation">
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>1</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Open Extension Popup</h5>
+                                            <p>Quickly access the main extension interface</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+1">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>2</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Open Settings</h5>
+                                            <p>Jump directly to the settings page</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+2">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>3</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Open Help</h5>
+                                            <p>Access help documentation and FAQs</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+3">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Esc</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Close Panels</h5>
+                                            <p>Close any open MoodleGPT panels or dialogs</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="esc">Test</button>
+                                    </div>
+                                </div>
+
+                                <div class="hotkey-list" data-category="modes">
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Switch to Study Mode</h5>
+                                            <p>Activate study mode with detailed explanations</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+shift+s">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Switch to Exam Mode</h5>
+                                            <p>Activate exam mode with minimal information</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+shift+e">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Switch to Hint Mode</h5>
+                                            <p>Activate hint mode with progressive guidance</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="alt+shift+h">Test</button>
+                                    </div>
+                                </div>
+
+                                <div class="hotkey-list" data-category="advanced">
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>B</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Batch Process Page</h5>
+                                            <p>Process all questions on the current page at once</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="ctrl+alt+b">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Copy All Answers</h5>
+                                            <p>Copy all extracted answers to clipboard</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="ctrl+alt+c">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Toggle Theme</h5>
+                                            <p>Cycle through available color themes</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="ctrl+alt+t">Test</button>
+                                    </div>
+
+                                    <div class="hotkey-item">
+                                        <div class="hotkey-combo">
+                                            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd>
+                                        </div>
+                                        <div class="hotkey-info">
+                                            <h5>Reset Session</h5>
+                                            <p>Clear current session and start fresh</p>
+                                        </div>
+                                        <button class="test-hotkey-btn" data-hotkey="ctrl+alt+r">Test</button>
+                                    </div>
+                                </div>
+
+                                <div class="hotkey-demo-area">
+                                    <h4>Try It Out!</h4>
+                                    <div class="demo-instruction">
+                                        <p>Click any "Test" button above to see the hotkey in action</p>
+                                        <div class="hotkey-result" id="hotkey-result">
+                                            Press a hotkey or click "Test" to see the result here...
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="customization-note">
+                                        <i class="fas fa-info-circle"></i>
+                                        <p>All hotkeys are customizable in Settings. Create your own shortcuts for maximum productivity!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integrations Demo -->
+                    <div class="demo-panel" id="demo-integrations">
+                        <div class="demo-mockup">
+                            <h3>Platform Integrations & Features</h3>
+                            <div class="integrations-demo-container">
+                                <div class="integration-categories">
+                                    <button class="integration-tab active" data-tab="platforms">
+                                        <i class="fas fa-graduation-cap"></i> Learning Platforms
+                                    </button>
+                                    <button class="integration-tab" data-tab="browsers">
+                                        <i class="fas fa-globe"></i> Browser Support
+                                    </button>
+                                    <button class="integration-tab" data-tab="export">
+                                        <i class="fas fa-share"></i> Export & Sharing
+                                    </button>
+                                    <button class="integration-tab" data-tab="api">
+                                        <i class="fas fa-code"></i> API Features
+                                    </button>
+                                </div>
+
+                                <div class="integration-content active" data-tab="platforms">
+                                    <h4>Supported Learning Platforms</h4>
+                                    <div class="platform-grid">
+                                        <div class="platform-card supported">
+                                            <img src="https://via.placeholder.com/64/0078d4/ffffff?text=M" alt="Moodle">
+                                            <h5>Moodle</h5>
+                                            <p>Full integration with all question types, quizzes, and assignments</p>
+                                            <span class="support-badge">✅ Fully Supported</span>
+                                        </div>
+                                        <div class="platform-card supported">
+                                            <img src="https://via.placeholder.com/64/ff6b35/ffffff?text=C" alt="Canvas">
+                                            <h5>Canvas LMS</h5>
+                                            <p>Works with Canvas quizzes, discussions, and course content</p>
+                                            <span class="support-badge">✅ Fully Supported</span>
+                                        </div>
+                                        <div class="platform-card supported">
+                                            <img src="https://via.placeholder.com/64/7b68ee/ffffff?text=B" alt="Blackboard">
+                                            <h5>Blackboard</h5>
+                                            <p>Compatible with Blackboard Learn and Ultra interfaces</p>
+                                            <span class="support-badge">✅ Fully Supported</span>
+                                        </div>
+                                        <div class="platform-card supported">
+                                            <img src="https://via.placeholder.com/64/2e8b57/ffffff?text=S" alt="Schoology">
+                                            <h5>Schoology</h5>
+                                            <p>Supports assignments, quizzes, and course materials</p>
+                                            <span class="support-badge">✅ Fully Supported</span>
+                                        </div>
+                                        <div class="platform-card partial">
+                                            <img src="https://via.placeholder.com/64/ff4757/ffffff?text=E" alt="Edmodo">
+                                            <h5>Edmodo</h5>
+                                            <p>Basic support for assignments and quizzes</p>
+                                            <span class="support-badge partial">⚡ Partial Support</span>
+                                        </div>
+                                        <div class="platform-card partial">
+                                            <img src="https://via.placeholder.com/64/3742fa/ffffff?text=G" alt="Google Classroom">
+                                            <h5>Google Classroom</h5>
+                                            <p>Works with Google Forms and classroom assignments</p>
+                                            <span class="support-badge partial">⚡ Partial Support</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="integration-content" data-tab="browsers">
+                                    <h4>Cross-Browser Compatibility</h4>
+                                    <div class="browser-support">
+                                        <div class="browser-item">
+                                            <i class="fab fa-chrome"></i>
+                                            <div>
+                                                <h5>Google Chrome</h5>
+                                                <p>Recommended browser with full feature support</p>
+                                                <div class="version-info">Versions 88+</div>
+                                            </div>
+                                            <span class="support-level excellent">Excellent</span>
+                                        </div>
+                                        <div class="browser-item">
+                                            <i class="fab fa-edge"></i>
+                                            <div>
+                                                <h5>Microsoft Edge</h5>
+                                                <p>Full compatibility with Chromium-based Edge</p>
+                                                <div class="version-info">Versions 88+</div>
+                                            </div>
+                                            <span class="support-level excellent">Excellent</span>
+                                        </div>
+                                        <div class="browser-item">
+                                            <i class="fab fa-firefox"></i>
+                                            <div>
+                                                <h5>Mozilla Firefox</h5>
+                                                <p>Good compatibility with WebExtensions API</p>
+                                                <div class="version-info">Versions 78+</div>
+                                            </div>
+                                            <span class="support-level good">Good</span>
+                                        </div>
+                                        <div class="browser-item">
+                                            <i class="fab fa-opera"></i>
+                                            <div>
+                                                <h5>Opera</h5>
+                                                <p>Compatible with Chrome extension format</p>
+                                                <div class="version-info">Versions 74+</div>
+                                            </div>
+                                            <span class="support-level good">Good</span>
+                                        </div>
+                                        <div class="browser-item">
+                                            <i class="fab fa-safari"></i>
+                                            <div>
+                                                <h5>Safari</h5>
+                                                <p>Limited support due to extension restrictions</p>
+                                                <div class="version-info">Version 14+</div>
+                                            </div>
+                                            <span class="support-level limited">Limited</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="integration-content" data-tab="export">
+                                    <h4>Export & Sharing Options</h4>
+                                    <div class="export-features">
+                                        <div class="export-category">
+                                            <h5><i class="fas fa-file-alt"></i> Document Formats</h5>
+                                            <div class="export-options">
+                                                <div class="export-option">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    <span>PDF Reports</span>
+                                                    <p>Professional formatted reports with answers and explanations</p>
+                                                </div>
+                                                <div class="export-option">
+                                                    <i class="fas fa-file-word"></i>
+                                                    <span>Word Documents</span>
+                                                    <p>Editable documents for further customization</p>
+                                                </div>
+                                                <div class="export-option">
+                                                    <i class="fas fa-file-excel"></i>
+                                                    <span>Excel Spreadsheets</span>
+                                                    <p>Data analysis and statistical reporting</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="export-category">
+                                            <h5><i class="fas fa-share-alt"></i> Sharing & Cloud</h5>
+                                            <div class="export-options">
+                                                <div class="export-option">
+                                                    <i class="fab fa-google-drive"></i>
+                                                    <span>Google Drive</span>
+                                                    <p>Direct upload to your Google Drive account</p>
+                                                </div>
+                                                <div class="export-option">
+                                                    <i class="fab fa-dropbox"></i>
+                                                    <span>Dropbox</span>
+                                                    <p>Sync with your Dropbox for easy access</p>
+                                                </div>
+                                                <div class="export-option">
+                                                    <i class="fas fa-envelope"></i>
+                                                    <span>Email Reports</span>
+                                                    <p>Send reports directly to your email</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="export-category">
+                                            <h5><i class="fas fa-code"></i> Developer Formats</h5>
+                                            <div class="export-options">
+                                                <div class="export-option">
+                                                    <i class="fas fa-code"></i>
+                                                    <span>JSON Data</span>
+                                                    <p>Structured data for integration with other tools</p>
+                                                </div>
+                                                <div class="export-option">
+                                                    <i class="fas fa-table"></i>
+                                                    <span>CSV Files</span>
+                                                    <p>Comma-separated values for database import</p>
+                                                </div>
+                                                <div class="export-option">
+                                                    <i class="fas fa-file-code"></i>
+                                                    <span>XML Export</span>
+                                                    <p>Structured markup for system integration</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="integration-content" data-tab="api">
+                                    <h4>AI & API Features</h4>
+                                    <div class="api-features">
+                                        <div class="api-section">
+                                            <h5><i class="fas fa-brain"></i> AI Models</h5>
+                                            <div class="api-grid">
+                                                <div class="api-card primary">
+                                                    <div class="api-icon">🤖</div>
+                                                    <h6>Google Gemini</h6>
+                                                    <p>Primary AI model for advanced reasoning and analysis</p>
+                                                    <span class="api-status active">Active</span>
+                                                </div>
+                                                <div class="api-card">
+                                                    <div class="api-icon">🧠</div>
+                                                    <h6>OpenAI GPT</h6>
+                                                    <p>Alternative model for specific use cases</p>
+                                                    <span class="api-status available">Available</span>
+                                                </div>
+                                                <div class="api-card">
+                                                    <div class="api-icon">⚡</div>
+                                                    <h6>Claude AI</h6>
+                                                    <p>Specialized for academic content analysis</p>
+                                                    <span class="api-status coming">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="api-section">
+                                            <h5><i class="fas fa-database"></i> Data Sources</h5>
+                                            <div class="data-sources">
+                                                <div class="data-source">
+                                                    <i class="fas fa-cloud"></i>
+                                                    <div>
+                                                        <h6>Cloud Q&A Database</h6>
+                                                        <p>Over 10,000 verified questions and answers</p>
+                                                        <div class="source-stats">
+                                                            <span>🔄 Real-time sync</span>
+                                                            <span>✅ Community verified</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="data-source">
+                                                    <i class="fas fa-users"></i>
+                                                    <div>
+                                                        <h6>Community Contributions</h6>
+                                                        <p>User-submitted questions with peer review</p>
+                                                        <div class="source-stats">
+                                                            <span>👥 Community driven</span>
+                                                            <span>🎯 High accuracy</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="data-source">
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                    <div>
+                                                        <h6>Academic Resources</h6>
+                                                        <p>Textbooks, papers, and educational content</p>
+                                                        <div class="source-stats">
+                                                            <span>📚 Authoritative</span>
+                                                            <span>🔬 Research-based</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="api-section">
+                                            <h5><i class="fas fa-chart-line"></i> Performance Metrics</h5>
+                                            <div class="performance-metrics">
+                                                <div class="metric">
+                                                    <div class="metric-value">98.7%</div>
+                                                    <div class="metric-label">Accuracy Rate</div>
+                                                </div>
+                                                <div class="metric">
+                                                    <div class="metric-value">1.2s</div>
+                                                    <div class="metric-label">Avg Response Time</div>
+                                                </div>
+                                                <div class="metric">
+                                                    <div class="metric-value">99.9%</div>
+                                                    <div class="metric-label">Uptime</div>
+                                                </div>
+                                                <div class="metric">
+                                                    <div class="metric-value">24/7</div>
+                                                    <div class="metric-label">Availability</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
