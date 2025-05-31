@@ -643,16 +643,53 @@ document.head.insertAdjacentHTML('beforeend', particleStyles);
 // Initialize particles when page loads
 document.addEventListener('DOMContentLoaded', createParticles);
 
-// Bot Showcase Animation
-class BotShowcase {
+// Realistic Extension Demo Animation
+class ExtensionDemo {
     constructor() {
         this.isPlaying = false;
+        this.currentStep = 0;
+        this.steps = [
+            { name: 'Click Extension', duration: 1000 },
+            { name: 'Popup Opens', duration: 1500 },
+            { name: 'Select Mode', duration: 1200 },
+            { name: 'Extract Answer', duration: 2000 },
+            { name: 'Show Results', duration: 2500 }
+        ];
         this.init();
     }
 
     init() {
-        const playBtn = document.getElementById('play-demo');
-        const replayBtn = document.getElementById('replay-demo');
+        this.createDemoControls();
+        this.setupEventListeners();
+    }
+
+    createDemoControls() {
+        const demoContainer = document.querySelector('.animated-demo');
+        if (!demoContainer) return;
+
+        // Add demo steps indicator
+        const stepsHTML = `
+            <div class="demo-steps">
+                ${this.steps.map((step, index) => 
+                    `<div class="demo-step" data-step="${index}" title="${step.name}"></div>`
+                ).join('')}
+            </div>
+        `;
+
+        // Add control buttons
+        const controlsHTML = `
+            <div class="demo-controls">
+                <button class="demo-control-btn" id="play-extension-demo">▶ Play Demo</button>
+                <button class="demo-control-btn" id="replay-extension-demo" style="display: none;">🔄 Replay</button>
+            </div>
+        `;
+
+        demoContainer.insertAdjacentHTML('afterend', stepsHTML + controlsHTML);
+    }
+
+    setupEventListeners() {
+        const playBtn = document.getElementById('play-extension-demo');
+        const replayBtn = document.getElementById('replay-extension-demo');
         
         if (playBtn) {
             playBtn.addEventListener('click', () => this.startDemo());
@@ -661,23 +698,245 @@ class BotShowcase {
         if (replayBtn) {
             replayBtn.addEventListener('click', () => this.startDemo());
         }
+
+        // Manual extension icon click
+        const extensionIcon = document.getElementById('extension-icon');
+        if (extensionIcon) {
+            extensionIcon.addEventListener('click', () => {
+                if (!this.isPlaying) {
+                    this.togglePopup();
+                }
+            });
+        }
+
+        // Popup close button
+        const closeBtn = document.getElementById('close-popup');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => this.hidePopup());
+        }
+
+        // Mode buttons
+        const modeButtons = document.querySelectorAll('.mode-btn');
+        modeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!this.isPlaying) {
+                    this.selectMode(btn);
+                }
+            });
+        });
     }
 
     async startDemo() {
         if (this.isPlaying) return;
         
         this.isPlaying = true;
-        const playBtn = document.getElementById('play-demo');
-        const replayBtn = document.getElementById('replay-demo');
-        const botAssistant = document.getElementById('bot-assistant');
-        const responseText = document.querySelector('.response-text');
-        const confidenceFill = document.getElementById('confidence-fill');
-        const confidenceText = document.getElementById('confidence-text');
-        const options = document.querySelectorAll('.option');
+        this.currentStep = 0;
         
-        // Hide buttons
+        const playBtn = document.getElementById('play-extension-demo');
+        const replayBtn = document.getElementById('replay-extension-demo');
+        
+        // Update button states
         playBtn.style.display = 'none';
-        replayBtn.style.display = 'none';
+        playBtn.disabled = true;
+        
+        // Reset all elements
+        this.resetDemo();
+        
+        // Start animation sequence
+        await this.runDemoSequence();
+        
+        // Demo complete
+        this.isPlaying = false;
+        playBtn.style.display = 'none';
+        replayBtn.style.display = 'inline-block';
+    }
+
+    async runDemoSequence() {
+        // Step 1: Highlight extension icon
+        await this.animateStep(0, async () => {
+            const extensionIcon = document.getElementById('extension-icon');
+            extensionIcon.style.transform = 'scale(1.2)';
+            extensionIcon.style.boxShadow = '0 0 0 4px rgba(26, 115, 232, 0.3)';
+            await this.wait(500);
+            extensionIcon.style.transform = 'scale(1.05)';
+        });
+
+        // Step 2: Show popup
+        await this.animateStep(1, async () => {
+            await this.showPopup();
+            await this.wait(800);
+        });
+
+        // Step 3: Select Study mode
+        await this.animateStep(2, async () => {
+            const studyBtn = document.getElementById('study-mode');
+            studyBtn.style.transform = 'scale(1.1)';
+            studyBtn.style.boxShadow = '0 0 0 3px rgba(26, 115, 232, 0.3)';
+            await this.wait(600);
+            this.selectMode(studyBtn);
+            studyBtn.style.transform = '';
+            studyBtn.style.boxShadow = '';
+        });
+
+        // Step 4: Extract answer (simulate processing)
+        await this.animateStep(3, async () => {
+            const confidenceFill = document.querySelector('.confidence-fill');
+            const confidenceText = document.querySelector('.confidence-text');
+            
+            // Animate confidence building
+            confidenceText.textContent = 'Processing...';
+            confidenceFill.style.width = '0%';
+            confidenceFill.style.background = '#ff9800';
+            
+            await this.wait(500);
+            confidenceFill.style.width = '60%';
+            confidenceText.textContent = 'Analyzing question...';
+            
+            await this.wait(700);
+            confidenceFill.style.width = '95%';
+            confidenceFill.style.background = 'linear-gradient(90deg, #34a853, #7cb342)';
+            confidenceText.textContent = 'High Confidence (95%)';
+            
+            // Highlight correct answer
+            const correctOption = document.querySelector('.quiz-option:first-child');
+            correctOption.classList.add('correct');
+        });
+
+        // Step 5: Show results overlay
+        await this.animateStep(4, async () => {
+            await this.showResults();
+            await this.wait(2000);
+            await this.hideResults();
+        });
+    }
+
+    async animateStep(stepIndex, animationFn) {
+        this.updateStepIndicators(stepIndex);
+        await animationFn();
+        document.querySelector(`.demo-step[data-step="${stepIndex}"]`).classList.add('completed');
+        await this.wait(200);
+    }
+
+    updateStepIndicators(activeStep) {
+        const steps = document.querySelectorAll('.demo-step');
+        steps.forEach((step, index) => {
+            step.classList.remove('active');
+            if (index === activeStep) {
+                step.classList.add('active');
+            }
+        });
+    }
+
+    async showPopup() {
+        const popup = document.getElementById('extension-popup');
+        const extensionIcon = document.getElementById('extension-icon');
+        
+        extensionIcon.classList.add('active');
+        popup.classList.add('visible');
+        
+        return this.wait(300);
+    }
+
+    hidePopup() {
+        const popup = document.getElementById('extension-popup');
+        const extensionIcon = document.getElementById('extension-icon');
+        
+        popup.classList.remove('visible');
+        extensionIcon.classList.remove('active');
+        extensionIcon.style.transform = '';
+        extensionIcon.style.boxShadow = '';
+    }
+
+    togglePopup() {
+        const popup = document.getElementById('extension-popup');
+        if (popup.classList.contains('visible')) {
+            this.hidePopup();
+        } else {
+            this.showPopup();
+        }
+    }
+
+    selectMode(button) {
+        const modeButtons = document.querySelectorAll('.mode-btn');
+        modeButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    }
+
+    async showResults() {
+        const browserContent = document.querySelector('.browser-content');
+        
+        // Create results overlay if it doesn't exist
+        let resultsPanel = document.querySelector('.results-panel');
+        if (!resultsPanel) {
+            resultsPanel = document.createElement('div');
+            resultsPanel.className = 'results-panel';
+            resultsPanel.innerHTML = `
+                <h3>🎯 Correct Answer Found!</h3>
+                <div class="answer">f'(x) = 6x + 2</div>
+                <div class="explanation">
+                    Using the power rule: The derivative of 3x² is 6x, 
+                    the derivative of 2x is 2, and the derivative of a constant (-5) is 0.
+                </div>
+            `;
+            browserContent.appendChild(resultsPanel);
+        }
+        
+        resultsPanel.classList.add('visible');
+        return this.wait(300);
+    }
+
+    async hideResults() {
+        const resultsPanel = document.querySelector('.results-panel');
+        if (resultsPanel) {
+            resultsPanel.classList.remove('visible');
+        }
+        return this.wait(300);
+    }
+
+    resetDemo() {
+        // Reset all visual states
+        this.hidePopup();
+        this.hideResults();
+        
+        // Reset quiz options
+        const quizOptions = document.querySelectorAll('.quiz-option');
+        quizOptions.forEach(option => {
+            option.classList.remove('correct', 'incorrect');
+        });
+        
+        // Reset confidence indicator
+        const confidenceFill = document.querySelector('.confidence-fill');
+        const confidenceText = document.querySelector('.confidence-text');
+        if (confidenceFill && confidenceText) {
+            confidenceFill.style.width = '95%';
+            confidenceFill.style.background = 'linear-gradient(90deg, #34a853, #7cb342)';
+            confidenceText.textContent = 'High Confidence (95%)';
+        }
+        
+        // Reset step indicators
+        const steps = document.querySelectorAll('.demo-step');
+        steps.forEach(step => {
+            step.classList.remove('active', 'completed');
+        });
+        
+        // Reset extension icon
+        const extensionIcon = document.getElementById('extension-icon');
+        if (extensionIcon) {
+            extensionIcon.style.transform = '';
+            extensionIcon.style.boxShadow = '';
+            extensionIcon.classList.remove('active');
+        }
+    }
+
+    wait(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+}
+
+// Initialize the extension demo when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    new ExtensionDemo();
+});
         
         // Reset state
         options.forEach(option => option.classList.remove('correct'));
@@ -722,23 +981,8 @@ class BotShowcase {
         }
         
         // Step 7: Show replay button
-        await this.delay(2000);
-        replayBtn.style.display = 'inline-flex';
-        this.isPlaying = false;
-    }
-
-    delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-}
-
-// Additional animations for existing code
+        await this.delay(2000);// Additional animations for existing code
 document.addEventListener('DOMContentLoaded', function() {
-    // ...existing code...
-    
-    // Initialize bot showcase
-    new BotShowcase();
-    
     // Intersection Observer for showcase animations
     const showcaseObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -756,17 +1000,17 @@ document.addEventListener('DOMContentLoaded', function() {
         showcaseObserver.observe(el);
     });
     
-    // Auto-play demo when section comes into view
+    // Auto-play extension demo when section comes into view
     const showcaseSection = document.querySelector('.bot-showcase');
     if (showcaseSection) {
         const autoPlayObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !sessionStorage.getItem('demoPlayed')) {
+                if (entry.isIntersecting && !sessionStorage.getItem('extensionDemoPlayed')) {
                     setTimeout(() => {
-                        const playBtn = document.getElementById('play-demo');
+                        const playBtn = document.getElementById('play-extension-demo');
                         if (playBtn && playBtn.style.display !== 'none') {
                             playBtn.click();
-                            sessionStorage.setItem('demoPlayed', 'true');
+                            sessionStorage.setItem('extensionDemoPlayed', 'true');
                         }
                     }, 1000);
                 }
@@ -777,6 +1021,4 @@ document.addEventListener('DOMContentLoaded', function() {
         
         autoPlayObserver.observe(showcaseSection);
     }
-    
-    // ...rest of existing code...
 });

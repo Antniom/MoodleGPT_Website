@@ -1,19 +1,35 @@
 # MoodleGPT Pro Website
 
-A comprehensive, interactive website showcasing MoodleGPT Pro - an advanced browser extension that supercharges your Moodle learning experience with AI-powered features.
+This folder contains all the files needed for the MoodleGPT Pro website.
+
+## 📁 File Structure
+
+```
+website/
+├── index.html              # Main website page with all features, demos, and information
+├── styles.css              # Main CSS styling for the website
+├── styles-ui-demos.css     # Additional CSS specifically for UI demo components
+├── script.js               # JavaScript for interactive features and animations
+├── icon.png                # MoodleGPT Pro logo/icon
+├── demo.html               # Additional demo page (legacy)
+├── demo.js                 # JavaScript for demo page (legacy)
+└── README.md               # This documentation
+```
 
 ## 🌟 Website Features
 
 ### Interactive Demonstrations
+- **Extension Interface**: Realistic mockup of the actual extension popup
 - **Confidence Indicators**: Live demo showing AI confidence levels for answers
-- **Community Q&A Database**: Searchable database with 50,000+ questions
-- **Progress Tracking**: Visual analytics and performance metrics
+- **Community Q&A Database**: Searchable database with 200+ questions
+- **Flashcard System**: Interactive study mode demonstration
 - **Custom Themes**: Theme switcher with preview functionality
 
 ### Comprehensive Comparison
 - Side-by-side feature comparison between MoodleGPT Pro and the free version
-- Clear pricing information and value proposition
-- Direct links to both versions
+- Updated pricing: $2 for MoodleGPT (lifetime), $5 for Pro (lifetime)
+- Direct links to Chrome Web Store
+- Developer website integration
 
 ### Modern Design
 - Responsive design that works on all devices
@@ -21,33 +37,35 @@ A comprehensive, interactive website showcasing MoodleGPT Pro - an advanced brow
 - Professional UI with gradient backgrounds
 - Interactive elements and hover effects
 
-## 📁 File Structure
-
-```
-website/
-├── index.html          # Main website page
-├── styles.css          # Complete styling and responsive design
-├── script.js           # Interactive functionality and animations
-└── README.md           # This documentation
-```
-
 ## 🚀 Features Highlighted
 
-### MoodleGPT Pro Features
+### MoodleGPT Pro Features ($5 Lifetime)
 - ✅ Advanced AI with confidence indicators
-- ✅ Unlimited question processing
-- ✅ Community Q&A database (50K+ questions)
+- ✅ Unlimited question processing  
+- ✅ Community Q&A database (200+ questions)
 - ✅ Progress tracking & analytics
 - ✅ Custom themes & study features
+- ✅ Flashcard system for studying
+- ✅ Hotkey shortcuts
 - ✅ Priority support
-- ✅ Batch question processing
 
-### Free Version Limitations
+### MoodleGPT Free Features ($2 Lifetime) 
+- ✅ Basic AI assistance
+- ✅ Unlimited batch processing
+- ✅ Access to community database
 - ❌ No confidence indicators
-- ❌ Limited to 5 questions per hour
 - ❌ No progress tracking
 - ❌ No custom themes
+- ❌ No flashcard system
 - ❌ Standard support only
+
+## 🌐 Usage
+
+Simply open `index.html` in a web browser to view the complete website.
+
+## 📦 Deployment
+
+All files in this folder should be uploaded together to your web hosting service. The website is fully self-contained with all necessary assets.
 
 ## 🎨 Interactive Components
 

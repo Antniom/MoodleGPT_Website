@@ -1,0 +1,312 @@
+/* --- UI Demo Panels: Extension Interface & Flashcards --- */
+.extension-interface-demo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 32px 0;
+}
+.popup-mockup {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(26,115,232,0.10);
+    border: 1.5px solid #e0e0e0;
+    width: 340px;
+    overflow: hidden;
+    font-size: 15px;
+}
+.popup-header-demo {
+    background: #f8f9ff;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+}
+.popup-title {
+    font-weight: 700;
+    color: #1a73e8;
+    font-size: 17px;
+}
+.popup-actions button {
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 6px;
+    transition: background 0.2s;
+}
+.popup-actions button:hover {
+    background: #f0f0f0;
+}
+.popup-body-demo {
+    padding: 20px;
+}
+.api-section-demo {
+    margin-bottom: 18px;
+}
+.api-section-demo label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 4px;
+    display: block;
+}
+.api-section-demo input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.save-btn-demo {
+    background: #34a853;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 4px;
+}
+.modes-section {
+    margin-bottom: 18px;
+}
+.mode-buttons-demo {
+    display: flex;
+    gap: 8px;
+}
+.mode-btn-demo {
+    flex: 1;
+    padding: 8px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.mode-btn-demo.active {
+    background: #1a73e8;
+    color: #fff;
+    border-color: #1a73e8;
+}
+.mode-btn-demo:hover {
+    background: #f8f9ff;
+    border-color: #1a73e8;
+}
+.flashcard-section-demo {
+    margin-bottom: 18px;
+}
+.flashcard-btn-demo {
+    width: 100%;
+    padding: 10px;
+    background: #ff6f00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.flashcard-btn-demo:hover {
+    background: #e65100;
+}
+.hotkeys-demo {
+    margin-bottom: 18px;
+}
+.hotkey-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+    color: #666;
+}
+.hotkey-list kbd {
+    background: #f5f5f5;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-family: monospace;
+    margin-right: 4px;
+}
+.confidence-status {
+    margin-top: 12px;
+}
+.status-indicator.high {
+    color: #34a853;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #34a853, #7cb342);
+    border-radius: 4px;
+    width: 95%;
+    transition: width 1s ease;
+}
+
+/* Flashcards Demo */
+.flashcards-demo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+}
+.flashcard-container {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(26,115,232,0.10);
+    border: 1.5px solid #e0e0e0;
+    width: 340px;
+    padding: 24px 18px 18px 18px;
+    margin-bottom: 18px;
+}
+.flashcard {
+    position: relative;
+    min-height: 180px;
+    margin-bottom: 18px;
+}
+.flashcard-front, .flashcard-back {
+    padding: 12px 0;
+}
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.subject-tag {
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.difficulty {
+    background: #e0e0e0;
+    color: #333;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.difficulty.easy {
+    background: #c8e6c9;
+    color: #388e3c;
+}
+.flashcard-content h4 {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    color: #1a73e8;
+}
+.flashcard-content p {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    color: #333;
+}
+.reveal-btn {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+.reveal-btn:hover {
+    background: #1557b0;
+}
+.flashcard-back {
+    background: #f8f9ff;
+    border-radius: 10px;
+    padding: 12px 10px;
+    margin-top: 8px;
+}
+.explanation {
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+}
+.confidence-rating {
+    margin-top: 12px;
+}
+.rating-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+.rating-btn {
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.rating-btn.low { background: #ffcdd2; color: #b71c1c; }
+.rating-btn.medium { background: #ffe082; color: #fbc02d; }
+.rating-btn.high { background: #c8e6c9; color: #388e3c; }
+.rating-btn:hover { filter: brightness(0.95); }
+.flashcard-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.control-btn {
+    background: #f5f5f5;
+    color: #1a73e8;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.control-btn:hover {
+    background: #e3eaff;
+}
+.card-counter {
+    font-size: 13px;
+    color: #666;
+    font-weight: 600;
+}
+.study-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+.stat-item {
+    text-align: center;
+}
+.stat-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a73e8;
+}
+.stat-label {
+    font-size: 12px;
+    color: #666;
+}

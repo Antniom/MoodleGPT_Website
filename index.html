@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles-ui-demos.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <img src="../NewApproach/icon/Appimagejpg_48x48.png" alt="MoodleGPT Pro" class="nav-logo">
+        <div class="nav-container">            <div class="nav-brand">
+                <img src="icon.png" alt="MoodleGPT Pro" class="nav-logo">
                 <span class="nav-title">MoodleGPT Pro</span>
             </div>
             <div class="nav-menu">
@@ -103,98 +103,156 @@
                     </div>
                 </div>
             </div>
-        </div>    </section>
-
-    <!-- Animated Bot Showcase -->
+        </div>    </section>    <!-- Animated Bot Showcase -->
     <section class="bot-showcase">
         <div class="container">
             <div class="section-header">
                 <h2>See MoodleGPT Pro in Action</h2>
-                <p>Watch how our AI assistant transforms your Moodle quiz experience</p>
+                <p>Watch the real extension popup and features working on a Moodle quiz</p>
             </div>
             <div class="showcase-container">
                 <div class="animated-demo">
-                    <div class="moodle-interface">
-                        <div class="quiz-header">
-                            <h3>Advanced Calculus Quiz</h3>
-                            <div class="quiz-info">
-                                <span class="question-counter">Question <span id="q-current">1</span> of <span id="q-total">5</span></span>
-                                <span class="time-remaining">Time: <span id="timer">15:30</span></span>
+                    <!-- Browser Window Mockup -->
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="browser-url">moodle.university.edu/quiz</div>
+                            <div class="extension-icon" id="extension-icon">
+                                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23667eea'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/></svg>" alt="MoodleGPT" width="16" height="16">
                             </div>
                         </div>
-                        <div class="question-container">
-                            <div class="question-text" id="animated-question">
-                                What is the derivative of f(x) = x² + 3x - 5?
-                            </div>
-                            <div class="answer-options" id="animated-options">
-                                <div class="option" data-option="a">
-                                    <input type="radio" name="demo-q" id="opt-a">
-                                    <label for="opt-a">f'(x) = x + 3</label>
-                                </div>
-                                <div class="option" data-option="b">
-                                    <input type="radio" name="demo-q" id="opt-b">
-                                    <label for="opt-b">f'(x) = 2x + 3</label>
-                                </div>
-                                <div class="option" data-option="c">
-                                    <input type="radio" name="demo-q" id="opt-c">
-                                    <label for="opt-c">f'(x) = x² + 3</label>
-                                </div>
-                                <div class="option" data-option="d">
-                                    <input type="radio" name="demo-q" id="opt-d">
-                                    <label for="opt-d">f'(x) = 2x² + 6x</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bot-assistant" id="bot-assistant">
-                            <div class="bot-avatar">
-                                <i class="fas fa-robot"></i>
-                                <div class="thinking-dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div class="bot-response" id="bot-response">
-                                <div class="response-text">Analyzing question...</div>
-                                <div class="confidence-meter">
-                                    <div class="confidence-bar">
-                                        <div class="confidence-fill" id="confidence-fill"></div>
+                        <div class="browser-content">
+                            <!-- Moodle Quiz Interface -->
+                            <div class="moodle-quiz">
+                                <div class="quiz-header">
+                                    <h3>Advanced Calculus - Quiz 2</h3>
+                                    <div class="quiz-meta">
+                                        <span>Question 3 of 10</span>
+                                        <span>Time remaining: 45:30</span>
                                     </div>
-                                    <span class="confidence-text" id="confidence-text">Calculating...</span>
+                                </div>
+                                <div class="question-content">
+                                    <h4>Question 3</h4>
+                                    <p>What is the derivative of f(x) = 3x² + 2x - 5?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="a">
+                                            <span>f'(x) = 6x + 2</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="b">
+                                            <span>f'(x) = 3x + 2</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="c">
+                                            <span>f'(x) = 6x - 5</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="d">
+                                            <span>f'(x) = 9x + 2</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Extension Popup Overlay -->
+                            <div class="extension-popup" id="extension-popup">
+                                <div class="popup-header">
+                                    <h3>MoodleGPT Pro</h3>
+                                    <div class="popup-controls">
+                                        <button class="theme-btn" id="theme-btn">🎨</button>
+                                        <button class="close-btn" id="close-popup">×</button>
+                                    </div>
+                                </div>
+                                <div class="popup-content">
+                                    <div class="api-section">
+                                        <input type="text" placeholder="Gemini API Key" class="api-input" value="••••••••••••••••">
+                                        <button class="save-btn">Save</button>
+                                    </div>
+                                    <div class="mode-section">
+                                        <h4>🎓 Quick Mode:</h4>
+                                        <div class="mode-buttons">
+                                            <button class="mode-btn active" id="study-mode">Study</button>
+                                            <button class="mode-btn" id="exam-mode">Exam</button>
+                                            <button class="mode-btn" id="hint-mode">Hint</button>
+                                        </div>
+                                    </div>
+                                    <div class="flashcard-section">
+                                        <button class="flashcard-btn" id="flashcard-btn">
+                                            📚 Review Flashcards (<span id="card-count">3</span>)
+                                        </button>
+                                    </div>
+                                    <div class="hotkeys-section">
+                                        <h4>Hotkeys:</h4>
+                                        <ul>
+                                            <li><kbd>Alt + S</kbd>: Extract answers</li>
+                                            <li><kbd>Alt + X</kbd>: Toggle results</li>
+                                        </ul>
+                                    </div>
+                                    <div class="status-section">
+                                        <div class="confidence-indicator" id="confidence-indicator">
+                                            <span class="confidence-text">High Confidence (95%)</span>
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Results Panel -->
+                            <div class="results-panel" id="results-panel">
+                                <div class="results-header">
+                                    <h4>AI Analysis Results</h4>
+                                    <button class="close-results" id="close-results">×</button>
+                                </div>
+                                <div class="results-content">
+                                    <div class="answer-analysis">
+                                        <p><strong>✅ Correct Answer:</strong> f'(x) = 6x + 2</p>
+                                        <p><strong>Explanation:</strong> Using the power rule: d/dx(3x²) = 6x, d/dx(2x) = 2, d/dx(-5) = 0</p>
+                                        <div class="confidence-display">
+                                            <span class="confidence-badge high">95% Confidence</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="animation-controls">
-                        <button class="play-btn" id="play-demo">
-                            <i class="fas fa-play"></i> Watch Demo
-                        </button>
-                        <button class="replay-btn" id="replay-demo" style="display: none;">
-                            <i class="fas fa-redo"></i> Replay
-                        </button>
+                    </div>                    <div class="animation-controls">
+                        <!-- Demo controls will be added by JavaScript -->
                     </div>
                 </div>
                 <div class="showcase-features">
                     <div class="feature-highlight">
                         <div class="highlight-icon">
-                            <i class="fas fa-gauge-high"></i>
+                            <i class="fas fa-mouse-pointer"></i>
                         </div>
-                        <h4>Confidence Indicators</h4>
-                        <p>See how confident the AI is in each answer with visual indicators</p>
+                        <h4>Real Extension Popup</h4>
+                        <p>Authentic popup interface that appears when you click the extension icon in Chrome</p>
                     </div>
                     <div class="feature-highlight">
                         <div class="highlight-icon">
-                            <i class="fas fa-bolt"></i>
+                            <i class="fas fa-keyboard"></i>
                         </div>
-                        <h4>Instant Analysis</h4>
-                        <p>Get immediate AI-powered analysis of complex questions</p>
+                        <h4>Hotkey Support</h4>
+                        <p>Quick access with Alt+S to extract answers and Alt+X to toggle results panel</p>
                     </div>
                     <div class="feature-highlight">
                         <div class="highlight-icon">
-                            <i class="fas fa-target"></i>
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <h4>Smart Selection</h4>
-                        <p>Automatically selects the best answer based on advanced reasoning</p>
+                        <h4>Multiple Modes</h4>
+                        <p>Study mode for learning, Exam mode for testing, and Hint mode for guidance</p>
+                    </div>
+                    <div class="feature-highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-cards-blank"></i>
+                        </div>
+                        <h4>Flashcard System</h4>
+                        <p>Save questions for later review with spaced repetition algorithm</p>
                     </div>
                 </div>
             </div>
@@ -228,7 +286,7 @@
                         <i class="fas fa-database"></i>
                     </div>
                     <h3>Community Q&A Database</h3>
-                    <p>Access a growing database of 50,000+ questions and answers contributed by the community.</p>
+                    <p>Access a growing database of 200+ questions and answers contributed by the community.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -328,11 +386,10 @@
                     <div class="feature-value">
                         <i class="fas fa-check text-green"></i>
                     </div>
-                </div>
-                <div class="comparison-row">
+                </div>                <div class="comparison-row">
                     <div class="feature-name">Batch Question Processing</div>
                     <div class="feature-value">
-                        <span class="limitation">5 questions/hour</span>
+                        <span class="unlimited">Unlimited</span>
                     </div>
                     <div class="feature-value">
                         <span class="unlimited">Unlimited</span>
@@ -357,16 +414,68 @@
             <div class="section-header">
                 <h2>See MoodleGPT Pro in Action</h2>
                 <p>Experience the power of AI-assisted learning</p>
-            </div>
-            <div class="demo-container">
+            </div>            <div class="demo-container">
                 <div class="demo-tabs">
-                    <button class="demo-tab active" data-demo="confidence">Confidence Indicators</button>
+                    <button class="demo-tab active" data-demo="extension">Extension Interface</button>
+                    <button class="demo-tab" data-demo="confidence">Confidence Indicators</button>
                     <button class="demo-tab" data-demo="database">Q&A Database</button>
-                    <button class="demo-tab" data-demo="progress">Progress Tracking</button>
+                    <button class="demo-tab" data-demo="flashcards">Flashcard System</button>
                     <button class="demo-tab" data-demo="themes">Custom Themes</button>
                 </div>
                 <div class="demo-content">
-                    <div class="demo-panel active" id="demo-confidence">
+                    <!-- Extension Interface Demo -->
+                    <div class="demo-panel active" id="demo-extension">
+                        <div class="demo-mockup">
+                            <h3>MoodleGPT Pro Extension Interface</h3>
+                            <div class="extension-interface-demo">
+                                <div class="popup-mockup">
+                                    <div class="popup-header-demo">
+                                        <span class="popup-title">🎓 MoodleGPT Pro</span>
+                                        <div class="popup-actions">
+                                            <button class="theme-toggle">🎨</button>
+                                            <button class="close-btn">×</button>
+                                        </div>
+                                    </div>
+                                    <div class="popup-body-demo">
+                                        <div class="api-section-demo">
+                                            <label>Gemini API Key:</label>
+                                            <input type="password" value="••••••••••••••••" readonly>
+                                            <button class="save-btn-demo">✓ Saved</button>
+                                        </div>
+                                        <div class="modes-section">
+                                            <h4>🎯 Quick Modes:</h4>
+                                            <div class="mode-buttons-demo">
+                                                <button class="mode-btn-demo active">Study</button>
+                                                <button class="mode-btn-demo">Exam</button>
+                                                <button class="mode-btn-demo">Hint</button>
+                                            </div>
+                                        </div>
+                                        <div class="flashcard-section-demo">
+                                            <button class="flashcard-btn-demo">
+                                                📚 Review Flashcards (12)
+                                            </button>
+                                        </div>
+                                        <div class="hotkeys-demo">
+                                            <h4>⌨️ Hotkeys:</h4>
+                                            <div class="hotkey-list">
+                                                <span><kbd>Alt + S</kbd> Extract answers</span>
+                                                <span><kbd>Alt + X</kbd> Toggle results</span>
+                                            </div>
+                                        </div>
+                                        <div class="confidence-status">
+                                            <div class="status-indicator high">High Confidence (95%)</div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Confidence Demo -->
+                    <div class="demo-panel" id="demo-confidence">
                         <div class="demo-mockup">
                             <div class="confidence-demo">
                                 <h3>AI Confidence Analysis</h3>
@@ -423,7 +532,7 @@
                                     </div>
                                 </div>
                                 <div class="search-example">
-                                    <input type="text" placeholder="Search 50,000+ questions..." readonly>
+                                    <input type="text" placeholder="Search 200+ questions..." readonly>
                                     <div class="search-results">
                                         <div class="result-item">
                                             <span class="result-match">95% match</span>
@@ -468,10 +577,74 @@
                                             <span class="period">this month</span>
                                         </div>
                                     </div>
+                                </div>                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flashcard System Demo -->
+                    <div class="demo-panel" id="demo-flashcards">
+                        <div class="demo-mockup">
+                            <div class="flashcards-demo">
+                                <h3>🧠 Smart Flashcard System</h3>
+                                <div class="flashcard-container">
+                                    <div class="flashcard">
+                                        <div class="flashcard-front">
+                                            <div class="flashcard-header">
+                                                <span class="subject-tag">Calculus</span>
+                                                <span class="difficulty easy">Easy</span>
+                                            </div>
+                                            <div class="flashcard-content">
+                                                <h4>Question:</h4>
+                                                <p>What is the derivative of f(x) = 3x² + 2x - 5?</p>
+                                            </div>
+                                            <button class="reveal-btn">Show Answer</button>
+                                        </div>
+                                        <div class="flashcard-back" style="display: none;">
+                                            <div class="flashcard-header">
+                                                <span class="subject-tag">Calculus</span>
+                                                <span class="difficulty easy">Easy</span>
+                                            </div>
+                                            <div class="flashcard-content">
+                                                <h4>Answer:</h4>
+                                                <p><strong>f'(x) = 6x + 2</strong></p>
+                                                <div class="explanation">
+                                                    <p><em>Explanation:</em> Using the power rule: d/dx(3x²) = 6x, d/dx(2x) = 2, d/dx(-5) = 0</p>
+                                                </div>
+                                            </div>
+                                            <div class="confidence-rating">
+                                                <p>How confident are you?</p>
+                                                <div class="rating-buttons">
+                                                    <button class="rating-btn low">😰 Low</button>
+                                                    <button class="rating-btn medium">😐 Medium</button>
+                                                    <button class="rating-btn high">😊 High</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flashcard-controls">
+                                        <button class="control-btn">⏮ Previous</button>
+                                        <span class="card-counter">1 / 12</span>
+                                        <button class="control-btn">Next ⏭</button>
+                                    </div>
+                                    <div class="study-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-value">8</span>
+                                            <span class="stat-label">Mastered</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-value">3</span>
+                                            <span class="stat-label">Learning</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-value">1</span>
+                                            <span class="stat-label">New</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="demo-panel" id="demo-themes">
                         <div class="demo-mockup">
                             <div class="themes-demo">
@@ -636,15 +809,14 @@
                             <p>Start acing your quizzes!</p>
                         </div>
                     </div>
-                </div>
-                <div class="download-actions">
-                    <button class="btn-primary large" onclick="downloadPro()">
-                        <i class="fas fa-download"></i>
-                        Download MoodleGPT Pro
-                    </button>
+                </div>                <div class="download-actions">
+                    <a href="https://chromewebstore.google.com/detail/moodlegpt-pro/[PLACEHOLDER-CHROME-STORE-ID]" class="btn-primary large" target="_blank">
+                        <i class="fas fa-store"></i>
+                        Install from Chrome Web Store
+                    </a>
                     <a href="#installation-guide" class="btn-secondary large">
                         <i class="fas fa-book"></i>
-                        Installation Guide
+                        Setup Guide
                     </a>
                 </div>
             </div>
@@ -653,37 +825,18 @@
 
     <!-- Installation Guide -->
     <section id="installation-guide" class="installation">
-        <div class="container">
-            <div class="section-header">
-                <h2>Installation Guide</h2>
-                <p>Step-by-step instructions to get MoodleGPT Pro running</p>
+        <div class="container">            <div class="section-header">
+                <h2>Quick Setup Guide</h2>
+                <p>Get MoodleGPT Pro running in minutes</p>
             </div>
             <div class="installation-steps">
                 <div class="installation-step">
                     <div class="step-icon">
-                        <i class="fas fa-download"></i>
+                        <i class="fas fa-store"></i>
                     </div>
                     <div class="step-content">
-                        <h3>Step 1: Download the Extension</h3>
-                        <p>Download the MoodleGPT Pro extension files from the link above. Extract the ZIP file to a folder on your computer.</p>
-                    </div>
-                </div>
-                <div class="installation-step">
-                    <div class="step-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="step-content">
-                        <h3>Step 2: Enable Developer Mode</h3>
-                        <p>Open Chrome/Edge, go to Extensions (chrome://extensions/), and enable "Developer mode" in the top right corner.</p>
-                    </div>
-                </div>
-                <div class="installation-step">
-                    <div class="step-icon">
-                        <i class="fas fa-folder-open"></i>
-                    </div>
-                    <div class="step-content">
-                        <h3>Step 3: Load Unpacked Extension</h3>
-                        <p>Click "Load unpacked" and select the NewApproach folder from the extracted files.</p>
+                        <h3>Step 1: Install from Chrome Web Store</h3>
+                        <p>Click "Install from Chrome Web Store" above. The extension will be automatically installed to your browser. No need to download files or enable developer mode!</p>
                     </div>
                 </div>
                 <div class="installation-step">
@@ -691,8 +844,26 @@
                         <i class="fas fa-key"></i>
                     </div>
                     <div class="step-content">
-                        <h3>Step 4: Configure API Key</h3>
-                        <p>Get a free Gemini API key from Google AI Studio, then add it in the extension settings.</p>
+                        <h3>Step 2: Get Your Free Gemini API Key</h3>
+                        <p>Visit <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>, sign in with your Google account, and generate a free API key. The key is yours to keep and use.</p>
+                    </div>
+                </div>
+                <div class="installation-step">
+                    <div class="step-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Step 3: Configure the Extension</h3>
+                        <p>Click the MoodleGPT Pro icon in your browser toolbar, paste your API key in the input field, and click "Save". Your key is stored securely in your browser.</p>
+                    </div>
+                </div>
+                <div class="installation-step">
+                    <div class="step-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Step 4: Start Using on Moodle</h3>
+                        <p>Navigate to any Moodle quiz, click the extension icon to open the popup, select your preferred mode (Study/Exam/Hint), and use hotkeys Alt+S to extract answers!</p>
                     </div>
                 </div>
             </div>
