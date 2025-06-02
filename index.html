@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodleGPT - AI-Powered Moodle Quiz Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="MoodleGPT uses AI to help you answer Moodle quiz questions with your own Gemini API key. Available in Standard ($2) and Pro ($5) versions.">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-icon">🧠</div>
+                <h2>MoodleGPT</h2>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Initializing AI-powered learning...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">🧠</div>
+                <span class="brand-text">MoodleGPT</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#comparison" class="nav-link">Compare</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">AI-Powered</span>
+                    <span class="title-line highlight">Moodle Assistant</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transform your Moodle learning experience with AI that answers multiple choice,                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="scrollToSection('demo')">
+                        <span class="material-icons-outlined">play_circle</span>
+                        Try Interactive Demo
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('comparison')">
+                        Compare Versions
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="extension-preview">
+                    <div class="browser-frame">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="browser-title">MoodleGPT Extension</div>
+                        </div>
+                        <div class="extension-popup" id="heroPopup">
+                            <!-- Extension UI will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Version Comparison -->
+    <section id="comparison" class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Perfect Version</h2>
+                <p class="section-subtitle">Both versions use your own Gemini API key for privacy and control</p>
+            </div>
+            <div class="comparison-table">
+                <div class="comparison-card standard">
+                    <div class="card-header">
+                        <div class="card-icon">⚡</div>
+                        <h3>MoodleGPT Standard</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">2</span>
+                            <span class="period">lifetime</span>
+                        </div>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Basic AI quiz answering</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Multiple choice support</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>True/False questions</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Fill in the blanks</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Gemini API integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Alt+S hotkey support</span>
+                        </div>
+                        <div class="feature-item disabled">
+                            <span class="material-icons-outlined">cancel</span>
+                            <span>Advanced study features</span>
+                        </div>
+                        <div class="feature-item disabled">
+                            <span class="material-icons-outlined">cancel</span>
+                            <span>Theme customization</span>
+                        </div>
+                        <div class="feature-item disabled">
+                            <span class="material-icons-outlined">cancel</span>
+                            <span>Flashcard system</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openDemo('standard')">Try Standard Demo</button>
+                </div>
+
+                <div class="comparison-card pro featured">
+                    <div class="card-badge">Most Popular</div>
+                    <div class="card-header">
+                        <div class="card-icon">🚀</div>
+                        <h3>MoodleGPT Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">5</span>
+                            <span class="period">lifetime</span>
+                        </div>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Everything in Standard</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Advanced study features</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Smart flashcard system</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>7 beautiful themes</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Customizable UI size</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Progress tracking</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Error reporting</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Multiple languages</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span>Settings page</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openDemo('pro')">Try Pro Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Discover what makes MoodleGPT the ultimate Moodle companion</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-feature="ai-answering">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Smart AI Answering</h3>
+                    <p>Advanced AI powered by Google Gemini analyzes questions and provides accurate answers</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('ai-answering')">View Demo</button>
+                </div>
+                <div class="feature-card" data-feature="study-system">
+                    <div class="feature-icon">📚</div>
+                    <h3>Study Features (Pro)</h3>
+                    <p>Flashcards, progress tracking, and spaced repetition for optimal learning</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('study-system')">View Demo</button>
+                </div>
+                <div class="feature-card" data-feature="themes">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful Themes (Pro)</h3>
+                    <p>7 stunning themes including Light, Dark, Ocean, Forest, Royal, and more</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('themes')">View Demo</button>
+                </div>
+                <div class="feature-card" data-feature="hotkeys">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Keyboard Shortcuts</h3>
+                    <p>Quick access with Alt+S hotkey for instant quiz extraction and solving</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('hotkeys')">View Demo</button>
+                </div>
+                <div class="feature-card" data-feature="privacy">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Your API, Your Data</h3>
+                    <p>Use your own Gemini API key for complete privacy and control over your data</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('privacy')">View Demo</button>
+                </div>
+                <div class="feature-card" data-feature="multilingual">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Multi-language (Pro)</h3>
+                    <p>Support for multiple languages with built-in translation system</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('multilingual')">View Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interactive Walkthrough</h2>
+                <p class="section-subtitle">Experience MoodleGPT Pro in action</p>
+            </div>
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <div class="version-selector">
+                        <button class="version-btn active" data-version="pro" onclick="switchDemoVersion('pro')">
+                            MoodleGPT Pro
+                        </button>
+                        <button class="version-btn" data-version="standard" onclick="switchDemoVersion('standard')">
+                            MoodleGPT Standard
+                        </button>
+                    </div>
+                    <div class="demo-steps">
+                        <div class="step-nav">
+                            <button class="step-btn active" data-step="1" onclick="goToStep(1)">
+                                <span class="step-number">1</span>
+                                Setup
+                            </button>
+                            <button class="step-btn" data-step="2" onclick="goToStep(2)">
+                                <span class="step-number">2</span>
+                                Quiz Solving
+                            </button>
+                            <button class="step-btn" data-step="3" onclick="goToStep(3)">
+                                <span class="step-number">3</span>
+                                Study Features
+                            </button>
+                            <button class="step-btn" data-step="4" onclick="goToStep(4)">
+                                <span class="step-number">4</span>
+                                Customization
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-content">
+                    <div class="demo-screen" id="demoScreen">
+                        <!-- Demo content will be dynamically loaded here -->
+                    </div>
+                    <div class="demo-navigation">
+                        <button class="demo-nav-btn prev" onclick="previousStep()" id="prevBtn">
+                            <span class="material-icons-outlined">arrow_back</span>
+                            Previous
+                        </button>
+                        <div class="step-indicator" id="stepIndicator">
+                            <span class="current-step">1</span> / <span class="total-steps">4</span>
+                        </div>
+                        <button class="demo-nav-btn next" onclick="nextStep()" id="nextBtn">
+                            Next
+                            <span class="material-icons-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple, Affordable Pricing</h2>
+                <p class="section-subtitle">One-time payment, lifetime access. No subscriptions.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card standard">
+                    <div class="pricing-header">
+                        <h3>MoodleGPT Standard</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">2</span>
+                            <span class="period">one-time</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ Basic AI quiz answering</div>
+                        <div class="feature">✅ Multiple choice & True/False</div>
+                        <div class="feature">✅ Fill in the blanks</div>
+                        <div class="feature">✅ Hotkey support (Alt+S)</div>
+                        <div class="feature">✅ Your own Gemini API</div>
+                        <div class="feature">✅ Lifetime updates</div>
+                    </div>
+                    <button class="btn btn-outline">Get Standard Version</button>
+                </div>
+                <div class="pricing-card pro featured">
+                    <div class="pricing-badge">Best Value</div>
+                    <div class="pricing-header">
+                        <h3>MoodleGPT Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">5</span>
+                            <span class="period">one-time</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ Everything in Standard</div>
+                        <div class="feature">✅ Smart flashcard system</div>
+                        <div class="feature">✅ 7 beautiful themes</div>
+                        <div class="feature">✅ Progress tracking</div>
+                        <div class="feature">✅ Customizable UI</div>
+                        <div class="feature">✅ Multi-language support</div>
+                        <div class="feature">✅ Advanced settings</div>
+                        <div class="feature">✅ Error reporting</div>
+                    </div>
+                    <button class="btn btn-primary">Get Pro Version</button>
+                </div>
+            </div>            <div class="pricing-faq">
+                <h3>Frequently Asked Questions</h3>                <div class="faq-item api-key-faq">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I get a Google Gemini API key?</span>
+                        <span class="material-icons-outlined">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="api-key-guide">
+                            <h4>Step-by-Step Guide:</h4>
+                            <ol>
+                                <li>
+                                    <strong>Visit Google AI Studio:</strong><br>
+                                    Go to <a href="https://aistudio.google.com" target="_blank" rel="noopener">aistudio.google.com</a>
+                                </li>
+                                <li>
+                                    <strong>Sign in:</strong><br>
+                                    Use your Google account to sign in
+                                </li>
+                                <li>
+                                    <strong>Get API key:</strong><br>
+                                    Click on "Get API key" in the left sidebar
+                                </li>
+                                <li>
+                                    <strong>Create new key:</strong><br>
+                                    Click "Create API key" button
+                                </li>
+                                <li>
+                                    <strong>Select project:</strong><br>
+                                    Choose "Create API key in new project" (recommended)
+                                </li>
+                                <li>
+                                    <strong>Copy your key:</strong><br>
+                                    Copy the generated API key and save it securely
+                                </li>
+                                <li>
+                                    <strong>Add to extension:</strong><br>
+                                    Paste the API key in MoodleGPT settings
+                                </li>
+                            </ol>
+                            <div class="api-note">
+                                <strong>💡 Important:</strong> The API key is free to use with generous limits. Keep your key private and never share it publicly.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do I need a Gemini API key?</span>
+                        <span class="material-icons-outlined">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, you'll need your own Google Gemini API key. This ensures your privacy and gives you full control over your data and usage.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is this a one-time payment?</span>
+                        <span class="material-icons-outlined">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Both versions are one-time payments with lifetime access and free updates.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What's the difference between Standard and Pro?</span>
+                        <span class="material-icons-outlined">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        Pro includes advanced study features like flashcards, multiple themes, progress tracking, and UI customization options.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">🧠</div>
+                    <span class="brand-text">MoodleGPT</span>
+                </div>                <div class="footer-links">
+                    <a href="#" class="footer-link" onclick="openModal('privacyModal')">Privacy Policy</a>
+                    <a href="#" class="footer-link" onclick="openModal('termsModal')">Terms of Service</a>
+                    <a href="#" class="footer-link" onclick="openModal('supportModal')">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MoodleGPT by António Coelho. All rights reserved.</p>
+            </div>
+        </div>    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content legal-modal">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="legal-content">
+                    <h4>Information Collection</h4>
+                    <p>MoodleGPT does not collect, store, or transmit any personal data. All processing happens locally on your device using your own Google Gemini API key.</p>
+                    
+                    <h4>API Key Usage</h4>
+                    <p>Your Google Gemini API key is stored locally in your browser and is only used to communicate directly with Google's Gemini API. We never have access to your API key.</p>
+                    
+                    <h4>Data Processing</h4>
+                    <p>Quiz questions and answers are processed through Google's Gemini API according to Google's privacy policy. No data is stored on our servers.</p>
+                    
+                    <h4>Local Storage</h4>
+                    <p>The extension may store settings and preferences locally in your browser for functionality purposes. This data never leaves your device.</p>
+                    
+                    <h4>Contact</h4>
+                    <p>For privacy concerns, contact us through the support channels provided.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content legal-modal">
+            <div class="modal-header">
+                <h3>Terms of Service</h3>
+                <span class="close" onclick="closeModal('termsModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="legal-content">
+                    <h4>License</h4>
+                    <p>MoodleGPT is licensed for personal and educational use. Commercial use requires appropriate licensing.</p>
+                    
+                    <h4>User Responsibilities</h4>
+                    <ul>
+                        <li>Provide your own Google Gemini API key</li>
+                        <li>Use the extension in accordance with your institution's academic integrity policies</li>
+                        <li>Keep your API key secure and private</li>
+                        <li>Use the extension responsibly and ethically</li>
+                    </ul>
+                    
+                    <h4>Limitations</h4>
+                    <p>The extension is provided "as is" without warranties. Accuracy of AI responses may vary and should be verified.</p>
+                    
+                    <h4>Academic Integrity</h4>
+                    <p>Users are responsible for ensuring their use of this tool complies with their institution's academic policies and honor codes.</p>
+                    
+                    <h4>Refunds</h4>
+                    <p>Due to the digital nature of the product, refunds are handled on a case-by-case basis within 7 days of purchase.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div id="supportModal" class="modal">
+        <div class="modal-content support-modal">
+            <div class="modal-header">
+                <h3>Support & Contact</h3>
+                <span class="close" onclick="closeModal('supportModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="support-content">
+                    <h4>📧 Contact Information</h4>
+                    <p><strong>Developer:</strong> António Coelho</p>
+                    <p><strong>Email:</strong> support@moodlegpt.com</p>
+                    
+                    <h4>🔧 Technical Support</h4>
+                    <ul>
+                        <li>API key setup assistance</li>
+                        <li>Extension installation help</li>
+                        <li>Bug reports and feature requests</li>
+                        <li>Compatibility issues</li>
+                    </ul>
+                    
+                    <h4>⚡ Quick Help</h4>
+                    <div class="quick-help">
+                        <div class="help-item">
+                            <strong>Extension not working?</strong>
+                            <p>Make sure you have a valid Gemini API key entered in the settings.</p>
+                        </div>
+                        <div class="help-item">
+                            <strong>Questions not being detected?</strong>
+                            <p>Try pressing Alt+S to manually extract quiz content.</p>
+                        </div>
+                        <div class="help-item">
+                            <strong>Want to report a bug?</strong>
+                            <p>Include your browser version, extension version, and steps to reproduce the issue.</p>
+                        </div>
+                    </div>
+                    
+                    <h4>💬 Response Time</h4>
+                    <p>We typically respond to support requests within 24-48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature Demo Modal -->
+    <div id="featureModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Feature Demo</h3>
+                <button class="modal-close" onclick="closeFeatureModal()">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Feature demo content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
