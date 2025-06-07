@@ -56,21 +56,22 @@
     <section id="hero" class="hero">
         <div class="hero-background">
             <div class="hero-gradient"></div>
-            <div class="floating-shapes">
+            <div class="floating-shapes parallax-element">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
                 <div class="shape shape-3"></div>
                 <div class="shape shape-4"></div>
             </div>
-        </div>
-        <div class="hero-container">            <div class="hero-content">
-                <h1 class="hero-title">
+        </div>        <div class="hero-container">
+            <div class="hero-content section-reveal">
+                <h1 class="hero-title progressive-reveal">
                     <span class="title-line" data-translate="heroTitle1">AI-Powered</span>
                     <span class="title-line highlight" data-translate="heroTitle2">Moodle Assistant</span>
-                </h1>                <p class="hero-subtitle" data-translate="heroSubtitle">
+                </h1>
+                <p class="hero-subtitle progressive-reveal" data-translate="heroSubtitle">
                     Transform your Moodle learning experience with AI that answers multiple choice, true/false, and fill-in-the-blank questions. Pro version includes auto-select answers feature.
                 </p>
-                <div class="hero-cta">
+                <div class="hero-cta progressive-reveal">
                     <button class="btn btn-primary" onclick="scrollToSection('demo')">
                         <span class="material-icons-outlined">play_circle</span>
                         <span data-translate="tryDemoBtn">Try Interactive Demo</span>
@@ -80,7 +81,7 @@
                     </button>
                 </div>
             </div>
-            <div class="hero-visual">
+            <div class="hero-visual section-reveal">
                 <div class="extension-preview">
                     <div class="browser-frame">
                         <div class="browser-header">
@@ -98,15 +99,15 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Version Comparison -->
-    <section id="comparison" class="comparison">        <div class="container">
-            <div class="section-header">
+    </section>    <!-- Version Comparison -->
+    <section id="comparison" class="comparison section-offset">
+        <div class="container">
+            <div class="section-header section-reveal">
                 <h2 class="section-title" data-translate="comparisonTitle">Choose Your Perfect Version</h2>
                 <p class="section-subtitle" data-translate="comparisonSubtitle">Both versions use your own Gemini API key for privacy and control</p>
             </div>
-            <div class="comparison-table">                <div class="comparison-card standard">
+            <div class="comparison-table">
+                <div class="comparison-card standard parallax-element">
                     <div class="card-header">
                         <div class="card-icon">⚡</div>
                         <h3 data-translate="standardTitle">MoodleGPT Standard</h3>
@@ -155,7 +156,7 @@
                             <span class="material-icons-outlined">cancel</span>
                             <span data-translate="featureDisabled5">Flashcard system</span>                        </div>
                     </div>
-                </div>                <div class="comparison-card pro featured">
+                </div>                <div class="comparison-card pro featured parallax-element">
                     <div class="card-badge" data-translate="mostPopular">Most Popular</div>
                     <div class="card-header">
                         <div class="card-icon">🚀</div>
@@ -216,26 +217,26 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- Features Showcase -->
-    <section id="features" class="features">
+    </section>    <!-- Features Showcase -->    <section id="features" class="features section-offset">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header section-reveal">
                 <h2 class="section-title" data-translate="featuresTitle">Powerful Features</h2>
                 <p class="section-subtitle" data-translate="featuresSubtitle">Discover what makes MoodleGPT the ultimate Moodle companion</p>
             </div>
-            <div class="features-grid">                <div class="feature-card" data-feature="ai-answering">
+            <div class="features-grid">
+                <div class="feature-card progressive-reveal" data-feature="ai-answering">
                     <div class="feature-icon">🧠</div>
                     <h3 data-translate="aiAnsweringTitle">Smart AI Answering</h3>
                     <p data-translate="aiAnsweringDesc">Advanced AI powered by Google Gemini analyzes questions and provides accurate answers</p>
                     <button class="feature-demo-btn" onclick="showFeatureDemo('ai-answering')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
-                <div class="feature-card" data-feature="study-system">
+                <div class="feature-card progressive-reveal" data-feature="study-system">
                     <div class="feature-icon">📚</div>
                     <h3 data-translate="flashcardsTitle">Study Features (Pro)</h3>
                     <p data-translate="flashcardsDesc">Flashcards, progress tracking, and spaced repetition for optimal learning</p>
                     <button class="feature-demo-btn" onclick="showFeatureDemo('study-system')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
-                <div class="feature-card" data-feature="themes">
+                <div class="feature-card progressive-reveal" data-feature="themes">
                     <div class="feature-icon">🎨</div>
                     <h3 data-translate="customizationTitle">Beautiful Themes (Pro)</h3>
                     <p data-translate="customizationDesc">7 stunning themes including Light, Dark, Ocean, Forest, Royal, and more</p>
@@ -267,7 +268,7 @@
             </div>
         </div>
     </section>    <!-- Interactive Demo Section -->
-    <section id="demo" class="demo">
+    <section id="demo" class="demo section-offset">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" data-translate="demoTitle">Interactive Walkthrough</h2>
@@ -325,7 +326,7 @@
             </div>
         </div>
     </section>    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
+    <section id="pricing" class="pricing section-offset">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" data-translate="pricingTitle">Simple, Affordable Pricing</h2>

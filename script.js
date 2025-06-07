@@ -15,8 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const loadingScreen = document.getElementById('loadingScreen');
         loadingScreen.classList.add('hidden');
         
-        // Initialize animations
+        // Initialize all animations and scrolling
         initializeAnimations();
+        initializeSmoothScrolling();
+        initializeMobileScrolling();
+        initializeScrollEffects();
     }, 3000);
     
     // Initialize navbar
@@ -68,7 +71,7 @@ function initializeHeroPopup() {
 
 // Initialize animations
 function initializeAnimations() {
-    // Animate cards on scroll
+    // Enhanced scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -77,28 +80,116 @@ function initializeAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animationDelay = '0s';
-                entry.target.classList.add('animate-in');
+                // Add different animation classes based on element type
+                const element = entry.target;
+                
+                if (element.classList.contains('comparison-card')) {
+                    element.classList.add('animate-in', 'slide-up');
+                } else if (element.classList.contains('feature-card')) {
+                    element.classList.add('animate-in', 'fade-scale');
+                } else if (element.classList.contains('pricing-card')) {
+                    element.classList.add('animate-in', 'bounce-in');
+                } else if (element.classList.contains('section-reveal')) {
+                    element.classList.add('revealed');
+                } else {
+                    element.classList.add('animate-in', 'slide-up');
+                }
+                
+                // Add staggered delays for multiple elements
+                const siblings = Array.from(element.parentNode.children);
+                const index = siblings.indexOf(element);
+                element.style.animationDelay = `${index * 0.1}s`;
             }
         });
     }, observerOptions);
     
     // Observe all animatable elements
-    document.querySelectorAll('.comparison-card, .feature-card, .pricing-card').forEach(card => {
+    document.querySelectorAll('.comparison-card, .feature-card, .pricing-card, .section-reveal, .hero-content, .hero-visual').forEach(card => {
         observer.observe(card);
     });
+    
+    // Initialize parallax scrolling
+    initializeParallax();
+    
+    // Initialize progressive reveal
+    initializeProgressiveReveal();
 }
 
-// Scroll to section
+// Enhanced smooth scrolling with easing
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
         const offsetTop = section.offsetTop - 80; // Account for navbar
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
+        const start = window.pageYOffset;
+        const distance = offsetTop - start;
+        const duration = Math.min(Math.abs(distance) / 2, 1000); // Max 1 second
+        let startTime = null;
+        
+        function scrollAnimation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            
+            // Easing function (ease-out-quart)
+            const ease = 1 - Math.pow(1 - progress, 4);
+            
+            window.scrollTo(0, start + distance * ease);
+            
+            if (progress < 1) {
+                requestAnimationFrame(scrollAnimation);
+            }
+        }
+        
+        requestAnimationFrame(scrollAnimation);
+    }
+}
+
+// Initialize parallax scrolling effects
+function initializeParallax() {
+    const parallaxElements = document.querySelectorAll('.parallax-element, .floating-shapes, .hero-background');
+    
+    function updateParallax() {
+        const scrollTop = window.pageYOffset;
+        
+        parallaxElements.forEach((element, index) => {
+            const speed = 0.5 + (index * 0.2); // Different speeds for different elements
+            const yPos = -(scrollTop * speed);
+            element.style.transform = `translateY(${yPos}px)`;
         });
     }
+    
+    // Throttled scroll event for better performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Initialize progressive reveal animations
+function initializeProgressiveReveal() {
+    const progressiveElements = document.querySelectorAll('.progressive-reveal');
+    
+    const progressiveObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('show');
+                }, index * 100); // Stagger the reveals
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -20px 0px'
+    });
+      progressiveElements.forEach(element => {
+        progressiveObserver.observe(element);
+    });
 }
 
 // Demo functionality
@@ -675,59 +766,65 @@ function changeUISize(size) {
     event.target.classList.add('active');
 }
 
+// Global variable to track current modal feature
+let currentModalFeature = null;
+
 // Feature demo functions
 function showFeatureDemo(feature) {
     const modal = document.getElementById('featureModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
     
+    // Store the current feature for language switching
+    currentModalFeature = feature;
+    
     const featureContent = {
         'ai-answering': {
-            title: 'Smart AI Answering',
+            title: getTranslation('modalAiAnsweringTitle'),
             content: `
                 <div class="feature-demo-content">
-                    <h4>How it works:</h4>
+                    <h4>${getTranslation('modalAiAnsweringHow')}</h4>
                     <div class="ai-process">
                         <div class="process-step">
                             <div class="step-icon">📝</div>
                             <div class="step-content">
-                                <h5>Question Analysis</h5>
-                                <p>AI analyzes the question context, type, and available options</p>
+                                <h5>${getTranslation('modalQuestionAnalysis')}</h5>
+                                <p>${getTranslation('modalQuestionAnalysisDesc')}</p>
                             </div>
                         </div>
                         <div class="process-step">
                             <div class="step-icon">🧠</div>
                             <div class="step-content">
-                                <h5>Knowledge Processing</h5>
-                                <p>Gemini AI processes the question using vast knowledge base</p>
+                                <h5>${getTranslation('modalKnowledgeProcessing')}</h5>
+                                <p>${getTranslation('modalKnowledgeProcessingDesc')}</p>
                             </div>
                         </div>
                         <div class="process-step">
                             <div class="step-icon">✨</div>
                             <div class="step-content">
-                                <h5>Answer Generation</h5>
-                                <p>Provides accurate answer with confidence scoring</p>
+                                <h5>${getTranslation('modalAnswerGeneration')}</h5>
+                                <p>${getTranslation('modalAnswerGenerationDesc')}</p>
                             </div>
                         </div>
                     </div>
                     <div class="accuracy-stats">
-                        <h4>Accuracy by Question Type:</h4>
+                        <h4>${getTranslation('modalAccuracyByType')}</h4>
                         <div class="accuracy-item">
-                            <span>Multiple Choice</span>
+                            <span>${getTranslation('modalMultipleChoice')}</span>
                             <div class="accuracy-bar">
                                 <div class="accuracy-fill" style="width: 95%"></div>
                             </div>
                             <span>95%</span>
                         </div>
                         <div class="accuracy-item">
-                            <span>True/False</span>
+                            <span>${getTranslation('modalTrueFalse')}</span>
                             <div class="accuracy-bar">
                                 <div class="accuracy-fill" style="width: 98%"></div>
                             </div>
                             <span>98%</span>
                         </div>
                         <div class="accuracy-item">
-                            <span>Fill in the Blank</span>
+                            <span>${getTranslation('modalFillBlank')}</span>
                             <div class="accuracy-bar">
                                 <div class="accuracy-fill" style="width: 87%"></div>
                             </div>
@@ -738,45 +835,46 @@ function showFeatureDemo(feature) {
             `
         },
         'study-system': {
-            title: 'Advanced Study Features (Pro)',
+            title: getTranslation('modalStudySystemTitle'),
             content: `
                 <div class="feature-demo-content">
                     <div class="study-features-grid">
                         <div class="study-feature">
                             <div class="feature-icon">🗂️</div>
-                            <h4>Smart Flashcards</h4>
-                            <p>Automatically create flashcards from incorrect answers with spaced repetition algorithm</p>
+                            <h4>${getTranslation('modalSmartFlashcards')}</h4>
+                            <p>${getTranslation('modalSmartFlashcardsDesc')}</p>
                         </div>
                         <div class="study-feature">
                             <div class="feature-icon">📊</div>
-                            <h4>Progress Tracking</h4>
-                            <p>Monitor your learning progress across different subjects and topics</p>
+                            <h4>${getTranslation('modalProgressTracking')}</h4>
+                            <p>${getTranslation('modalProgressTrackingDesc')}</p>
                         </div>
                         <div class="study-feature">
                             <div class="feature-icon">🎯</div>
-                            <h4>Weak Area Detection</h4>
-                            <p>AI identifies your weak areas and suggests targeted practice</p>
+                            <h4>${getTranslation('modalWeakAreaDetection')}</h4>
+                            <p>${getTranslation('modalWeakAreaDetectionDesc')}</p>
                         </div>
                         <div class="study-feature">
                             <div class="feature-icon">🔥</div>
-                            <h4>Study Streaks</h4>
-                            <p>Maintain daily study streaks and build consistent learning habits</p>
+                            <h4>${getTranslation('modalStudyStreaks')}</h4>
+                            <p>${getTranslation('modalStudyStreaksDesc')}</p>
                         </div>
                     </div>
                     <div class="upgrade-prompt">
-                        <p><strong>Available in MoodleGPT Pro only</strong></p>
-                        <button class="btn btn-primary">Upgrade to Pro - $5</button>
+                        <p><strong>${getTranslation('modalAvailableProOnly')}</strong></p>
+                        <button class="btn btn-primary">${getTranslation('modalUpgradeToProBtn')}</button>
                     </div>
                 </div>
             `
         },
         'themes': {
-            title: 'Beautiful Themes (Pro)',
+            title: getTranslation('modalThemesTitle'),
             content: `
-                <div class="feature-demo-content">                    <div class="themes-showcase">
+                <div class="feature-demo-content">
+                    <div class="themes-showcase">
                         <div class="theme-preview-large">
                             <div class="theme-demo light-theme">
-                                <h4>☀️ Light Theme</h4>
+                                <h4>${getTranslation('modalLightTheme')}</h4>
                                 <div class="theme-ui-preview">
                                     <div class="ui-element"></div>
                                     <div class="ui-element"></div>
@@ -784,7 +882,7 @@ function showFeatureDemo(feature) {
                                 </div>
                             </div>
                             <div class="theme-demo dark-theme">
-                                <h4>🌙 Dark Theme</h4>
+                                <h4>${getTranslation('modalDarkTheme')}</h4>
                                 <div class="theme-ui-preview">
                                     <div class="ui-element"></div>
                                     <div class="ui-element"></div>
@@ -792,7 +890,7 @@ function showFeatureDemo(feature) {
                                 </div>
                             </div>
                             <div class="theme-demo ocean-theme">
-                                <h4>🌊 Ocean Theme</h4>
+                                <h4>${getTranslation('modalOceanTheme')}</h4>
                                 <div class="theme-ui-preview">
                                     <div class="ui-element"></div>
                                     <div class="ui-element"></div>
@@ -800,7 +898,7 @@ function showFeatureDemo(feature) {
                                 </div>
                             </div>
                             <div class="theme-demo forest-theme">
-                                <h4>🌲 Forest Theme</h4>
+                                <h4>${getTranslation('modalForestTheme')}</h4>
                                 <div class="theme-ui-preview">
                                     <div class="ui-element"></div>
                                     <div class="ui-element"></div>
@@ -808,7 +906,7 @@ function showFeatureDemo(feature) {
                                 </div>
                             </div>
                             <div class="theme-demo royal-theme">
-                                <h4>👑 Royal Theme</h4>
+                                <h4>${getTranslation('modalRoyalTheme')}</h4>
                                 <div class="theme-ui-preview">
                                     <div class="ui-element"></div>
                                     <div class="ui-element"></div>
@@ -816,7 +914,7 @@ function showFeatureDemo(feature) {
                                 </div>
                             </div>
                             <div class="theme-demo sunset-theme">
-                                <h4>🌅 Sunset Theme</h4>
+                                <h4>${getTranslation('modalSunsetTheme')}</h4>
                                 <div class="theme-ui-preview">
                                     <div class="ui-element"></div>
                                     <div class="ui-element"></div>
@@ -824,7 +922,7 @@ function showFeatureDemo(feature) {
                                 </div>
                             </div>
                             <div class="theme-demo rose-theme">
-                                <h4>🌹 Rose Theme</h4>
+                                <h4>${getTranslation('modalRoseTheme')}</h4>
                                 <div class="theme-ui-preview">
                                     <div class="ui-element"></div>
                                     <div class="ui-element"></div>
@@ -834,20 +932,19 @@ function showFeatureDemo(feature) {
                         </div>
                     </div>
                     <div class="theme-features">
-                        <h4>Theme Features:</h4>
+                        <h4>${getTranslation('modalThemeFeatures')}</h4>
                         <ul>
-                            <li>7 carefully crafted themes</li>
-                            <li>Automatic dark/light mode detection</li>
-                            <li>Custom color schemes for each theme</li>
-                            <li>Smooth transitions and animations</li>
-                            <li>Consistent UI across all features</li>
+                            <li>${getTranslation('modalThemeFeature1')}</li>
+                            <li>${getTranslation('modalThemeFeature2')}</li>
+                            <li>${getTranslation('modalThemeFeature3')}</li>
+                            <li>${getTranslation('modalThemeFeature4')}</li>
+                            <li>${getTranslation('modalThemeFeature5')}</li>
                         </ul>
                     </div>
                 </div>
             `
-        },
-        'hotkeys': {
-            title: 'Keyboard Shortcuts',
+        },        'hotkeys': {
+            title: getTranslation('modalHotkeysTitle'),
             content: `
                 <div class="feature-demo-content">
                     <div class="hotkeys-list">
@@ -856,197 +953,204 @@ function showFeatureDemo(feature) {
                                 <kbd>Alt</kbd> + <kbd>S</kbd>
                             </div>
                             <div class="hotkey-description">
-                                <h4>Extract Quiz Content</h4>
-                                <p>Instantly extract and analyze quiz questions from any Moodle page</p>
+                                <h4>${getTranslation('modalExtractQuizContent')}</h4>
+                                <p>${getTranslation('modalInstantlyExtract')}</p>
+                            </div>
+                        </div>
+                        <div class="hotkey-item">
+                            <div class="hotkey-combo">
+                                <kbd>Alt</kbd> + <kbd>X</kbd>
+                            </div>
+                            <div class="hotkey-description">
+                                <h4>${getTranslation('modalToggleResults')}</h4>
+                                <p>${getTranslation('modalToggleResultsDesc')}</p>
                             </div>
                         </div>
                         <div class="hotkey-demo">
-                            <h4>How it works:</h4>
+                            <h4>${getTranslation('modalHotkeysHow')}</h4>
                             <div class="demo-sequence">
                                 <div class="demo-step">
                                     <span class="step-number">1</span>
-                                    <span>Navigate to any Moodle quiz</span>
+                                    <span>${getTranslation('modalHotkeysStep1')}</span>
                                 </div>
                                 <div class="demo-step">
                                     <span class="step-number">2</span>
-                                    <span>Press Alt+S anywhere on the page</span>
+                                    <span>${getTranslation('modalHotkeysStep2')}</span>
                                 </div>
                                 <div class="demo-step">
                                     <span class="step-number">3</span>
-                                    <span>Questions are instantly extracted</span>
+                                    <span>${getTranslation('modalHotkeysStep3')}</span>
                                 </div>
                                 <div class="demo-step">
                                     <span class="step-number">4</span>
-                                    <span>AI provides answers automatically</span>
+                                    <span>${getTranslation('modalHotkeysStep4')}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             `
-        },
-        'auto-select': {
-            title: 'Auto-Select Answers (Pro)',
+        },        'auto-select': {
+            title: getTranslation('modalAutoSelectTitle'),
             content: `
                 <div class="feature-demo-content">
                     <div class="auto-select-demo">
                         <div class="demo-explanation">
-                            <h4>How Auto-Select Works:</h4>
-                            <p>This Pro-exclusive feature automatically selects the correct answers in your Moodle interface after AI analysis.</p>
+                            <h4>${getTranslation('modalAutoSelectHow')}</h4>
+                            <p>${getTranslation('modalAutoSelectDesc')}</p>
                         </div>
                         
                         <div class="auto-select-process">
                             <div class="process-step">
                                 <div class="step-icon">🔍</div>
                                 <div class="step-content">
-                                    <h5>Question Detection</h5>
-                                    <p>AI identifies all question elements on the Moodle page</p>
+                                    <h5>${getTranslation('modalQuestionDetection')}</h5>
+                                    <p>${getTranslation('modalQuestionDetectionDesc')}</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <div class="step-icon">🧠</div>
                                 <div class="step-content">
-                                    <h5>Answer Analysis</h5>
-                                    <p>Gemini AI processes each question and determines the correct answer</p>
+                                    <h5>${getTranslation('modalAnswerAnalysis')}</h5>
+                                    <p>${getTranslation('modalAnswerAnalysisDesc')}</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <div class="step-icon">🎯</div>
                                 <div class="step-content">
-                                    <h5>Automatic Selection</h5>
-                                    <p>Correct answers are automatically selected in the Moodle interface</p>
+                                    <h5>${getTranslation('modalAutomaticSelection')}</h5>
+                                    <p>${getTranslation('modalAutomaticSelectionDesc')}</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="feature-benefits">
-                            <h4>Benefits:</h4>
+                            <h4>${getTranslation('modalBenefits')}</h4>
                             <ul>
-                                <li>✅ Save time with instant answer selection</li>
-                                <li>✅ Reduce human error in quiz submissions</li>
-                                <li>✅ Works with multiple choice, true/false, and fill-in-the-blank</li>
-                                <li>✅ Smart confidence detection prevents wrong selections</li>
-                                <li>✅ Manual override always available</li>
+                                <li>${getTranslation('modalBenefit1')}</li>
+                                <li>${getTranslation('modalBenefit2')}</li>
+                                <li>${getTranslation('modalBenefit3')}</li>
+                                <li>${getTranslation('modalBenefit4')}</li>
+                                <li>${getTranslation('modalBenefit5')}</li>
                             </ul>
                         </div>
 
                         <div class="demo-visual">
-                            <h4>Visual Demo:</h4>
+                            <h4>${getTranslation('modalVisualDemo')}</h4>
                             <div class="moodle-quiz-preview">
                                 <div class="question-block">
-                                    <h5>Sample Question:</h5>
-                                    <p>What is the capital of France?</p>
+                                    <h5>${getTranslation('modalSampleQuestion')}</h5>
+                                    <p>${getTranslation('modalCapitalFrance')}</p>
                                     <div class="quiz-options">
                                         <label class="quiz-option">
                                             <input type="radio" name="demo-auto" value="london">
-                                            <span>London</span>
+                                            <span>${getTranslation('modalLondon')}</span>
                                         </label>
                                         <label class="quiz-option selected-answer">
                                             <input type="radio" name="demo-auto" value="paris" checked>
-                                            <span>Paris ✓</span>
+                                            <span>${getTranslation('modalParis')}</span>
                                         </label>
                                         <label class="quiz-option">
                                             <input type="radio" name="demo-auto" value="berlin">
-                                            <span>Berlin</span>
+                                            <span>${getTranslation('modalBerlin')}</span>
                                         </label>
                                         <label class="quiz-option">
                                             <input type="radio" name="demo-auto" value="madrid">
-                                            <span>Madrid</span>
+                                            <span>${getTranslation('modalMadrid')}</span>
                                         </label>
                                     </div>
                                     <div class="auto-select-indicator">
                                         <span class="indicator-icon">🤖</span>
-                                        <span>Auto-selected by MoodleGPT Pro</span>
+                                        <span>${getTranslation('modalAutoSelectedBy')}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="upgrade-prompt">
-                            <p><strong>Available in MoodleGPT Pro only</strong></p>
-                            <button class="btn btn-primary" onclick="scrollToSection('pricing')">Upgrade to Pro - $5</button>
+                            <p><strong>${getTranslation('modalAvailableProOnly')}</strong></p>
+                            <button class="btn btn-primary" onclick="scrollToSection('pricing')">${getTranslation('modalUpgradeToProBtn')}</button>
                         </div>
                     </div>
                 </div>
             `
-        },
-        'privacy': {
-            title: 'Your API, Your Data',
+        },        'privacy': {
+            title: getTranslation('modalPrivacyTitle'),
             content: `
                 <div class="feature-demo-content">
                     <div class="privacy-features">
                         <div class="privacy-item">
                             <div class="privacy-icon">🔑</div>
-                            <h4>Your Own API Key</h4>
-                            <p>Use your personal Gemini API key for complete control over data and usage</p>
+                            <h4>${getTranslation('modalYourOwnApiKey')}</h4>
+                            <p>${getTranslation('modalYourOwnApiKeyDesc')}</p>
                         </div>
                         <div class="privacy-item">
                             <div class="privacy-icon">🏠</div>
-                            <h4>Local Storage</h4>
-                            <p>All data is stored locally in your browser, never on external servers</p>
+                            <h4>${getTranslation('modalLocalStorage')}</h4>
+                            <p>${getTranslation('modalLocalStorageDesc')}</p>
                         </div>
                         <div class="privacy-item">
                             <div class="privacy-icon">🔒</div>
-                            <h4>No Data Collection</h4>
-                            <p>We don't collect, store, or analyze your quiz questions or answers</p>
+                            <h4>${getTranslation('modalNoDataCollection')}</h4>
+                            <p>${getTranslation('modalNoDataCollectionDesc')}</p>
                         </div>
                         <div class="privacy-item">
                             <div class="privacy-icon">💰</div>
-                            <h4>Cost Control</h4>
-                            <p>Monitor and control your AI usage costs directly through Google's billing</p>
+                            <h4>${getTranslation('modalCostControl')}</h4>
+                            <p>${getTranslation('modalCostControlDesc')}</p>
                         </div>
                     </div>
                     <div class="api-setup">
-                        <h4>Getting Your Gemini API Key:</h4>
+                        <h4>${getTranslation('modalGettingApiKey')}</h4>
                         <ol>
-                            <li>Visit <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
-                            <li>Create a new API key</li>
-                            <li>Copy and paste it into MoodleGPT</li>
-                            <li>Start solving quizzes securely!</li>
+                            <li><a href="https://makersuite.google.com/app/apikey" target="_blank">${getTranslation('modalApiStep1')}</a></li>
+                            <li>${getTranslation('modalApiStep2')}</li>
+                            <li>${getTranslation('modalApiStep3')}</li>
+                            <li>${getTranslation('modalApiStep4')}</li>
                         </ol>
                     </div>
                 </div>
             `
         },
         'multilingual': {
-            title: 'Multi-language Support (Pro)',
+            title: getTranslation('modalMultilingualTitle'),
             content: `
                 <div class="feature-demo-content">
                     <div class="language-grid">
                         <div class="language-item">
                             <span class="flag">🇺🇸</span>
-                            <span>English</span>
+                            <span>${getTranslation('modalEnglish')}</span>
                         </div>
                         <div class="language-item">
                             <span class="flag">🇪🇸</span>
-                            <span>Español</span>
+                            <span>${getTranslation('modalSpanish')}</span>
                         </div>
                         <div class="language-item">
                             <span class="flag">🇫🇷</span>
-                            <span>Français</span>
+                            <span>${getTranslation('modalFrench')}</span>
                         </div>
                         <div class="language-item">
                             <span class="flag">🇩🇪</span>
-                            <span>Deutsch</span>
+                            <span>${getTranslation('modalGerman')}</span>
                         </div>
                         <div class="language-item">
                             <span class="flag">🇮🇹</span>
-                            <span>Italiano</span>
+                            <span>${getTranslation('modalItalian')}</span>
                         </div>
                         <div class="language-item">
                             <span class="flag">🇵🇹</span>
-                            <span>Português</span>
+                            <span>${getTranslation('modalPortuguese')}</span>
                         </div>
                     </div>
                     <div class="translation-demo">
-                        <h4>Automatic Interface Translation</h4>
-                        <p>The entire MoodleGPT interface automatically adapts to your browser's language settings or your manual selection.</p>
+                        <h4>${getTranslation('modalAutomaticTranslation')}</h4>
+                        <p>${getTranslation('modalTranslationDesc')}</p>
                         <div class="translation-example">
                             <div class="original">
-                                <strong>English:</strong> "Extract Quiz Content"
+                                <strong>${getTranslation('modalEnglish')}:</strong> "${getTranslation('modalTranslationExample')}"
                             </div>
                             <div class="translated">
-                                <strong>Spanish:</strong> "Extraer Contenido del Cuestionario"
+                                <strong>${getTranslation('modalSpanish')}:</strong> "${getTranslation('modalTranslationExampleEs')}"
                             </div>
                         </div>
                     </div>
@@ -1064,16 +1168,98 @@ function showFeatureDemo(feature) {
 
 function closeFeatureModal() {
     document.getElementById('featureModal').classList.remove('active');
+    currentModalFeature = null; // Clear the stored feature
 }
 
-function openDemo(version) {
-    currentDemoVersion = version;
-    scrollToSection('demo');
+// Function to refresh modal content when language changes
+function refreshModalContent() {
+    const modal = document.getElementById('featureModal');
+    if (modal && modal.classList.contains('active') && currentModalFeature) {
+        // Re-show the same feature to update the content with new translations
+        showFeatureDemo(currentModalFeature);
+    }
+}
+
+// Make refreshModalContent globally available
+window.refreshModalContent = refreshModalContent;
+
+// Helper function to get feature content
+function getFeatureContent(feature) {
+    const featureContent = {
+        'ai-answering': { title: getTranslation('modalAiAnsweringTitle') },
+        'study-system': { title: getTranslation('modalStudySystemTitle') },
+        'themes': { title: getTranslation('modalThemesTitle') },
+        'hotkeys': { title: getTranslation('modalHotkeysTitle') },
+        'auto-select': { title: getTranslation('modalAutoSelectTitle') },
+        'privacy': { title: getTranslation('modalPrivacyTitle') },
+        'multilingual': { title: getTranslation('modalMultilingualTitle') }
+    };
+    return featureContent[feature];
+}
+
+// Enhanced smooth scrolling for all anchor links
+function initializeSmoothScrolling() {
+    // Handle all anchor links, not just nav links
+    document.addEventListener('click', (e) => {
+        // Check if the clicked element is an anchor link
+        const link = e.target.closest('a[href^="#"]');
+        if (link) {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            if (targetId) {
+                scrollToSection(targetId);
+            }
+        }
+    });
     
-    // Update demo to show selected version
-    setTimeout(() => {
-        switchDemoVersion(version);
-    }, 500);
+    // Add smooth scrolling to buttons that trigger scrolling
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('button[onclick*="scrollToSection"]')) {
+            // Extract the section ID from the onclick attribute
+            const onclickValue = e.target.getAttribute('onclick');
+            const match = onclickValue.match(/scrollToSection\('([^']+)'\)/);
+            if (match) {
+                e.preventDefault();
+                scrollToSection(match[1]);
+            }
+        }
+    });
+}
+
+// Add momentum scrolling effect for mobile devices
+function initializeMobileScrolling() {
+    if (window.innerWidth <= 768) {
+        document.body.style.webkitOverflowScrolling = 'touch';
+        document.body.style.overflowScrolling = 'touch';
+    }
+}
+
+// Add scroll-based navbar transparency
+function initializeScrollEffects() {
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add/remove scrolled class
+        if (scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        // Hide/show navbar on scroll (optional)
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scrolling down
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up
+            navbar.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
 }
 
 // FAQ functionality
@@ -1168,3 +1354,7 @@ document.addEventListener('keydown', function(e) {
         navigateDemo('next');
     }
 });
+
+initializeSmoothScrolling();
+initializeMobileScrolling();
+initializeScrollEffects();
