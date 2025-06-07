@@ -1317,21 +1317,39 @@ body {
         display: flex;
     }
     
+    /* Fix hero section overlap with navbar */
+    .hero {
+        padding-top: 80px; /* Add padding to prevent navbar overlap */
+        min-height: calc(100vh - 80px);
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 20px;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
+        line-height: 1.2;
     }    
     .hero-subtitle {
         font-size: 1.1rem;
+        margin-bottom: 30px;
     }
     
     .hero-cta {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
     
     .btn {
         width: 100%;
         max-width: 300px;
+        padding: 15px 20px;
+        font-size: 1rem;
     }
     
     .features-grid {
@@ -1467,27 +1485,142 @@ body {
     .comparison-card,
     .pricing-card {
         padding: 20px;
-    }
-      .demo-container {
-        padding: 20px;
-        margin: 0 10px;
+    }    .demo-container {
+        padding: 15px;
+        margin: 0 5px;
         overflow: hidden;
+        max-width: calc(100vw - 10px);
+        box-sizing: border-box;
+    }
+    
+    .demo-controls {
+        margin-bottom: 20px;
+    }
+    
+    .version-selector {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .version-btn {
+        width: 100%;
+        max-width: 250px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .step-nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .step-btn {
+        width: 100%;
+        max-width: 200px;
+        padding: 12px 15px;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 0.85rem;
+    }
+    
+    .step-number {
+        font-size: 0.9rem;
+        margin-right: 8px;
     }
     
     .demo-content {
-        padding: 20px;
+        padding: 15px;
         overflow: hidden;
         word-wrap: break-word;
-        min-height: 400px;
+        min-height: 300px;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .demo-screen {
-        min-height: 300px;
+        min-height: 250px;
         overflow: hidden;
+        max-width: 100%;
     }
     
     .extension-ui {
-        padding: 15px;
+        padding: 10px;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+}
+
+/* Additional mobile layout fixes */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .demo-container {
+        padding: 10px;
+        margin: 0;
+        border-radius: 15px;
+    }
+    
+    .version-btn,
+    .step-btn {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+    
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .nav-container {
+        padding: 10px 15px;
+    }
+    
+    .brand-text {
+        font-size: 1rem;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+    }
+    
+    .demo-container {
+        padding: 8px;
     }
 }
 
@@ -1863,7 +1996,15 @@ html {
 /* Mobile smooth scrolling optimizations */
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 70px;
+        scroll-padding-top: 70px; /* Adjust for mobile navbar height */
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .navbar {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     
     .animate-in {
@@ -1874,6 +2015,14 @@ html {
     .feature-card:hover,
     .pricing-card:hover {
         transform: translateY(-4px) scale(1.01);
+    }
+    
+    /* Prevent horizontal overflow */
+    .demo-container,
+    .hero-container,
+    .container {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
 
