@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoodleGPT - AI-Powered Moodle Quiz Assistant</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">    <link rel="stylesheet" href="styles.css">
     <meta name="description" content="MoodleGPT uses AI to help you answer Moodle quiz questions with your own Gemini API key. Available in Standard ($2) and Pro ($5) versions.">
+    <script src="translations.js"></script>
 </head>
 <body>
     <!-- Loading Animation -->
@@ -30,13 +30,19 @@
             <div class="nav-brand">
                 <div class="brand-icon">🧠</div>
                 <span class="brand-text">MoodleGPT</span>
-            </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#comparison" class="nav-link">Compare</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#demo" class="nav-link">Demo</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
+            </div>            <div class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link" data-translate="navHome">Home</a>
+                <a href="#comparison" class="nav-link" data-translate="navCompare">Compare</a>
+                <a href="#features" class="nav-link" data-translate="navFeatures">Features</a>
+                <a href="#demo" class="nav-link" data-translate="navDemo">Demo</a>
+                <a href="#pricing" class="nav-link" data-translate="navPricing">Pricing</a>
+                <div class="language-selector">
+                    <select id="languageSelector" onchange="setLanguage(this.value)">
+                        <option value="en" data-translate="languageEnglish">English</option>
+                        <option value="es" data-translate="languageSpanish">Español</option>
+                        <option value="pt" data-translate="languagePortuguese">Português</option>
+                    </select>
+                </div>
             </div>
             <div class="nav-toggle" id="navToggle">
                 <span class="nav-toggle-bar"></span>
@@ -57,21 +63,20 @@
                 <div class="shape shape-4"></div>
             </div>
         </div>
-        <div class="hero-container">
-            <div class="hero-content">
+        <div class="hero-container">            <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="title-line">AI-Powered</span>
-                    <span class="title-line highlight">Moodle Assistant</span>
-                </h1>                <p class="hero-subtitle">
+                    <span class="title-line" data-translate="heroTitle1">AI-Powered</span>
+                    <span class="title-line highlight" data-translate="heroTitle2">Moodle Assistant</span>
+                </h1>                <p class="hero-subtitle" data-translate="heroSubtitle">
                     Transform your Moodle learning experience with AI that answers multiple choice, true/false, and fill-in-the-blank questions. Pro version includes auto-select answers feature.
                 </p>
                 <div class="hero-cta">
                     <button class="btn btn-primary" onclick="scrollToSection('demo')">
                         <span class="material-icons-outlined">play_circle</span>
-                        Try Interactive Demo
+                        <span data-translate="tryDemoBtn">Try Interactive Demo</span>
                     </button>
                     <button class="btn btn-secondary" onclick="scrollToSection('comparison')">
-                        Compare Versions
+                        <span data-translate="compareVersionsBtn">Compare Versions</span>
                     </button>
                 </div>
             </div>
@@ -84,7 +89,7 @@
                                 <span class="dot yellow"></span>
                                 <span class="dot green"></span>
                             </div>
-                            <div class="browser-title">MoodleGPT Extension</div>
+                            <div class="browser-title" data-translate="extensionTitle">MoodleGPT Extension</div>
                         </div>
                         <div class="extension-popup" id="heroPopup">
                             <!-- Extension UI will be rendered here -->
@@ -96,113 +101,106 @@
     </section>
 
     <!-- Version Comparison -->
-    <section id="comparison" class="comparison">
-        <div class="container">
+    <section id="comparison" class="comparison">        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Choose Your Perfect Version</h2>
-                <p class="section-subtitle">Both versions use your own Gemini API key for privacy and control</p>
+                <h2 class="section-title" data-translate="comparisonTitle">Choose Your Perfect Version</h2>
+                <p class="section-subtitle" data-translate="comparisonSubtitle">Both versions use your own Gemini API key for privacy and control</p>
             </div>
-            <div class="comparison-table">
-                <div class="comparison-card standard">
+            <div class="comparison-table">                <div class="comparison-card standard">
                     <div class="card-header">
                         <div class="card-icon">⚡</div>
-                        <h3>MoodleGPT Standard</h3>
+                        <h3 data-translate="standardTitle">MoodleGPT Standard</h3>
                         <div class="price">
-                            <span class="currency">$</span>
+                            <span class="currency" data-translate="standardPrice">$</span>
                             <span class="amount">2</span>
-                            <span class="period">lifetime</span>
+                            <span class="period" data-translate="standardPeriod">lifetime</span>
                         </div>
                     </div>
                     <div class="features-list">
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Basic AI quiz answering</span>
+                            <span data-translate="feature1">Basic AI quiz answering</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Multiple choice support</span>
+                            <span data-translate="feature2">Multiple choice support</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>True/False questions</span>
+                            <span data-translate="feature3">True/False questions</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Fill in the blanks</span>
+                            <span data-translate="feature4">Fill in the blanks</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Gemini API integration</span>
+                            <span data-translate="feature5">Gemini API integration</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Alt+S hotkey support</span>
+                            <span data-translate="feature6">Alt+S hotkey support</span>
                         </div>                        <div class="feature-item disabled">
                             <span class="material-icons-outlined">cancel</span>
-                            <span>Auto-select answers</span>
+                            <span data-translate="featureDisabled1">Auto-select answers</span>
                         </div>
                         <div class="feature-item disabled">
                             <span class="material-icons-outlined">cancel</span>
-                            <span>Advanced study features</span>
+                            <span data-translate="featureDisabled2">Advanced study features</span>
                         </div>
                         <div class="feature-item disabled">
                             <span class="material-icons-outlined">cancel</span>
-                            <span>Theme customization</span>
+                            <span data-translate="featureDisabled3">Theme customization</span>
                         </div>                        <div class="feature-item disabled">
                             <span class="material-icons-outlined">cancel</span>
-                            <span>Flashcard system</span>                        </div>
+                            <span data-translate="featureDisabled5">Flashcard system</span>                        </div>
                     </div>
-                </div>
-
-                <div class="comparison-card pro featured">
-                    <div class="card-badge">Most Popular</div>
+                </div>                <div class="comparison-card pro featured">
+                    <div class="card-badge" data-translate="mostPopular">Most Popular</div>
                     <div class="card-header">
                         <div class="card-icon">🚀</div>
-                        <h3>MoodleGPT Pro</h3>
+                        <h3 data-translate="proTitle">MoodleGPT Pro</h3>
                         <div class="price">
-                            <span class="currency">$</span>
+                            <span class="currency" data-translate="proPrice">$</span>
                             <span class="amount">5</span>
-                            <span class="period">lifetime</span>
+                            <span class="period" data-translate="proPeriod">lifetime</span>
                         </div>
                     </div>
                     <div class="features-list">                        <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Everything in Standard</span>
+                            <span data-translate="proFeature1">Everything in Standard</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Auto-select answers ⭐</span>
+                            <span data-translate="proFeature2">Auto-select answers ⭐</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Advanced study features</span>
+                            <span data-translate="proFeature3">Advanced study features</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Smart flashcard system</span>
+                            <span data-translate="proFeature6">Smart flashcard system</span>
                         </div>
                         <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>7 beautiful themes</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="material-icons-outlined">check_circle</span>
-                            <span>Customizable UI size</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="material-icons-outlined">check_circle</span>
-                            <span>Progress tracking</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="material-icons-outlined">check_circle</span>
-                            <span>Error reporting</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="material-icons-outlined">check_circle</span>
-                            <span>Multiple languages</span>
+                            <span data-translate="proFeature4">7 beautiful themes</span>
                         </div>                        <div class="feature-item">
                             <span class="material-icons-outlined">check_circle</span>
-                            <span>Settings page</span>                        </div>
+                            <span data-translate="proFeature9">Customizable UI size</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span data-translate="proFeature5">Progress tracking</span>
+                        </div>                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span data-translate="proFeature10">Error reporting</span>
+                        </div>                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span data-translate="proFeature11">Multiple languages</span>
+                        </div>                        <div class="feature-item">
+                            <span class="material-icons-outlined">check_circle</span>
+                            <span data-translate="proFeature12">Settings page</span>                        </div>
                     </div>
                 </div>
             </div>
@@ -210,85 +208,79 @@
 
     <!-- Compatibility Disclaimer -->
     <section class="disclaimer">
-        <div class="container">
-            <div class="disclaimer-content">
+        <div class="container">            <div class="disclaimer-content">
                 <div class="disclaimer-icon">⚠️</div>
                 <div class="disclaimer-text">
-                    <h3>Important Notice</h3>                    <p><strong>Browser Compatibility:</strong> This extension has been primarily tested on Microsoft Edge. While it may work on other browsers, optimal performance is guaranteed on Edge.</p>
-                    <p><strong>Refund Policy:</strong> Extension malfunctions are not grounds for refunds. Every refund request is handled individually and is entirely at the discretion of the extension's developer. By installing and paying for the extension, you agree to these terms. However, we actively encourage bug reporting to help us improve the extension for all users.</p>
+                    <h3 data-translate="importantNoticeTitle">Important Notice</h3>                    <p><strong data-translate="browserCompatibility">Browser Compatibility:</strong> <span data-translate="browserCompatibilityDesc">This extension has been primarily tested on Microsoft Edge. While it may work on other browsers, optimal performance is guaranteed on Edge.</span></p>
+                    <p><strong data-translate="refundPolicy">Refund Policy:</strong> <span data-translate="refundPolicyDesc">Extension malfunctions are not grounds for refunds. Every refund request is handled individually and is entirely at the discretion of the extension's developer. By installing and paying for the extension, you agree to these terms. However, we actively encourage bug reporting to help us improve the extension for all users.</span></p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Features Showcase -->
+    </section>    <!-- Features Showcase -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Powerful Features</h2>
-                <p class="section-subtitle">Discover what makes MoodleGPT the ultimate Moodle companion</p>
+                <h2 class="section-title" data-translate="featuresTitle">Powerful Features</h2>
+                <p class="section-subtitle" data-translate="featuresSubtitle">Discover what makes MoodleGPT the ultimate Moodle companion</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card" data-feature="ai-answering">
+            <div class="features-grid">                <div class="feature-card" data-feature="ai-answering">
                     <div class="feature-icon">🧠</div>
-                    <h3>Smart AI Answering</h3>
-                    <p>Advanced AI powered by Google Gemini analyzes questions and provides accurate answers</p>
-                    <button class="feature-demo-btn" onclick="showFeatureDemo('ai-answering')">View Demo</button>
+                    <h3 data-translate="aiAnsweringTitle">Smart AI Answering</h3>
+                    <p data-translate="aiAnsweringDesc">Advanced AI powered by Google Gemini analyzes questions and provides accurate answers</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('ai-answering')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
                 <div class="feature-card" data-feature="study-system">
                     <div class="feature-icon">📚</div>
-                    <h3>Study Features (Pro)</h3>
-                    <p>Flashcards, progress tracking, and spaced repetition for optimal learning</p>
-                    <button class="feature-demo-btn" onclick="showFeatureDemo('study-system')">View Demo</button>
+                    <h3 data-translate="flashcardsTitle">Study Features (Pro)</h3>
+                    <p data-translate="flashcardsDesc">Flashcards, progress tracking, and spaced repetition for optimal learning</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('study-system')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
                 <div class="feature-card" data-feature="themes">
                     <div class="feature-icon">🎨</div>
-                    <h3>Beautiful Themes (Pro)</h3>
-                    <p>7 stunning themes including Light, Dark, Ocean, Forest, Royal, and more</p>
-                    <button class="feature-demo-btn" onclick="showFeatureDemo('themes')">View Demo</button>
-                </div>                <div class="feature-card" data-feature="hotkeys">
+                    <h3 data-translate="customizationTitle">Beautiful Themes (Pro)</h3>
+                    <p data-translate="customizationDesc">7 stunning themes including Light, Dark, Ocean, Forest, Royal, and more</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('themes')" data-translate="viewDemoBtn">View Demo</button>
+                </div><div class="feature-card" data-feature="hotkeys">
                     <div class="feature-icon">⌨️</div>
-                    <h3>Keyboard Shortcuts</h3>
-                    <p>Quick access with Alt+S hotkey for instant quiz extraction and solving</p>
-                    <button class="feature-demo-btn" onclick="showFeatureDemo('hotkeys')">View Demo</button>
+                    <h3 data-translate="keyboardShortcutsTitle">Keyboard Shortcuts</h3>
+                    <p data-translate="keyboardShortcutsDesc">Quick access with Alt+S hotkey for instant quiz extraction and solving</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('hotkeys')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
                 <div class="feature-card" data-feature="auto-select">
                     <div class="feature-icon">🎯</div>
-                    <h3>Auto-Select Answers (Pro)</h3>
-                    <p>Automatically selects the correct answers in Moodle interface - Pro exclusive feature</p>
-                    <button class="feature-demo-btn" onclick="showFeatureDemo('auto-select')">View Demo</button>
+                    <h3 data-translate="autoSelectTitle">Auto-Select Answers (Pro)</h3>
+                    <p data-translate="autoSelectDesc">Automatically selects the correct answers in Moodle interface - Pro exclusive feature</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('auto-select')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
                 <div class="feature-card" data-feature="privacy">
                     <div class="feature-icon">🔒</div>
-                    <h3>Your API, Your Data</h3>
-                    <p>Use your own Gemini API key for complete privacy and control over your data</p>
-                    <button class="feature-demo-btn" onclick="showFeatureDemo('privacy')">View Demo</button>
+                    <h3 data-translate="privacyTitle">Your API, Your Data</h3>
+                    <p data-translate="privacyDesc">Use your own Gemini API key for complete privacy and control over your data</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('privacy')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
                 <div class="feature-card" data-feature="multilingual">
                     <div class="feature-icon">🌍</div>
-                    <h3>Multi-language (Pro)</h3>
-                    <p>Support for multiple languages with built-in translation system</p>
-                    <button class="feature-demo-btn" onclick="showFeatureDemo('multilingual')">View Demo</button>
+                    <h3 data-translate="multilingualTitle">Multi-language (Pro)</h3>
+                    <p data-translate="multilingualDesc">Support for multiple languages with built-in translation system</p>
+                    <button class="feature-demo-btn" onclick="showFeatureDemo('multilingual')" data-translate="viewDemoBtn">View Demo</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Interactive Demo Section -->
+    </section>    <!-- Interactive Demo Section -->
     <section id="demo" class="demo">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Interactive Walkthrough</h2>
-                <p class="section-subtitle">Experience MoodleGPT Pro in action</p>
+                <h2 class="section-title" data-translate="demoTitle">Interactive Walkthrough</h2>
+                <p class="section-subtitle" data-translate="demoSubtitle">Experience MoodleGPT Pro in action</p>
             </div>
             <div class="demo-container">
                 <div class="demo-controls">
                     <div class="version-selector">
                         <button class="version-btn active" data-version="pro" onclick="switchDemoVersion('pro')">
-                            MoodleGPT Pro
+                            <span data-translate="demoVersionPro">MoodleGPT Pro</span>
                         </button>
                         <button class="version-btn" data-version="standard" onclick="switchDemoVersion('standard')">
-                            MoodleGPT Standard
+                            <span data-translate="demoVersionStandard">MoodleGPT Standard</span>
                         </button>
                     </div>
                     <div class="demo-steps">
@@ -332,60 +324,55 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Pricing Section -->
+    </section>    <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Simple, Affordable Pricing</h2>
-                <p class="section-subtitle">One-time payment, lifetime access. No subscriptions.</p>
+                <h2 class="section-title" data-translate="pricingTitle">Simple, Affordable Pricing</h2>
+                <p class="section-subtitle" data-translate="pricingSubtitle">One-time payment, lifetime access. No subscriptions.</p>
             </div>
-            <div class="pricing-cards">
-                <div class="pricing-card standard">
+            <div class="pricing-cards">                <div class="pricing-card standard">
                     <div class="pricing-header">
-                        <h3>MoodleGPT Standard</h3>
-                        <div class="price">
-                            <span class="currency">$</span>
+                        <h3 data-translate="standardTitle">MoodleGPT Standard</h3>                        <div class="price">
+                            <span class="currency" data-translate="standardPrice">$</span>
                             <span class="amount">2</span>
-                            <span class="period">one-time</span>
+                            <span class="period" data-translate="oneTime">one-time</span>
                         </div>
                     </div>                    <div class="pricing-features">
-                        <div class="feature">✅ Basic AI quiz answering</div>
-                        <div class="feature">✅ Multiple choice & True/False</div>
-                        <div class="feature">✅ Fill in the blanks</div>
-                        <div class="feature">✅ Hotkey support (Alt+S)</div>
-                        <div class="feature">✅ Your own Gemini API</div>
-                        <div class="feature">✅ Lifetime updates</div>
+                        <div class="feature" data-translate="pricingFeature1">✅ Basic AI quiz answering</div>
+                        <div class="feature" data-translate="pricingFeature2">✅ Multiple choice & True/False</div>
+                        <div class="feature" data-translate="pricingFeature3">✅ Fill in the blanks</div>
+                        <div class="feature" data-translate="pricingFeature4">✅ Hotkey support (Alt+S)</div>
+                        <div class="feature" data-translate="pricingFeature5">✅ Your own Gemini API</div>
+                        <div class="feature" data-translate="pricingFeature6">✅ Lifetime updates</div>
                     </div>
-                    <a href="https://chromewebstore.google.com/detail/moodlegpt/fannligfdfcoogejfchimfojjkloijlk" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Get Standard Version</a>
-                </div>
-                <div class="pricing-card pro featured">
-                    <div class="pricing-badge">Best Value</div>
+                    <a href="https://chromewebstore.google.com/detail/moodlegpt/fannligfdfcoogejfchimfojjkloijlk" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-translate="getStandardBtn">Get Standard Version</a>
+                </div>                <div class="pricing-card pro featured">
+                    <div class="pricing-badge" data-translate="bestValue">Best Value</div>
                     <div class="pricing-header">
-                        <h3>MoodleGPT Pro</h3>
+                        <h3 data-translate="proTitle">MoodleGPT Pro</h3>
                         <div class="price">
-                            <span class="currency">$</span>
+                            <span class="currency" data-translate="proPrice">$</span>
                             <span class="amount">5</span>
-                            <span class="period">one-time</span>
+                            <span class="period" data-translate="oneTime">one-time</span>
                         </div>
                     </div>                    <div class="pricing-features">
-                        <div class="feature">✅ Everything in Standard</div>
-                        <div class="feature">✅ Auto-select answers ⭐</div>
-                        <div class="feature">✅ Smart flashcard system</div>
-                        <div class="feature">✅ 7 beautiful themes</div>
-                        <div class="feature">✅ Progress tracking</div>
-                        <div class="feature">✅ Customizable UI</div>
-                        <div class="feature">✅ Multi-language support</div>
-                        <div class="feature">✅ Advanced settings</div>
-                        <div class="feature">✅ Error reporting</div>
+                        <div class="feature" data-translate="pricingFeaturePro1">✅ Everything in Standard</div>
+                        <div class="feature" data-translate="pricingFeaturePro2">✅ Auto-select answers ⭐</div>
+                        <div class="feature" data-translate="pricingFeaturePro3">✅ Smart flashcard system</div>
+                        <div class="feature" data-translate="pricingFeaturePro4">✅ 7 beautiful themes</div>
+                        <div class="feature" data-translate="pricingFeaturePro5">✅ Progress tracking</div>
+                        <div class="feature" data-translate="pricingFeaturePro6">✅ Customizable UI</div>
+                        <div class="feature" data-translate="pricingFeaturePro7">✅ Multi-language support</div>
+                        <div class="feature" data-translate="pricingFeaturePro8">✅ Advanced settings</div>
+                        <div class="feature" data-translate="pricingFeaturePro9">✅ Error reporting</div>
                     </div>
-                    <a href="https://chromewebstore.google.com/detail/moodlegpt-pro/lppelbhdlnckdgefagkpdekdaggmbmen" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Pro Version</a>
+                    <a href="https://chromewebstore.google.com/detail/moodlegpt-pro/lppelbhdlnckdgefagkpdekdaggmbmen" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-translate="getProBtn">Get Pro Version</a>
                 </div>
             </div>            <div class="pricing-faq">
-                <h3>Frequently Asked Questions</h3>                <div class="faq-item api-key-faq">
+                <h3 data-translate="faqTitle">Frequently Asked Questions</h3>                <div class="faq-item api-key-faq">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How do I get a Google Gemini API key?</span>
+                        <span data-translate="faq1Q">How do I get a Google Gemini API key?</span>
                         <span class="material-icons-outlined">expand_more</span>
                     </div>
                     <div class="faq-answer">
@@ -426,32 +413,29 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="faq-item">
+                </div>                <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Do I need a Gemini API key?</span>
+                        <span data-translate="faq6Q">Do I need a Gemini API key?</span>
                         <span class="material-icons-outlined">expand_more</span>
                     </div>
                     <div class="faq-answer">
-                        Yes, you'll need your own Google Gemini API key. This ensures your privacy and gives you full control over your data and usage.
+                        <span data-translate="faq6A">Yes, you'll need your own Google Gemini API key. This ensures your privacy and gives you full control over your data and usage.</span>
                     </div>
-                </div>
-                <div class="faq-item">
+                </div>                <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Is this a one-time payment?</span>
+                        <span data-translate="faq7Q">Is this a one-time payment?</span>
                         <span class="material-icons-outlined">expand_more</span>
                     </div>
                     <div class="faq-answer">
-                        Yes! Both versions are one-time payments with lifetime access and free updates.
+                        <span data-translate="faq7A">Yes! Both versions are one-time payments with lifetime access and free updates.</span>
                     </div>
-                </div>
-                <div class="faq-item">
+                </div>                <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>What's the difference between Standard and Pro?</span>
+                        <span data-translate="faq8Q">What's the difference between Standard and Pro?</span>
                         <span class="material-icons-outlined">expand_more</span>
                     </div>
                     <div class="faq-answer">
-                        Pro includes advanced study features like flashcards, multiple themes, progress tracking, and UI customization options.
+                        <span data-translate="faq8A">Pro includes advanced study features like flashcards, multiple themes, progress tracking, and UI customization options.</span>
                     </div>
                 </div>
             </div>
@@ -460,15 +444,14 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+        <div class="container">            <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand-icon">🧠</div>
                     <span class="brand-text">MoodleGPT</span>
                 </div>                <div class="footer-links">
-                    <a href="#" class="footer-link" onclick="openModal('privacyModal')">Privacy Policy</a>
-                    <a href="#" class="footer-link" onclick="openModal('termsModal')">Terms of Service</a>
-                    <a href="#" class="footer-link" onclick="openModal('supportModal')">Support</a>
+                    <a href="#" class="footer-link" onclick="openModal('privacyModal')" data-translate="footerPrivacy">Privacy Policy</a>
+                    <a href="#" class="footer-link" onclick="openModal('termsModal')" data-translate="footerTerms">Terms of Service</a>
+                    <a href="#" class="footer-link" onclick="openModal('supportModal')" data-translate="footerSupport">Support</a>
                 </div>
             </div>
             <div class="footer-bottom">

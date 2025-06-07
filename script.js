@@ -7,6 +7,9 @@ let totalSteps = 4;
 
 // Loading screen
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize language system first
+    initializeLanguage();
+    
     // Simulate loading
     setTimeout(() => {
         const loadingScreen = document.getElementById('loadingScreen');
@@ -45,13 +48,14 @@ function initializeNavbar() {
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
     });
-    
-    // Smooth scrolling for nav links
+      // Smooth scrolling for nav links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             scrollToSection(targetId);
+            // Close mobile menu
+            navMenu.classList.remove('active');
         });
     });
 }
@@ -876,6 +880,91 @@ function showFeatureDemo(feature) {
                                     <span>AI provides answers automatically</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'auto-select': {
+            title: 'Auto-Select Answers (Pro)',
+            content: `
+                <div class="feature-demo-content">
+                    <div class="auto-select-demo">
+                        <div class="demo-explanation">
+                            <h4>How Auto-Select Works:</h4>
+                            <p>This Pro-exclusive feature automatically selects the correct answers in your Moodle interface after AI analysis.</p>
+                        </div>
+                        
+                        <div class="auto-select-process">
+                            <div class="process-step">
+                                <div class="step-icon">🔍</div>
+                                <div class="step-content">
+                                    <h5>Question Detection</h5>
+                                    <p>AI identifies all question elements on the Moodle page</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-icon">🧠</div>
+                                <div class="step-content">
+                                    <h5>Answer Analysis</h5>
+                                    <p>Gemini AI processes each question and determines the correct answer</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-icon">🎯</div>
+                                <div class="step-content">
+                                    <h5>Automatic Selection</h5>
+                                    <p>Correct answers are automatically selected in the Moodle interface</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-benefits">
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>✅ Save time with instant answer selection</li>
+                                <li>✅ Reduce human error in quiz submissions</li>
+                                <li>✅ Works with multiple choice, true/false, and fill-in-the-blank</li>
+                                <li>✅ Smart confidence detection prevents wrong selections</li>
+                                <li>✅ Manual override always available</li>
+                            </ul>
+                        </div>
+
+                        <div class="demo-visual">
+                            <h4>Visual Demo:</h4>
+                            <div class="moodle-quiz-preview">
+                                <div class="question-block">
+                                    <h5>Sample Question:</h5>
+                                    <p>What is the capital of France?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="demo-auto" value="london">
+                                            <span>London</span>
+                                        </label>
+                                        <label class="quiz-option selected-answer">
+                                            <input type="radio" name="demo-auto" value="paris" checked>
+                                            <span>Paris ✓</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="demo-auto" value="berlin">
+                                            <span>Berlin</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="demo-auto" value="madrid">
+                                            <span>Madrid</span>
+                                        </label>
+                                    </div>
+                                    <div class="auto-select-indicator">
+                                        <span class="indicator-icon">🤖</span>
+                                        <span>Auto-selected by MoodleGPT Pro</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="upgrade-prompt">
+                            <p><strong>Available in MoodleGPT Pro only</strong></p>
+                            <button class="btn btn-primary" onclick="scrollToSection('pricing')">Upgrade to Pro - $5</button>
                         </div>
                     </div>
                 </div>
