@@ -7,6 +7,9 @@ let totalSteps = 4;
 
 // Loading screen
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure correct page title
+    document.title = 'MoodleGPT - AI-Powered Moodle Quiz Assistant';
+    
     // Initialize language system first
     initializeLanguage();
     
@@ -311,7 +314,7 @@ function createSetupDemo() {
 }
 
 function createQuizSolvingDemo() {
-    return `
+    const baseContent = `
         <div class="demo-step-content">
             <h3>Step 2: AI-Powered Quiz Solving</h3>
             <p>Watch how MoodleGPT intelligently analyzes and answers quiz questions:</p>
@@ -341,11 +344,25 @@ function createQuizSolvingDemo() {
                         <span class="step-icon">✅</span>
                         <span>Answer: B) Encapsulation - Correct!</span>
                     </div>
+                </div>`;
+    
+    if (currentDemoVersion === 'standard') {
+        return baseContent + `                <div class="version-disclaimer">
+                    <div class="disclaimer-icon">ℹ️</div>
+                    <div class="disclaimer-content">
+                        <h5>Standard Version Feature</h5>
+                        <p>The Standard version provides the correct answer but <strong>does not automatically select it</strong>. You'll need to manually click the correct option.</p>
+                        <p class="pro-note">🌟 <strong>Pro Version:</strong> Automatically selects the correct answer for you!</p>
+                    </div>
                 </div>
-                <button class="demo-solve-btn" onclick="simulateQuizSolving()">Use Alt+S to Solve</button>
+            </div>
+        </div>
+    `;    } else {
+        return baseContent + `
             </div>
         </div>
     `;
+    }
 }
 
 function createStudyFeaturesDemo() {
