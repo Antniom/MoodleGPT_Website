@@ -18,10 +18,9 @@ window.websiteTranslations = {
         // Version Comparison
         comparisonTitle: "Choose Your Perfect Version",
         comparisonSubtitle: "Both versions use your own Gemini API key for privacy and control",
-        
-        // Standard Version
+          // Standard Version
         standardTitle: "MoodleGPT Standard",
-        standardPrice: "$2",
+        standardPrice: "$",
         standardPeriod: "lifetime",
         feature1: "Basic AI quiz answering",
         feature2: "Multiple choice support",
@@ -33,10 +32,9 @@ window.websiteTranslations = {
         featureDisabled2: "Advanced study features",
         featureDisabled3: "Theme customization",
         featureDisabled4: "Study statistics",
-        featureDisabled5: "Flashcard system",
-          // Pro Version
+        featureDisabled5: "Flashcard system",          // Pro Version
         proTitle: "MoodleGPT Pro",
-        proPrice: "$5",
+        proPrice: "$",
         proPeriod: "lifetime",
         proFeature1: "Everything in Standard",
         proFeature2: "Auto-select answers",
@@ -293,10 +291,9 @@ window.websiteTranslations = {
         // Version Comparison
         comparisonTitle: "Elige Tu Versión Perfecta",
         comparisonSubtitle: "Ambas versiones usan tu propia clave API de Gemini para privacidad y control",
-        
-        // Standard Version
+          // Standard Version
         standardTitle: "MoodleGPT Estándar",
-        standardPrice: "$2",
+        standardPrice: "$",
         standardPeriod: "de por vida",
         feature1: "Respuestas IA básicas para exámenes",
         feature2: "Soporte para opción múltiple",
@@ -308,10 +305,9 @@ window.websiteTranslations = {
         featureDisabled2: "Características avanzadas de estudio",
         featureDisabled3: "Personalización de temas",
         featureDisabled4: "Estadísticas de estudio",
-        featureDisabled5: "Sistema de tarjetas",
-          // Pro Version
+        featureDisabled5: "Sistema de tarjetas",          // Pro Version
         proTitle: "MoodleGPT Pro",
-        proPrice: "$5",
+        proPrice: "$",
         proPeriod: "de por vida",
         proFeature1: "Todo lo de la versión Estándar",
         proFeature2: "Auto-selección de respuestas",
@@ -567,10 +563,9 @@ window.websiteTranslations = {
         // Version Comparison
         comparisonTitle: "Escolha Sua Versão Perfeita",
         comparisonSubtitle: "Ambas as versões usam sua própria chave API do Gemini para privacidade e controle",
-        
-        // Standard Version
+          // Standard Version
         standardTitle: "MoodleGPT Padrão",
-        standardPrice: "$2",
+        standardPrice: "$",
         standardPeriod: "vitalício",
         feature1: "Respostas IA básicas para questionários",
         feature2: "Suporte para múltipla escolha",
@@ -582,10 +577,9 @@ window.websiteTranslations = {
         featureDisabled2: "Recursos avançados de estudo",
         featureDisabled3: "Personalização de temas",
         featureDisabled4: "Estatísticas de estudo",
-        featureDisabled5: "Sistema de cartões",
-          // Pro Version
+        featureDisabled5: "Sistema de cartões",          // Pro Version
         proTitle: "MoodleGPT Pro",
-        proPrice: "$5",
+        proPrice: "$",
         proPeriod: "vitalício",
         proFeature1: "Tudo da versão Padrão",
         proFeature2: "Auto-seleção de respostas",

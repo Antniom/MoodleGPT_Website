@@ -69,19 +69,29 @@ function initializeHeroPopup() {
     heroPopup.innerHTML = createExtensionUI('pro', 'hero');
 }
 
-// Initialize animations
+// Initialize animations - prevent multiple initialization
+let animationsInitialized = false;
+
 function initializeAnimations() {
+    if (animationsInitialized) return;
+    animationsInitialized = true;
+    
     // Enhanced scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Add different animation classes based on element type
                 const element = entry.target;
+                
+                // Check if already animated to prevent re-triggering
+                if (element.classList.contains('animate-in') || element.classList.contains('revealed')) {
+                    observer.unobserve(element);
+                    return;
+                }
                 
                 if (element.classList.contains('comparison-card')) {
                     element.classList.add('animate-in', 'slide-up');
@@ -99,6 +109,9 @@ function initializeAnimations() {
                 const siblings = Array.from(element.parentNode.children);
                 const index = siblings.indexOf(element);
                 element.style.animationDelay = `${index * 0.1}s`;
+                
+                // Unobserve element after animation to prevent re-triggering
+                observer.unobserve(element);
             }
         });
     }, observerOptions);
@@ -144,8 +157,13 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Initialize parallax scrolling effects
+// Initialize parallax scrolling effects - prevent multiple initialization
+let parallaxInitialized = false;
+
 function initializeParallax() {
+    if (parallaxInitialized) return;
+    parallaxInitialized = true;
+    
     const parallaxElements = document.querySelectorAll('.parallax-element, .floating-shapes, .hero-background');
     
     function updateParallax() {
@@ -171,15 +189,27 @@ function initializeParallax() {
     });
 }
 
-// Initialize progressive reveal animations
+// Initialize progressive reveal animations - prevent multiple initialization
+let progressiveRevealInitialized = false;
+
 function initializeProgressiveReveal() {
-    const progressiveElements = document.querySelectorAll('.progressive-reveal');
+    if (progressiveRevealInitialized) return;
+    progressiveRevealInitialized = true;
     
-    const progressiveObserver = new IntersectionObserver((entries) => {
+    const progressiveElements = document.querySelectorAll('.progressive-reveal');
+      const progressiveObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
+                // Check if already revealed to prevent re-triggering
+                if (entry.target.classList.contains('show')) {
+                    progressiveObserver.unobserve(entry.target);
+                    return;
+                }
+                
                 setTimeout(() => {
                     entry.target.classList.add('show');
+                    // Unobserve after animation to prevent re-triggering
+                    progressiveObserver.unobserve(entry.target);
                 }, index * 100); // Stagger the reveals
             }
         });
@@ -1197,8 +1227,12 @@ function getFeatureContent(feature) {
     return featureContent[feature];
 }
 
-// Enhanced smooth scrolling for all anchor links
+// Enhanced smooth scrolling for all anchor links - prevent multiple initialization
+let smoothScrollingInitialized = false;
+
 function initializeSmoothScrolling() {
+    if (smoothScrollingInitialized) return;
+    smoothScrollingInitialized = true;
     // Handle all anchor links, not just nav links
     document.addEventListener('click', (e) => {
         // Check if the clicked element is an anchor link
@@ -1226,16 +1260,24 @@ function initializeSmoothScrolling() {
     });
 }
 
-// Add momentum scrolling effect for mobile devices
+// Add momentum scrolling effect for mobile devices - prevent multiple initialization
+let mobileScrollingInitialized = false;
+
 function initializeMobileScrolling() {
+    if (mobileScrollingInitialized) return;
+    mobileScrollingInitialized = true;
     if (window.innerWidth <= 768) {
         document.body.style.webkitOverflowScrolling = 'touch';
         document.body.style.overflowScrolling = 'touch';
     }
 }
 
-// Add scroll-based navbar transparency
+// Add scroll-based navbar transparency - prevent multiple initialization
+let scrollEffectsInitialized = false;
+
 function initializeScrollEffects() {
+    if (scrollEffectsInitialized) return;
+    scrollEffectsInitialized = true;
     const navbar = document.getElementById('navbar');
     let lastScrollTop = 0;
     
