@@ -186,7 +186,7 @@ window.websiteTranslations = {
         modalStudyStreaks: "Study Streaks",
         modalStudyStreaksDesc: "Maintain daily study streaks and build consistent learning habits",
         modalAvailableProOnly: "Available in MoodleGPT Pro only",
-        modalUpgradeToProBtn: "Upgrade to Pro - $5",
+        modalUpgradeToProBtn: "Upgrade to Pro - $7",
         
         modalThemesTitle: "Beautiful Themes (Pro)",
         modalLightTheme: "☀️ Light Theme",
@@ -459,7 +459,7 @@ window.websiteTranslations = {
         modalStudyStreaks: "Rachas de Estudio",
         modalStudyStreaksDesc: "Mantén rachas de estudio diarias y construye hábitos de aprendizaje consistentes",
         modalAvailableProOnly: "Disponible solo en MoodleGPT Pro",
-        modalUpgradeToProBtn: "Actualizar a Pro - $5",
+        modalUpgradeToProBtn: "Actualizar a Pro - $7",
         
         modalThemesTitle: "Temas Hermosos (Pro)",
         modalLightTheme: "☀️ Tema Claro",
@@ -731,7 +731,7 @@ window.websiteTranslations = {
         modalStudyStreaks: "Sequências de Estudo",
         modalStudyStreaksDesc: "Mantenha sequências de estudo diárias e construa hábitos de aprendizado consistentes",
         modalAvailableProOnly: "Disponível apenas no MoodleGPT Pro",
-        modalUpgradeToProBtn: "Atualizar para Pro - $5",
+        modalUpgradeToProBtn: "Atualizar para Pro - $7",
         
         modalThemesTitle: "Temas Bonitos (Pro)",
         modalLightTheme: "☀️ Tema Claro",
