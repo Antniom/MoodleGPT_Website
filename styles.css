@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  background-color: #080f2a;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -61,25 +62,37 @@ body {
   background: var(--bg-gradient);
   position: relative;
   overflow-x: hidden;
+  background-color: #080f2a;
 }
 
 body::before,
 body::after {
   content: "";
   position: fixed;
-  inset: -40vh -40vh auto;
-  min-height: 140vh;
+  top: -40vh;
+  right: -40vw;
+  bottom: -40vh;
+  left: -40vw;
   z-index: -2;
   background: var(--bg-accent);
   filter: blur(120px);
   opacity: 0.85;
   animation: pan 24s linear infinite alternate;
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 body::after {
   animation-delay: 6s;
   filter: blur(160px);
   transform: rotate(15deg);
+}
+
+@supports (-webkit-touch-callout: none) {
+  body::before,
+  body::after {
+    position: absolute;
+  }
 }
 
 @keyframes pan {

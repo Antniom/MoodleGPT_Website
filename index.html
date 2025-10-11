@@ -78,7 +78,7 @@
         </div>
         <div class="assistant-tip" role="status" aria-live="polite">
           <span class="tip-label">Tip</span>
-          <span class="tip-body" id="assistantTip">Press Alt+C in a Moodle quiz to surface matches from QA.json instantly.</span>
+          <span class="tip-body" id="assistantTip">Press Alt+C in a Moodle quiz to surface matches from the offline answer pack instantly.</span>
         </div>
       </div>
       <div class="assistant-console">
@@ -88,7 +88,7 @@
         </div>
         <div class="console-body" id="assistantConsole">
           <div class="console-line">Alt+C pressed - question detected...</div>
-          <div class="console-line">QA.json match found - confidence: 0.92</div>
+          <div class="console-line">Local pack match found - confidence: 0.92</div>
           <div class="console-line">Answer queued - clearing in 4s...</div>
         </div>
       </div>
@@ -111,9 +111,9 @@
       <article class="workflow-step animate" data-order="2">
         <header>
           <span class="step-number">02</span>
-          <h3>Local QA.json check</h3>
+          <h3>Local answer pack check</h3>
         </header>
-        <p>If a match is found inside the bundled <code>QA.json</code> file (321 curated entries), the answer is surfaced immediately and can be written back to Google Sheets for historical review.</p>
+        <p>If a match is found inside the bundled offline answer pack (321 curated entries), the answer is surfaced immediately and can be written back to Google Sheets for historical review.</p>
       </article>
       <article class="workflow-step animate" data-order="3">
         <header>
@@ -168,7 +168,7 @@
   <section class="assistant-playground" id="assistant">
     <div class="section-heading">
       <h2>Meet the assistant you will actually see</h2>
-      <p>The in-page overlay mirrors what ships in <code>content_gemini.js</code>. Here is a real QA pair from the bundled dataset rendered with the same typography.</p>
+  <p>The in-page overlay mirrors what ships in the production content script. Here is a real QA pair from the bundled dataset rendered with the same typography.</p>
     </div>
     <div class="playground">
       <div class="chat-window">
@@ -179,7 +179,7 @@
         <div class="chat-entry answer" id="sampleAnswer">
           <span class="label">MoodleGPT 3</span>
           <p class="answer-text">falso</p>
-          <span class="source-chip">Source - QA.json</span>
+          <span class="source-chip">Source - Local answer pack</span>
         </div>
       </div>
       <aside class="control-panel">
@@ -206,7 +206,7 @@
       </div>
       <div class="timeline-item animate">
         <span class="timeline-time">+4&nbsp;s</span>
-        <p>Minimum delay respected. A QA.json match is preferred; Gemini fallback kicks in only if allowed.</p>
+  <p>Minimum delay respected. A local match is preferred; Gemini fallback kicks in only if allowed.</p>
       </div>
       <div class="timeline-item animate">
         <span class="timeline-time">+8&nbsp;s</span>
@@ -249,11 +249,11 @@
       <p>The support workflow is baked into the extension UI. You can reproduce it here before deploying.</p>
     </div>
     <div class="support-grid">
-      <article class="support-card animate">
-        <h3>Help center</h3>
-  <p>The <code>help.html</code> surface includes searchable onboarding checklists, automation tuning tips, and troubleshooting guides translated into five languages.</p>
+  <article class="support-card animate">
+    <h3>Help center</h3>
+  <p>The help surface includes searchable onboarding checklists, automation tuning tips, and troubleshooting guides translated into five languages.</p>
   <a class="btn ghost" href="help.html">Preview help center</a>
-      </article>
+  </article>
       <article class="support-card animate">
         <h3>Settings tour</h3>
   <p>Review every toggle--context menu lookups, Gemini fallback, logging, and visibility controls--inside the live settings page.</p>

@@ -27,7 +27,7 @@ if (animatedNodes.length) {
 // Assistant console typing loop
 const consoleLines = [
   'Alt+C pressed - question detected...',
-  'QA.json match found - confidence: 0.92',
+  'Local pack match found - confidence: 0.92',
   'Answer queued - clearing in 4s...',
   'Sending to Google Sheets endpoint...',
   'Overlay hidden - Alt+X acknowledged'
@@ -334,9 +334,9 @@ if (assistantEntries.length) {
 
 if (tipBody) {
   const messages = [
-    'Press Alt+C in a Moodle quiz to surface matches from QA.json instantly.',
+  'Press Alt+C in a Moodle quiz to surface matches from the offline answer pack instantly.',
   'Toggle automation with Alt+A to let MoodleGPT 3 pace answers with human delays.',
-    'Set your Gemini API key once in settings to enable fallback only when QA.json has no match.',
+  'Set your Gemini API key once in settings to enable fallback only when the answer pack has no match.',
     'Adjust automation delays between 1 and 300 seconds in settings to mimic natural pacing.',
     'Export a debug bundle from the help center before emailing moodlegpt.help@gmail.com for faster support.'
   ];
