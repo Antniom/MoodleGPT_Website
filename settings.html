@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MoodleGPT 3 Settings Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg-start: #111827;
+    --bg-end: #1f2937;
+    --halo: rgba(37, 99, 235, 0.55);
+    --panel-bg: rgba(248, 250, 252, 0.96);
+    --panel-border: rgba(15, 23, 42, 0.12);
+    --card-bg: rgba(255, 255, 255, 0.86);
+    --card-border: rgba(15, 23, 42, 0.08);
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --accent: #2563eb;
+    --accent-strong: #1d4ed8;
+    --accent-soft: rgba(37, 99, 235, 0.12);
+    --shadow: 0 28px 48px rgba(15, 23, 42, 0.24);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--text-primary);
+  }
+
+  body {
+    position: relative;
+    background: radial-gradient(circle at top, rgba(37, 99, 235, 0.35), transparent 60%), linear-gradient(160deg, var(--bg-start), var(--bg-end));
+    display: flex;
+    justify-content: center;
+    padding: 64px 18px 88px;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -140px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, var(--halo), transparent 70%);
+    filter: blur(24px);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .panel {
+    width: min(1024px, 100%);
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 32px 36px 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-brand img {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    border: 1px solid rgba(37, 99, 235, 0.4);
+    object-fit: cover;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+  }
+
+  .hero-text h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-text p {
+    margin: 4px 0 0;
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 420px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chip-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+
+  .chip-link:hover {
+    background: rgba(37, 99, 235, 0.18);
+    transform: translateY(-1px);
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .surface {
+    background: var(--card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 18px 32px rgba(15, 23, 42, 0.14);
+  }
+
+  .surface-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .surface-header .material-icons-outlined {
+    font-size: 22px;
+    color: var(--accent);
+  }
+
+  .surface-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .surface header + p,
+  .surface p.descriptor {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  label.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+
+  label.field span {
+    font-weight: 500;
+  }
+
+  input[type="number"],
+  input[type="text"],
+  select {
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    padding: 11px 14px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    line-height: 1.4;
+    background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+      linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 13px) calc(50% - 3px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 32px;
+  }
+
+  .preview-disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .toggle-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .toggle {
+    border-radius: 16px;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.16);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .toggle label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    font-weight: 500;
+  }
+
+  .toggle input[type="checkbox"] {
+    appearance: none;
+    width: 44px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.25);
+    position: relative;
+  }
+
+  .toggle input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.25);
+  }
+
+  .toggle input[type="checkbox"]:checked {
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  }
+
+  .toggle input[type="checkbox"]:checked::after {
+    transform: translateX(18px);
+  }
+
+  .preview-callout {
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px dashed rgba(37, 99, 235, 0.35);
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  footer.page-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-top: 8px;
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+  }
+
+  footer.page-footer a {
+    color: var(--accent-strong);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  footer.page-footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 860px) {
+    body {
+      padding: 42px 14px 72px;
+    }
+
+    .panel {
+      padding: 26px 22px 36px;
+    }
+
+    .section-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-text p {
+      max-width: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --panel-bg: rgba(15, 23, 42, 0.78);
+      --panel-border: rgba(148, 163, 184, 0.18);
+      --card-bg: rgba(30, 41, 59, 0.82);
+      --card-border: rgba(148, 163, 184, 0.18);
+      --text-primary: #f8fafc;
+      --text-muted: #cbd5f5;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+      background: rgba(15, 23, 42, 0.6);
+      border-color: rgba(148, 163, 184, 0.28);
+      color: var(--text-primary);
+    }
+  }
+</style>
+</head>
+<body>
+<main class="panel" aria-describedby="previewNotice">
+  <header class="hero">
+    <div class="hero-brand">
+  <img src="icon.svg" alt="MoodleGPT 3" />
+      <div class="hero-text">
+        <h1>Settings</h1>
+  <p>Fine-tune MoodleGPT 3 so it responds exactly how you need it. This is a live preview only.</p>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a class="chip-link" href="help.html">
+        <span class="material-icons-outlined" aria-hidden="true">help_center</span>
+        <span>Help</span>
+      </a>
+    </div>
+  </header>
+
+  <div id="previewNotice" class="preview-callout">
+    This static preview mirrors the in-extension settings layout. Controls are frozen to avoid requiring Chrome extension permissions in the browser.
+  </div>
+
+  <div class="section-grid">
+    <section class="surface" aria-labelledby="general-heading">
+      <div class="surface-header">
+        <span class="material-icons-outlined" aria-hidden="true">tune</span>
+        <h2 id="general-heading">General preferences</h2>
+      </div>
+      <p class="descriptor">Choose your interface language and tailor how MoodleGPT responds.</p>
+      <div class="section-grid">
+        <label class="field preview-disabled" for="languageSelector">
+          <span>Interface language</span>
+          <select id="languageSelector" disabled>
+            <option value="en" selected>English</option>
+            <option value="es">Espa&ntilde;ol</option>
+            <option value="fr">Fran&ccedil;ais</option>
+            <option value="de">Deutsch</option>
+            <option value="pt">Portugu&ecirc;s</option>
+          </select>
+        </label>
+        <label class="field preview-disabled" for="responseLanguageSelector">
+          <span>AI response language</span>
+          <select id="responseLanguageSelector" disabled>
+            <option value="auto" selected>Auto detect</option>
+            <option value="en">English</option>
+            <option value="es">Espa&ntilde;ol</option>
+            <option value="fr">Fran&ccedil;ais</option>
+            <option value="de">Deutsch</option>
+            <option value="pt">Portugu&ecirc;s</option>
+          </select>
+        </label>
+      </div>
+      <div class="section-grid">
+        <label class="field preview-disabled" for="apiTimeout">
+          <span>API timeout (seconds)</span>
+          <input id="apiTimeout" type="number" value="30" disabled />
+        </label>
+      </div>
+    </section>
+
+    <section class="surface" aria-labelledby="api-heading">
+      <div class="surface-header">
+        <span class="material-icons-outlined" aria-hidden="true">key</span>
+        <h2 id="api-heading">Gemini API</h2>
+      </div>
+      <p class="descriptor">Securely store your Gemini key for instant answers when local data runs dry.</p>
+      <div class="section-grid">
+        <label class="field preview-disabled" for="geminiApiKey">
+          <span>API key</span>
+          <input id="geminiApiKey" type="text" value="************" disabled />
+        </label>
+      </div>
+      <p class="descriptor">Stored locally in encrypted Chrome storage when used in the extension.</p>
+    </section>
+  </div>
+
+  <section class="surface" aria-labelledby="automation-heading">
+    <div class="surface-header">
+      <span class="material-icons-outlined" aria-hidden="true">auto_mode</span>
+      <h2 id="automation-heading">Automation</h2>
+    </div>
+    <p class="descriptor">Set your pacing window and keep automation stealthy with one-click resets.</p>
+    <div class="section-grid">
+      <label class="field preview-disabled" for="automationMinDelay">
+        <span>Minimum delay (seconds)</span>
+        <input id="automationMinDelay" type="number" value="4" disabled />
+      </label>
+      <label class="field preview-disabled" for="automationMaxDelay">
+        <span>Maximum delay (seconds)</span>
+        <input id="automationMaxDelay" type="number" value="15" disabled />
+      </label>
+    </div>
+    <div class="toggle-list preview-disabled">
+      <div class="toggle">
+        <label>
+          <input type="checkbox" checked disabled />
+          <span class="toggle-label">Enable quiz automation</span>
+        </label>
+      </div>
+      <div class="toggle">
+        <label>
+          <input type="checkbox" checked disabled />
+          <span class="toggle-label">Show automation status overlay</span>
+        </label>
+      </div>
+      <div class="toggle">
+        <label>
+          <input type="checkbox" disabled />
+          <span class="toggle-label">Log advanced diagnostics</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="surface" aria-labelledby="visibility-heading">
+    <div class="surface-header">
+      <span class="material-icons-outlined" aria-hidden="true">visibility</span>
+      <h2 id="visibility-heading">Visibility &amp; shortcuts</h2>
+    </div>
+    <p class="descriptor">Toggle quality-of-life helpers and fine tune how MoodleGPT appears on quiz pages.</p>
+    <div class="toggle-list preview-disabled">
+      <div class="toggle">
+        <label>
+          <input type="checkbox" checked disabled />
+          <span class="toggle-label">Show API key status</span>
+        </label>
+      </div>
+      <div class="toggle">
+        <label>
+          <input type="checkbox" checked disabled />
+          <span class="toggle-label">Enable context menu lookup</span>
+        </label>
+      </div>
+      <div class="toggle">
+        <label>
+          <input type="checkbox" checked disabled />
+          <span class="toggle-label">Allow AI when extracting answers</span>
+        </label>
+      </div>
+      <div class="toggle">
+        <label>
+          <input type="checkbox" checked disabled />
+          <span class="toggle-label">Display confidence indicator</span>
+        </label>
+      </div>
+      <div class="toggle">
+        <label>
+          <input type="checkbox" disabled />
+          <span class="toggle-label">Enable enhanced logging</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+  <span>MoodleGPT 3 &copy; <span id="footerYear"></span></span>
+    <span>Need a hand? <a href="mailto:moodlegpt.help@gmail.com">moodlegpt.help@gmail.com</a></span>
+  </footer>
+</main>
+<script>
+  (function () {
+    const yearNode = document.getElementById('footerYear');
+    if (yearNode) {
+      yearNode.textContent = new Date().getFullYear().toString();
+    }
+  })();
+</script>
+</body>
+</html>
