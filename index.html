@@ -27,6 +27,7 @@
     <a href="#workflow">How it works</a>
     <a href="#features">Features</a>
     <a href="#automation">Automation</a>
+    <a href="#pricing">Pricing</a>
     <a href="#support">Support</a>
   </nav>
   <div class="header-actions">
@@ -39,7 +40,7 @@
   <section class="hero" id="top">
     <div class="hero-copy">
       <h1>Quiz support that thinks with you.</h1>
-      <p>MoodleGPT 3 blends a curated database of 321 verified Moodle answers with your own Gemini API key, surfacing recommendations inside the quiz you are already taking. Automation stays human-paced, configurable, and invisible to proctors.</p>
+      <p>MoodleGPT 3 blends a curated database of 321 verified Moodle answers with your own Gemini API key, surfacing recommendations inside the quiz you are already taking. Answer text stays whisper-quiet using the new opacity slider (or Alt± hotkeys), while automation remains human-paced, configurable, and invisible to proctors.</p>
       <div class="hero-highlights" role="list">
         <div class="highlight-card" role="listitem">
           <span class="highlight-value">321</span>
@@ -50,8 +51,8 @@
           <span class="highlight-label">interface languages<br />ready out of the box</span>
         </div>
         <div class="highlight-card" role="listitem">
-          <span class="highlight-value">3</span>
-          <span class="highlight-label">keyboard shortcuts<span class="mono"> (Alt+C / Alt+A / Alt+X)</span></span>
+          <span class="highlight-value">4</span>
+          <span class="highlight-label">keyboard shortcuts<span class="mono"> (Alt+C / Alt+A / Alt+X / Alt±)</span></span>
         </div>
       </div>
       <div class="cta-row">
@@ -152,7 +153,11 @@
       </article>
       <article class="feature-card animate">
         <h3>Keyboard-first UX</h3>
-        <p><span class="mono">Alt+C</span> fetches answers, <span class="mono">Alt+A</span> toggles automation, and <span class="mono">Alt+X</span> hides every overlay for ultra-low-profile runs.</p>
+        <p><span class="mono">Alt+C</span> fetches answers, <span class="mono">Alt+A</span> toggles automation, <span class="mono">Alt+X</span> hides overlays, and <span class="mono">Alt±</span> adjusts answer opacity on the fly.</p>
+      </article>
+      <article class="feature-card animate">
+        <h3>Opacity controls that stick</h3>
+        <p>Dial answer visibility with the new settings slider while essays stay bright—your chosen opacity persists per site and syncs with hotkeys.</p>
       </article>
       <article class="feature-card animate">
         <h3>Chrome-native storage</h3>
@@ -160,7 +165,7 @@
       </article>
       <article class="feature-card animate">
         <h3>One-time license</h3>
-  <p>BrowserBill processes a single $8 payment that unlocks automation, Gemini fallback, and future MoodleGPT 3 updates without renewals.</p>
+  <p>BrowserBill processes a single $8 payment that unlocks automation, Gemini fallback, and future MoodleGPT 3 updates without renewals—see details in the pricing section.</p>
       </article>
     </div>
   </section>
@@ -186,6 +191,7 @@
         <h3>What makes the overlay special?</h3>
         <ul>
           <li>Confidence badges can be toggled per user settings.</li>
+          <li>Answer text opacity respects your slider or Alt± hotkeys while the white panel stays at 100%.</li>
           <li>UI visibility persists per page and per hotkey session.</li>
           <li>Answers sync with Google Sheets via the bundled Apps Script endpoint.</li>
         </ul>
@@ -219,6 +225,33 @@
     </div>
     <div class="automation-footer">
       <p>You can raise the delay ceiling up to 300&nbsp;s and lower the floor to 1&nbsp;s from the settings screen. Every change propagates instantly via <code>chrome.storage</code> sync.</p>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="section-heading">
+      <h2>Simple one-time pricing</h2>
+      <p>Unlock everything MoodleGPT 3 offers with a single $8 payment handled by BrowserBill—no renewals, surprise fees, or subscription traps.</p>
+    </div>
+    <div class="pricing-grid">
+      <article class="pricing-card animate" aria-label="One-time license">
+        <div class="price-tag">
+          <span class="price-currency">$</span>
+          <span class="price-amount">8</span>
+          <span class="price-note">one-time</span>
+        </div>
+        <p class="pricing-description">Payment unlocks automation, Gemini fallback, the answer-opacity slider, and all future MoodleGPT 3 updates.</p>
+        <ul class="pricing-features">
+          <li>Answer text opacity slider with Alt± hotkeys, background stays fully opaque.</li>
+          <li>Stealth automation with customizable 1&ndash;300&nbsp;s pacing window.</li>
+          <li>321 curated offline QA entries plus Gemini fallback with your API key.</li>
+          <li>Local logging &amp; export tools for fast support and self-review.</li>
+        </ul>
+        <div class="pricing-actions">
+          <a class="btn primary" href="https://chromewebstore.google.com/detail/moodlegpt-pro/lppelbhdlnckdgefagkpdekdaggmbmen" target="_blank" rel="noopener noreferrer">Get the extension</a>
+          <span class="purchase-note">License activates after completing the one-time $8 BrowserBill checkout.</span>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -256,7 +289,7 @@
   </article>
       <article class="support-card animate">
         <h3>Settings tour</h3>
-  <p>Review every toggle--context menu lookups, Gemini fallback, logging, and visibility controls--inside the live settings page.</p>
+  <p>Review every toggle—context menu lookups, Gemini fallback, logging, visibility controls, and the new answer-opacity slider—inside the live settings page.</p>
   <a class="btn ghost" href="settings.html">Open settings</a>
       </article>
       <article class="support-card animate">
