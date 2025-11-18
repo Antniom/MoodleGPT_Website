@@ -62,18 +62,24 @@
     </div>
     <div class="hero-visual" aria-hidden="true">
       <div class="assistant-wrapper">
-        <div class="assistant-orb" data-assistant="primary">
-          <div class="assistant-glow"></div>
-          <div class="assistant-face">
-            <span class="eye left">
-              <span class="pupil"></span>
-              <span class="sparkle"></span>
-            </span>
-            <span class="eye right">
-              <span class="pupil"></span>
-              <span class="sparkle"></span>
-            </span>
-            <span class="mouth-smile"></span>
+        <div class="assistant-eve" data-assistant="primary">
+          <div class="eve-head">
+            <div class="eve-face-screen">
+              <div class="eve-eye left">
+                <div class="pupil">
+                  <div class="pupil-blink"></div>
+                </div>
+              </div>
+              <div class="eve-eye right">
+                <div class="pupil">
+                  <div class="pupil-blink"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eve-body">
+            <div class="eve-arm left"></div>
+            <div class="eve-arm right"></div>
           </div>
           <div class="assistant-shadow"></div>
         </div>
@@ -153,7 +159,7 @@
       </article>
       <article class="feature-card animate">
         <h3>Keyboard-first UX</h3>
-        <p><span class="mono">Alt+C</span> fetches answers, <span class="mono">Alt+A</span> toggles automation, <span class="mono">Alt+X</span> hides overlays, and <span class="mono">Alt±</span> adjusts answer opacity on the fly.</p>
+        <p><span class="mono">Alt+C</span> fetches answers, <span class="mono">Alt+A</span> applies them and advances with your configured delay, <span class="mono">Alt+X</span> hides overlays, and <span class="mono">Alt±</span> adjusts answer opacity on the fly.</p>
       </article>
       <article class="feature-card animate">
         <h3>Opacity controls that stick</h3>

@@ -44,21 +44,39 @@ if (consoleEl) {
     row.className = 'console-line reveal';
     consoleEl.appendChild(row);
 
+    // Trigger thinking state before typing
+    const primaryOrb = document.querySelector('.assistant-eve');
+    if (primaryOrb) {
+      primaryOrb.classList.add('thinking');
+      setTimeout(() => {
+        primaryOrb.classList.remove('thinking');
+        primaryOrb.classList.add('talking');
+      }, 600);
+    }
+
     const chars = [...line];
     row.textContent = '';
-    chars.forEach((char, idx) => {
-      const timer = setTimeout(() => {
-        row.textContent += char;
-      }, idx * 30);
-      consoleTimers.push(timer);
-    });
+    
+    // Delay typing slightly to show thinking
+    setTimeout(() => {
+      chars.forEach((char, idx) => {
+        const timer = setTimeout(() => {
+          row.textContent += char;
+          // Stop talking when done
+          if (idx === chars.length - 1 && primaryOrb) {
+            primaryOrb.classList.remove('talking');
+          }
+        }, idx * 30);
+        consoleTimers.push(timer);
+      });
+    }, 600);
 
     if (consoleEl.children.length > 4) {
       consoleEl.removeChild(consoleEl.firstElementChild);
     }
 
     cursor += 1;
-    const nextTimer = setTimeout(renderLine, Math.max(chars.length * 30 + 1400, 2600));
+    const nextTimer = setTimeout(renderLine, Math.max(chars.length * 30 + 2000, 3200));
     consoleTimers.push(nextTimer);
   };
 
@@ -335,7 +353,7 @@ if (assistantEntries.length) {
 if (tipBody) {
   const messages = [
   'Press Alt+C in a Moodle quiz to surface matches from the offline answer pack instantly.',
-  'Toggle automation with Alt+A to let MoodleGPT 3 pace answers with human delays.',
+  'Press Alt+A to apply answers and auto-advance with your configured delay window.',
   'Set your Gemini API key once in settings to enable fallback only when the answer pack has no match.',
     'Adjust automation delays between 1 and 300 seconds in settings to mimic natural pacing.',
     'Export a debug bundle from the help center before emailing moodlegpt.help@gmail.com for faster support.'
