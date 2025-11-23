@@ -1,0 +1,138 @@
+{
+    "facts": {
+        "en": [
+            "I can help you automate quizzes with human-like pacing!",
+            "Did you know I support 5 different languages?",
+            "You can use Alt+C to instantly fetch answers.",
+            "I store everything locally on your device for privacy.",
+            "My opacity slider helps you stay discreet in class.",
+            "I have a database of 321 verified answers built-in!"
+        ],
+        "pt": [
+            "Consigo automatizar questionários com um ritmo parecido ao humano!",
+            "Sabia que consigo comunicar em 5 idiomas diferentes?",
+            "Use Alt+C para obter respostas no instante.",
+            "Guardo tudo localmente no seu dispositivo para proteger a privacidade.",
+            "O controlo de opacidade ajuda-o a manter-se discreto nas aulas.",
+            "Trago um pacote com 321 respostas verificadas de origem!"
+        ]
+    },
+    "translations": {
+        "en": {
+            "nav_home": "Home",
+            "nav_workflow": "How it Works",
+            "nav_features": "Features",
+            "nav_pricing": "Pricing",
+            "nav_download": "Download",
+            "hero_title": "Quiz support that thinks with you.",
+            "hero_subtitle": "MoodleGPT 3 blends a curated database of verified answers with your own Gemini API key.",
+            "hero_cta": "Download Extension",
+            "workflow_title": "How MoodleGPT 3 answers in milliseconds",
+            "step_1_title": "1. Select Question",
+            "step_1_desc": "The extension recognizes Moodle questions and extracts text, even from drop-downs.",
+            "step_2_title": "2. Local Check",
+            "step_2_desc": "Instantly checks the offline pack of 321 verified answers.",
+            "step_3_title": "3. Gemini Fallback",
+            "step_3_desc": "If no local match, it uses your Gemini API key to find the answer.",
+            "step_4_title": "4. Human Pacing",
+            "step_4_desc": "Waits a randomized 4-15 seconds before answering to mimic human behavior.",
+            "features_title": "Built for real quiz pressure",
+            "feature_1_title": "Stealth Automation",
+            "feature_1_desc": "Auto-solves true/false and gap-select questions with human-like randomized delays.",
+            "feature_2_title": "Keyboard-First UX",
+            "feature_2_desc": "Alt+C fetches answers, Alt+A applies them. Stay in flow without touching the mouse.",
+            "feature_3_title": "Privacy Focused",
+            "feature_3_desc": "API keys and logs stay in local storage. Nothing is sent to the cloud unless you ask.",
+            "feature_4_title": "Opacity Control",
+            "feature_4_desc": "Adjust answer visibility with the slider or Alt± hotkeys to stay discreet.",
+            "feature_5_title": "Context Menu",
+            "feature_5_desc": "Highlight text and 'Check QA' to see matches inline without leaving the page.",
+            "feature_6_title": "Error Insights",
+            "feature_6_desc": "Detailed error logging helps you troubleshoot issues quickly.",
+            "pricing_title": "Simple one-time pricing",
+            "pricing_pro_title": "Lifetime License",
+            "pricing_pro_price": "$8",
+            "pricing_pro_desc": "One-time payment via BrowserBill",
+            "pricing_pro_note": "Unlocks automation, Gemini fallback, opacity controls, and all future updates. No subscriptions.",
+            "pricing_pro_benefit_automation": "Unlocks automation & Gemini fallback",
+            "pricing_pro_benefit_answers": "321 Verified Answers Pack",
+            "pricing_pro_benefit_opacity": "Opacity Controls & Hotkeys",
+            "pricing_pro_benefit_updates": "Free Future Updates",
+            "pricing_cta": "Get Started",
+            "download_title": "Get MoodleGPT 3",
+            "download_chrome_link": "Chrome Web Store",
+            "footer_rights": "© 2024 MoodleGPT. All rights reserved.",
+            "support_email": "Support: moodlegpt.help@gmail.com",
+            "bubble_default": "Hello!"
+        },
+        "pt": {
+            "nav_home": "Início",
+            "nav_workflow": "Como Funciona",
+            "nav_features": "Funcionalidades",
+            "nav_pricing": "Preço",
+            "nav_download": "Transferir",
+            "hero_title": "Suporte para questionários que pensa consigo.",
+            "hero_subtitle": "O MoodleGPT 3 combina uma base curada de respostas verificadas com a sua própria chave API Gemini.",
+            "hero_cta": "Transferir Extensão",
+            "workflow_title": "Como o MoodleGPT 3 responde em milissegundos",
+            "step_1_title": "1. Selecionar pergunta",
+            "step_1_desc": "A extensão reconhece as perguntas do Moodle e extrai o texto, até de listas suspensas.",
+            "step_2_title": "2. Verificação local",
+            "step_2_desc": "Verifica instantaneamente o pacote offline com 321 respostas verificadas.",
+            "step_3_title": "3. Recurso ao Gemini",
+            "step_3_desc": "Se não existir correspondência local, usa a sua chave API Gemini para encontrar a resposta.",
+            "step_4_title": "4. Ritmo humano",
+            "step_4_desc": "Espera entre 4 e 15 segundos, de forma aleatória, para imitar o comportamento humano.",
+            "features_title": "Feito para a pressão real dos questionários",
+            "feature_1_title": "Automação furtiva",
+            "feature_1_desc": "Resolve automaticamente perguntas de verdadeiro/falso e lacunas com atrasos naturais.",
+            "feature_2_title": "Experiência centrada no teclado",
+            "feature_2_desc": "Alt+C obtém respostas, Alt+A aplica-as. Mantenha o fluxo sem tocar no rato.",
+            "feature_3_title": "Foco na privacidade",
+            "feature_3_desc": "As chaves API e os registos permanecem no armazenamento local. Nada segue para a cloud sem autorização.",
+            "feature_4_title": "Controlo de opacidade",
+            "feature_4_desc": "Ajuste a visibilidade das respostas com o deslizador ou com os atalhos Alt± para se manter discreto.",
+            "feature_5_title": "Menu de contexto",
+            "feature_5_desc": "Realce o texto e utilize \"Check QA\" para ver correspondências em linha sem sair da página.",
+            "feature_6_title": "Diagnóstico de erros",
+            "feature_6_desc": "Registos detalhados ajudam-no a resolver problemas rapidamente.",
+            "pricing_title": "Preço único e simples",
+            "pricing_pro_title": "Licença vitalícia",
+            "pricing_pro_price": "$8",
+            "pricing_pro_desc": "Pagamento único através da BrowserBill",
+            "pricing_pro_note": "Desbloqueia a automação, o recurso ao Gemini, os controlos de opacidade e todas as futuras atualizações. Sem subscrições.",
+            "pricing_pro_benefit_automation": "Desbloqueia automação e recurso ao Gemini",
+            "pricing_pro_benefit_answers": "Pacote com 321 respostas verificadas",
+            "pricing_pro_benefit_opacity": "Controlos de opacidade e atalhos",
+            "pricing_pro_benefit_updates": "Atualizações futuras incluídas",
+            "pricing_cta": "Começar agora",
+            "download_title": "Obter o MoodleGPT 3",
+            "download_chrome_link": "Chrome Web Store",
+            "footer_rights": "© 2024 MoodleGPT. Todos os direitos reservados.",
+            "support_email": "Suporte: moodlegpt.help@gmail.com",
+            "bubble_default": "Olá!"
+        }
+    },
+    "sections": {
+        "hero": {
+            "en": "Hi! I'm Eva. I can help you ace your Moodle quizzes.",
+            "pt": "Olá! Sou a Eva. Ajudo-o a dominar os questionários do Moodle."
+        },
+        "workflow": {
+            "en": "Here is how I work my magic!",
+            "pt": "É assim que faço a minha magia!"
+        },
+        "features": {
+            "en": "I have some cool tricks, like stealth automation and keyboard shortcuts.",
+            "pt": "Tenho truques impecáveis, como automação furtiva e atalhos de teclado."
+        },
+        "pricing": {
+            "en": "Just one payment for lifetime access. No subscriptions!",
+            "pt": "Basta um pagamento para acesso vitalício. Nada de subscrições!"
+        },
+        "download": {
+            "en": "Ready to upgrade your study game? Click below!",
+            "pt": "Preparado para elevar o estudo? Clique abaixo!"
+        }
+    }
+}
