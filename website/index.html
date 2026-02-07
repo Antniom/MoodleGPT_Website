@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodleGPT 3 - The Ultimate Quiz Assistant</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../icon/Appimagejpg_128x128.png">
+</head>
+
+<body>
+    <div class="background-grid"></div>
+    <div class="scanlines"></div>
+
+    <nav class="navbar">
+        <div class="logo">MoodleGPT<span class="version">3</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="active" id="nav-features">Features</a>
+            <a href="setup.html" id="nav-setup">Setup Guide</a>
+            <a href="faq.html" id="nav-faq">FAQ</a>
+        </div>
+        <div class="controls">
+            <button class="icon-btn" id="lang-toggle">PT</button>
+            <button class="icon-btn" id="theme-toggle">🌙</button>
+            <button id="open-tos-btn" class="btn btn-primary">Get Extension</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge" id="hero-badge">v3.0 Now Available</div>
+                <h1><span id="hero-title-prefix">Your Personal</span> <br><span id="typing-text">Quiz
+                        Assistant</span><span class="cursor">|</span></h1>
+                <p class="subtitle" id="hero-subtitle">High-performance automation for Moodle. <br>Powered by <span
+                        class="highlight">Gemini 3 Pro Preview</span>, <span class="highlight">2.5 Flash</span> & <span
+                        class="highlight">2.5 Pro</span>.</p>
+                <div class="cta-group">
+                    <a href="#showcase" class="btn btn-primary" id="hero-btn-features">See features</a>
+                    <a href="setup.html" class="btn btn-secondary" id="hero-btn-install">Installation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Showcase Grid -->
+        <section id="showcase" class="showcase">
+            <div class="section-header">
+                <h2 id="showcase-title">Precision Tools</h2>
+                <p id="showcase-subtitle">Five powerful ways to interact.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- 1. Extract Quiz -->
+                <div class="feature-card" id="card-extract">
+                    <div class="visual-container">
+                        <div class="mock-browser">
+                            <div class="mock-question q-pending">Q1: What is the capital of France?</div>
+                            <div class="mock-question q-pending">Q2: 2 + 2 = ?</div>
+                            <div class="mock-question q-pending">Q3: Define Photosynthesis.</div>
+                        </div>
+                        <div class="keyboard-hint">
+                            <span class="key">Alt</span> + <span class="key">C</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="card-extract-title">Global Extraction</h3>
+                        <p id="card-extract-desc">Instantly solve every visible question on the page. <span
+                                class="code">Alt+C</span> triggers
+                            the extraction engine, scanning the DOM and filling answers from the shared database.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Stealth Mode -->
+                <div class="feature-card" id="card-stealth">
+                    <div class="visual-container">
+                        <div class="mock-page-content">
+                            <div class="mock-line" style="width: 100%;"></div>
+                            <div class="mock-line" style="width: 80%;"></div>
+                            <div class="mock-line" style="width: 90%;"></div>
+                            <div class="mock-line" style="width: 70%;"></div>
+                        </div>
+                        <div class="mock-overlay" id="mock-overlay">
+                            <div class="overlay-header">MoodleGPT</div>
+                            <div class="overlay-status">Ready</div>
+                        </div>
+                        <div class="keyboard-hint">
+                            <span class="key">Alt</span> + <span class="key">X</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="card-stealth-title">Stealth Mode</h3>
+                        <p id="card-stealth-desc">Panic button integration. <span class="code">Alt+X</span> instantly
+                            removes all UI elements
+                            from the DOM. Press again to restore.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Automation -->
+                <div class="feature-card" id="card-auto">
+                    <div class="visual-container">
+                        <div class="mock-progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">Thinking...</div>
+                        <div class="keyboard-hint">
+                            <span class="key">Alt</span> + <span class="key">A</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="card-auto-title">Smart Automation</h3>
+                        <p id="card-auto-desc"><span class="code">Alt+A</span> engages the autopilot. The extension
+                            answers questions
+                            sequentially with humanized randomized delays (4-15s) to avoid detection.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Quick Answer (Double Click) -->
+                <div class="feature-card" id="card-dblclick">
+                    <div class="visual-container">
+                        <div class="mock-question-interactive" id="mock-q-dbl">
+                            <div class="q-text">Double-click me to answer!</div>
+                            <div class="options">
+                                <div class="option" id="opt-1">Option A</div>
+                                <div class="option correct" id="opt-2">Option B</div>
+                                <div class="option" id="opt-3">Option C</div>
+                            </div>
+                            <div class="mock-status-box hidden">Answer: Option B (98%)</div>
+                            <div class="cursor-pointer"></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="card-dblclick-title">Quick Answer</h3>
+                        <p id="card-dblclick-desc">Surgical precision. <strong>Double-click</strong> any question text
+                            to solve just that
+                            specific item. The correct option is selected immediately.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Context Menu -->
+                <div class="feature-card" id="card-context">
+                    <div class="visual-container">
+                        <div class="mock-text-selection">Select any text on the page...</div>
+                        <div class="mock-context-menu hidden">
+                            <div class="menu-item">Copy</div>
+                            <div class="menu-item">Search Google</div>
+                            <div class="menu-item highlight">Answer Question</div>
+                            <div class="menu-item">Inspect</div>
+                        </div>
+                        <div class="mock-global-panel hidden">
+                            <div class="panel-header">MoodleGPT Analysis</div>
+                            <div class="panel-body">Based on the selected text, the answer is...</div>
+                        </div>
+                        <div class="cursor-pointer-context"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="card-context-title">Context Menu</h3>
+                        <p id="card-context-desc">Right-click integration. Select snippet text or entire questions,
+                            right-click, and choose
+                            <strong>Answer Question</strong> to force a database check.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. Essay Assistant -->
+                <div class="feature-card" id="card-essay">
+                    <div class="visual-container">
+                        <div class="editor-toggle">
+                            <button class="toggle-btn active" data-mode="overlay">Default (Overlay)</button>
+                            <button class="toggle-btn" data-mode="typing">Direct Input</button>
+                        </div>
+
+                        <div class="mock-editor-container">
+                            <div class="mock-editor-area">
+                                <!-- Overlay Mode Element -->
+                                <div class="glass-overlay hidden">
+                                    <div class="tag">AI SUGGESTION · ALT+X TO HIDE</div>
+                                    <div class="suggestion-text">The Industrial Revolution was a period of scientific
+                                        and technological development...</div>
+                                </div>
+                                <!-- Direct Input Mode Element -->
+                                <div class="typing-area"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="card-essay-title">Essay Assistant</h3>
+                        <p id="card-essay-desc">Two modes for long-form answers. <strong>Default</strong> shows a
+                            non-intrusive glass
+                            overlay. <strong>Direct Input</strong> simulates human typing keystroke-by-keystroke
+                            directly into the editor.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div>&copy; 2026 MoodleGPT. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="#" id="footer-tos-link">Terms of Service</a>
+                    <a href="mailto:moodlegpt.help@gmail.com" id="footer-contact">Contact Support</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- TOS Modal -->
+        <div class="modal-backdrop" id="tos-backdrop">
+            <div class="tos-modal">
+                <div class="tos-header">
+                    <h2 id="tos-title">Terms of Service</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="tos-body" id="tos-content">
+                    <h3>1. NATURE OF THE PRODUCT</h3>
+                    <p>1.1. MoodleGPT 3 ("the Product", "the Extension", "the Service") is <strong>digital
+                            content</strong> within the meaning of Article 2(11) of Directive 2011/83/EU (Consumer
+                        Rights Directive).</p>
+                    <p>1.2. The Product is a browser extension that provides AI-powered educational assistance features
+                        for Moodle learning management system users.</p>
+                    <p>1.3. The Product is delivered electronically and immediately upon successful payment processing.
+                    </p>
+
+                    <h3>2. SELLER INFORMATION</h3>
+                    <p>Seller: MGPT<br>Country: Portugal<br>Email: moodlegpt.help@gmail.com</p>
+
+                    <h3>3. PRODUCT DESCRIPTION AND FEATURES</h3>
+                    <p>3.1. MoodleGPT 3 provides: AI-powered answer assistance, Stealth overlay display system, Keyboard
+                        shortcut automation, Q&A database access, Premium support.</p>
+                    <p>3.2. The Product requires: Google Chrome or compatible browser, Active internet connection, Valid
+                        Moodle learning management system access. Optional: Personal Gemini API key.</p>
+
+                    <h3>4. DIGITAL CONTENT DELIVERY</h3>
+                    <p>4.1. <strong>Immediate Delivery</strong>: The Product is delivered immediately upon successful
+                        payment through automatic license activation.</p>
+                    <p>4.2. <strong>Delivery Method</strong>: Electronic delivery via browser extension license
+                        activation.</p>
+
+                    <h3>5. PRICING AND PAYMENT</h3>
+                    <p>5.1. All prices are displayed in EUR or equivalent local currency and include applicable VAT for
+                        EU customers.</p>
+                    <p>5.2. Payment is processed securely through Stripe via Browser Bill.</p>
+
+                    <h3>6. RIGHT OF WITHDRAWAL AND EXPRESS WAIVER</h3>
+                    <p><strong>IMPORTANT - PLEASE READ CAREFULLY</strong></p>
+                    <p>6.1. <strong>Standard Withdrawal Right</strong>: Under normal circumstances, consumers in the EU
+                        have a 14-day withdrawal right.</p>
+                    <p>6.2. <strong>Exception</strong>: According to Article 16(m) of Directive 2011/83/EU, the right of
+                        withdrawal does not apply to digital content supplied not on a tangible medium if performance
+                        begun with prior express consent.</p>
+                    <p>6.3. <strong>Your Express Consent</strong>: By completing purchase, you expressly request
+                        immediate performance and acknowledge loss of withdrawal right.</p>
+
+                    <h3>7. LICENSE GRANT</h3>
+                    <p>7.1. Upon payment, you get a Non-exclusive, Non-transferable, Personal, Revocable license.</p>
+
+                    <h3>8. LICENSE RESTRICTIONS</h3>
+                    <p>You may NOT: Share, resell, or transfer license; Circumvent verification; Use for illegal
+                        purposes; Reverse engineer; Abuse the service.</p>
+
+                    <h3>9. LICENSE REVOCATION</h3>
+                    <p>9.1. License revoked without refund if you: Initiate invalid chargeback; Violate Terms; Engage in
+                        fraud; Share credentials.</p>
+
+                    <h3>10. REFUND POLICY</h3>
+                    <p>10.1. <strong>General Policy</strong>: Refunds generally not available due to immediate digital
+                        delivery.</p>
+                    <p>10.2. <strong>Exceptions</strong>: Duplicate purchases (24h) or technical impossibility (48h).
+                    </p>
+                    <p>10.4. <strong>Chargebacks</strong>: Initiating dispute without contacting us first results in
+                        permanent ban.</p>
+
+                    <h3>11. SUPPORT</h3>
+                    <p>Email: moodlegpt.help@gmail.com</p>
+
+                    <h3>14. LIMITATION OF LIABILITY</h3>
+                    <p>14.1. Product provided "as is" without warranties.</p>
+                    <p>14.2. We are not liable for academic consequences.</p>
+
+                    <h3>18. GOVERNING LAW</h3>
+                    <p>Governed by laws of Portugal.</p>
+
+                    <div style="height: 50px;"></div>
+                    <p style="text-align: center; color: var(--accent);">-- End of Terms --</p>
+                </div>
+                <div class="tos-footer">
+                    <span class="scroll-notice" id="scroll-notice">Scroll to bottom to accept</span>
+                    <a href="https://chromewebstore.google.com/detail/moodlegpt-3/lppelbhdlnckdgefagkpdekdaggmbmen"
+                        target="_blank" id="accept-tos-btn" class="btn btn-primary btn-disabled">Accept & Go to Web
+                        Store</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
