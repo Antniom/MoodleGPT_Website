@@ -1,12 +1,13 @@
 const translations = {
     en: {
         navFeatures: "Features",
+        navLocal: "Local Mode",
         navSetup: "Setup Guide",
         navFaq: "FAQ",
         navGetExt: "Get Extension",
         heroBadge: "v3.0 Now Available",
         heroTitlePrefix: "Your Personal",
-        heroSubtitle: "High-performance automation for Moodle.<br>Powered by <span class=\"highlight\">Gemini 3 Pro Preview</span>, <span class=\"highlight\">2.5 Flash</span> & <span class=\"highlight\">2.5 Pro</span>.",
+        heroSubtitle: "High-performance automation for Moodle.<br>Powered by <span class=\"highlight\">Gemini Flash</span> & <span class=\"highlight\">Gemini Pro</span>.",
         heroBtnFeatures: "See features",
         heroBtnInstall: "Installation",
 
@@ -61,6 +62,7 @@ const translations = {
     },
     pt: {
         navFeatures: "Funcionalidades",
+        navLocal: "Modo Local",
         navSetup: "Guia de Instalação",
         navFaq: "FAQ",
         navGetExt: "Obter Extensão",

@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Map of IDs to translation keys (Simple binding)
         const bindings = {
             'nav-features': t.navFeatures,
+            'nav-local': t.navLocal,
             'nav-setup': t.navSetup,
             'nav-faq': t.navFaq,
             'open-tos-btn': t.navGetExt,
