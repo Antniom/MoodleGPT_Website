@@ -100,7 +100,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // TOS
             'tos-title': t.tosTitle,
-            'accept-tos-btn': t.tosAcceptBtn
+            'accept-tos-btn': t.tosAcceptBtn,
+
+            // Local Page
+            'local-badge': t.localBadge,
+            'local-title': t.localTitle,
+            'local-subtitle': t.localSubtitle,
+            'local-beta-banner': t.localBetaBanner,
+            'local-feat1-title': t.localFeat1Title,
+            'local-feat1-desc': t.localFeat1Desc,
+            'local-feat2-title': t.localFeat2Title,
+            'local-feat2-desc': t.localFeat2Desc,
+            'local-feat3-title': t.localFeat3Title,
+            'local-feat3-desc': t.localFeat3Desc,
+            'local-feat4-title': t.localFeat4Title,
+            'local-feat4-desc': t.localFeat4Desc,
+            'local-download-btn': t.localDownloadBtn,
+            'local-download-info': t.localDownloadInfo,
+            'local-connect-title': t.localConnectTitle,
+            'local-connect-desc': t.localConnectDesc
         };
 
         for (const [id, text] of Object.entries(bindings)) {

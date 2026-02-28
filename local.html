@@ -106,13 +106,14 @@
     <main>
         <section class="setup-container" style="max-width: 900px; margin-top: 140px;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <div class="badge">BETA</div>
-                <h1>MoodleGPT <span class="highlight">Local Runtime</span></h1>
-                <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Supercharge your extension with offline,
+                <div class="badge" id="local-badge">BETA</div>
+                <h1>MoodleGPT <span class="highlight" id="local-title">Local Runtime</span></h1>
+                <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;" id="local-subtitle">Supercharge your
+                    extension with offline,
                     strictly confidential AI computation securely hosted on your own machine.</p>
             </div>
 
-            <div class="beta-banner">
+            <div class="beta-banner" id="local-beta-banner">
                 ⚠️ MoodleGPT Local is currently in Beta. You may experience occasional bugs or unoptimized performance.
                 Help us improve by reporting unexpected behavior.
             </div>
@@ -121,8 +122,9 @@
                 <div class="local-feature-card">
                     <div class="feature-icon">🧠</div>
                     <div class="feature-text">
-                        <h3>Private 100% Local Inference</h3>
-                        <p>Leverage Local LLMs (like Llama 3 via Ollama) directly on your device. Absolutely zero
+                        <h3 id="local-feat1-title">Private 100% Local Inference</h3>
+                        <p id="local-feat1-desc">Leverage Local LLMs (like Llama 3 via Ollama) directly on your device.
+                            Absolutely zero
                             queries, answers, or quiz data are transmitted to external servers. Your academic integrity
                             and data remain entirely isolated on your machine.</p>
                     </div>
@@ -131,8 +133,9 @@
                 <div class="local-feature-card">
                     <div class="feature-icon">🚀</div>
                     <div class="feature-text">
-                        <h3>Zero API Costs</h3>
-                        <p>No need for paid Gemini or OpenAI subscription keys. The Local Runtime uses your hardware to
+                        <h3 id="local-feat2-title">Zero API Costs</h3>
+                        <p id="local-feat2-desc">No need for paid Gemini or OpenAI subscription keys. The Local Runtime
+                            uses your hardware to
                             generate responses efficiently, enabling unlimited solving without counting tokens.</p>
                     </div>
                 </div>
@@ -140,19 +143,20 @@
                 <div class="local-feature-card">
                     <div class="feature-icon">📚</div>
                     <div class="feature-text">
-                        <h3>RAG System (Knowledge Base)</h3>
-                        <p>The Local Runtime includes a custom Knowledge Base (Retrieval-Augmented Generation) system.
+                        <h3 id="local-feat3-title">RAG System (Knowledge Base)</h3>
+                        <p id="local-feat3-desc">The Local Runtime includes a custom Knowledge Base (Retrieval-Augmented
+                            Generation) system.
                             Drop texts and course documents into the app, and the AI will scan your lectures to
-                            construct
-                            highly accurate, course-specific answers.</p>
+                            construct highly accurate, course-specific answers.</p>
                     </div>
                 </div>
 
                 <div class="local-feature-card">
                     <div class="feature-icon">⚡</div>
                     <div class="feature-text">
-                        <h3>Seamless Extension Integration</h3>
-                        <p>It acts as a backend bridge for your MoodleGPT 3 Chrome Extension. Just keep it running in
+                        <h3 id="local-feat4-title">Seamless Extension Integration</h3>
+                        <p id="local-feat4-desc">It acts as a backend bridge for your MoodleGPT 3 Chrome Extension. Just
+                            keep it running in
                             the background. The extension will automatically detect it and route queries through Native
                             Messaging.</p>
                     </div>
@@ -160,16 +164,20 @@
             </div>
 
             <div class="cta-container">
-                <a href="MoodleGPT_Local_Setup_1.0.0.exe" class="btn btn-primary"
-                    style="font-size: 1.1rem; padding: 1rem 2rem;" download>⬇ Download MoodleGPT Local Setup
+                <a href="https://github.com/Antniom/MoodleGPT_Website/releases/download/1.0.0/MoodleGPT.Local.Setup_1.0.0.exe"
+                    class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;" id="local-download-btn"
+                    download>⬇ Download MoodleGPT
+                    Local Setup
                     (Windows)</a>
-                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-tertiary);">Version 1.0.0 | ~95MB |
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-tertiary);" id="local-download-info">
+                    Version 1.0.0 | ~95MB |
                     Requires a 64-bit Windows system</p>
             </div>
 
             <div style="text-align: center; margin-bottom: 50px;">
-                <h3 style="margin-top: 40px;">How does it connect?</h3>
-                <p style="max-width: 600px; margin: 0 auto;">Install the application, open it, and leave it running. The
+                <h3 style="margin-top: 40px;" id="local-connect-title">How does it connect?</h3>
+                <p style="max-width: 600px; margin: 0 auto;" id="local-connect-desc">Install the application, open it,
+                    and leave it running. The
                     Chrome extension utilizes a Native Messaging protocol to securely interact with the local client,
                     bypassing traditional web requests entirely.</p>
             </div>
