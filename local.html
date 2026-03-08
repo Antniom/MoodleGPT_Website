@@ -98,7 +98,7 @@
         </div>
         <div class="controls">
             <button class="icon-btn" id="lang-toggle">PT</button>
-            <button class="icon-btn" id="theme-toggle">🌙</button>
+            <button class="icon-btn" id="theme-toggle"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M13 10.5A5.5 5.5 0 017 4.5a5.5 5.5 0 00.5 11A5.5 5.5 0 0013 10.5z"/></svg></button>
             <button onclick="window.location='index.html'" class="btn btn-primary">Get Extension</button>
         </div>
     </nav>
@@ -114,13 +114,13 @@
             </div>
 
             <div class="beta-banner" id="local-beta-banner">
-                ⚠️ MoodleGPT Local is currently in Beta. You may experience occasional bugs or unoptimized performance.
+                <svg style="vertical-align:-3px;margin-right:6px;flex-shrink:0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MoodleGPT Local is currently in Beta. You may experience occasional bugs or unoptimized performance.
                 Help us improve by reporting unexpected behavior.
             </div>
 
             <div class="local-features">
                 <div class="local-feature-card">
-                    <div class="feature-icon">🧠</div>
+                    <div class="feature-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><line x1="7" y1="10" x2="3" y2="10"/><line x1="7" y1="14" x2="3" y2="14"/><line x1="17" y1="10" x2="21" y2="10"/><line x1="17" y1="14" x2="21" y2="14"/><line x1="10" y1="7" x2="10" y2="3"/><line x1="14" y1="7" x2="14" y2="3"/><line x1="10" y1="21" x2="10" y2="17"/><line x1="14" y1="21" x2="14" y2="17"/></svg></div>
                     <div class="feature-text">
                         <h3 id="local-feat1-title">Private 100% Local Inference</h3>
                         <p id="local-feat1-desc">Leverage Local LLMs (like Llama 3 via Ollama) directly on your device.
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="local-feature-card">
-                    <div class="feature-icon">🚀</div>
+                    <div class="feature-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
                     <div class="feature-text">
                         <h3 id="local-feat2-title">Zero API Costs</h3>
                         <p id="local-feat2-desc">No need for paid Gemini or OpenAI subscription keys. The Local Runtime
@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="local-feature-card">
-                    <div class="feature-icon">📚</div>
+                    <div class="feature-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
                     <div class="feature-text">
                         <h3 id="local-feat3-title">RAG System (Knowledge Base)</h3>
                         <p id="local-feat3-desc">The Local Runtime includes a custom Knowledge Base (Retrieval-Augmented
@@ -152,7 +152,7 @@
                 </div>
 
                 <div class="local-feature-card">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/></svg></div>
                     <div class="feature-text">
                         <h3 id="local-feat4-title">Seamless Extension Integration</h3>
                         <p id="local-feat4-desc">It acts as a backend bridge for your MoodleGPT 3 Chrome Extension. Just
@@ -164,13 +164,12 @@
             </div>
 
             <div class="cta-container">
-                <a href="https://github.com/Antniom/MoodleGPT_Website/releases/download/1.0.0/MoodleGPT.Local.Setup_1.0.0.exe"
+                <a href="https://github.com/Antniom/MoodleGPT_Website/releases/download/1.1.0/MoodleGPT.Local.Setup.1.1.0.exe"
                     class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;" id="local-download-btn"
-                    download>⬇ Download MoodleGPT
-                    Local Setup
-                    (Windows)</a>
+                    download>
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;" aria-hidden="true"><path d="M8 3v7M4 7l4 4 4-4"/><line x1="2" y1="13" x2="14" y2="13"/></svg>Download MoodleGPT Local Setup (Windows)</a>
                 <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-tertiary);" id="local-download-info">
-                    Version 1.0.0 | ~95MB |
+                    Version 1.1.0 | ~95MB |
                     Requires a 64-bit Windows system</p>
             </div>
 

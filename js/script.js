@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateThemeIcon(theme) {
         if (!themeToggleBtn) return;
-        themeToggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+        themeToggleBtn.innerHTML = theme === 'dark'
+            ? '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="3"/><line x1="8" y1="13" x2="8" y2="15"/><line x1="1" y1="8" x2="3" y2="8"/><line x1="13" y1="8" x2="15" y2="8"/><line x1="3.3" y1="3.3" x2="4.6" y2="4.6"/><line x1="11.4" y1="11.4" x2="12.7" y2="12.7"/><line x1="3.3" y1="12.7" x2="4.6" y2="11.4"/><line x1="11.4" y1="4.6" x2="12.7" y2="3.3"/></svg>'
+            : '<svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M13 10.5A5.5 5.5 0 017 4.5a5.5 5.5 0 00.5 11A5.5 5.5 0 0013 10.5z"/></svg>';
     }
 
     // Language Toggle
