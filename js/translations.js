@@ -74,7 +74,7 @@ const translations = {
         localFeat4Title: "Seamless Extension Integration",
         localFeat4Desc: "It acts as a backend bridge for your MoodleGPT 3 Chrome Extension. Just keep it running in the background. The extension will automatically detect it and route queries through Native Messaging.",
         localDownloadBtn: '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;" aria-hidden="true"><path d="M8 3v7M4 7l4 4 4-4"/><line x1="2" y1="13" x2="14" y2="13"/></svg>Download MoodleGPT Local Setup (Windows)',
-        localDownloadInfo: "Version 1.1.0 | ~95MB | Requires a 64-bit Windows system",
+        localDownloadInfo: "Version 2.0.0 | ~95MB | Requires a 64-bit Windows system",
         localConnectTitle: "How does it connect?",
         localConnectDesc: "Install the application, open it, and leave it running. The Chrome extension utilizes a Native Messaging protocol to securely interact with the local client, bypassing traditional web requests entirely."
     },
@@ -153,7 +153,7 @@ const translations = {
         localFeat4Title: "Integração Perfeita com a Extensão",
         localFeat4Desc: "Funciona como uma ponte de backend para a sua Extensão Chrome MoodleGPT 3. Basta mantê-lo a correr em segundo plano. A extensão irá detetá-lo automaticamente e encaminhar as queries via Native Messaging.",
         localDownloadBtn: '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;" aria-hidden="true"><path d="M8 3v7M4 7l4 4 4-4"/><line x1="2" y1="13" x2="14" y2="13"/></svg>Descarregar MoodleGPT Local Setup (Windows)',
-        localDownloadInfo: "Versão 1.1.0 | ~95MB | Requer sistema Windows 64-bit",
+        localDownloadInfo: "Versão 2.0.0 | ~95MB | Requer sistema Windows 64-bit",
         localConnectTitle: "Como é que se liga?",
         localConnectDesc: "Instale a aplicação, abra-a e deixe-a a correr. A extensão Chrome utiliza um protocolo de Native Messaging para interagir com o cliente local de forma segura, contornando completamente os pedidos web tradicionais."
     }

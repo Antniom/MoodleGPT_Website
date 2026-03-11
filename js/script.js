@@ -27,9 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateThemeIcon(theme) {
         if (!themeToggleBtn) return;
-        themeToggleBtn.innerHTML = theme === 'dark'
-            ? '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="3"/><line x1="8" y1="13" x2="8" y2="15"/><line x1="1" y1="8" x2="3" y2="8"/><line x1="13" y1="8" x2="15" y2="8"/><line x1="3.3" y1="3.3" x2="4.6" y2="4.6"/><line x1="11.4" y1="11.4" x2="12.7" y2="12.7"/><line x1="3.3" y1="12.7" x2="4.6" y2="11.4"/><line x1="11.4" y1="4.6" x2="12.7" y2="3.3"/></svg>'
-            : '<svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M13 10.5A5.5 5.5 0 017 4.5a5.5 5.5 0 00.5 11A5.5 5.5 0 0013 10.5z"/></svg>';
+        const moonSvg = '<svg viewBox="0 0 100 100" width="26" height="26" overflow="visible" aria-hidden="true">'
+            + '<g transform="translate(9,9) rotate(4,50,50)"><path class="wb-backdrop" d="M 66 22 A 32 32 0 1 0 66 78 A 28 28 0 0 1 66 22 Z"/></g>'
+            + '<path class="wb-stroke wb-draw" style="stroke-dasharray:250;stroke-dashoffset:250;" d="M 66 22 A 32 32 0 1 0 66 78 A 28 28 0 0 1 66 22 Z"/>'
+            + '</svg>';
+        const sunSvg = '<svg viewBox="0 0 100 100" width="26" height="26" overflow="visible" aria-hidden="true">'
+            + '<g transform="translate(9,9) rotate(4,50,50)">'
+            + '<circle class="wb-backdrop" cx="50" cy="50" r="16"/>'
+            + '<rect class="wb-backdrop" x="47" y="18" width="6" height="8" rx="1"/>'
+            + '<rect class="wb-backdrop" x="47" y="74" width="6" height="8" rx="1"/>'
+            + '<rect class="wb-backdrop" x="18" y="47" width="8" height="6" rx="1"/>'
+            + '<rect class="wb-backdrop" x="74" y="47" width="8" height="6" rx="1"/>'
+            + '<rect class="wb-backdrop" x="27" y="28.5" width="7" height="4" rx="1" transform="rotate(45 30.5 30.5)"/>'
+            + '<rect class="wb-backdrop" x="66" y="67.5" width="7" height="4" rx="1" transform="rotate(45 69.5 69.5)"/>'
+            + '<rect class="wb-backdrop" x="27" y="67.5" width="7" height="4" rx="1" transform="rotate(-45 30.5 69.5)"/>'
+            + '<rect class="wb-backdrop" x="66" y="28.5" width="7" height="4" rx="1" transform="rotate(-45 69.5 30.5)"/>'
+            + '</g>'
+            + '<circle class="wb-stroke wb-draw" cx="50" cy="50" r="16" style="stroke-dasharray:101;stroke-dashoffset:101;"/>'
+            + '<line class="wb-stroke wb-draw" x1="50" y1="18" x2="50" y2="26" style="stroke-dasharray:8;stroke-dashoffset:8;animation-delay:.5s;"/>'
+            + '<line class="wb-stroke wb-draw" x1="50" y1="74" x2="50" y2="82" style="stroke-dasharray:8;stroke-dashoffset:8;animation-delay:.55s;"/>'
+            + '<line class="wb-stroke wb-draw" x1="18" y1="50" x2="26" y2="50" style="stroke-dasharray:8;stroke-dashoffset:8;animation-delay:.6s;"/>'
+            + '<line class="wb-stroke wb-draw" x1="74" y1="50" x2="82" y2="50" style="stroke-dasharray:8;stroke-dashoffset:8;animation-delay:.65s;"/>'
+            + '<line class="wb-stroke wb-draw" x1="28" y1="28" x2="33" y2="33" style="stroke-dasharray:7;stroke-dashoffset:7;animation-delay:.7s;"/>'
+            + '<line class="wb-stroke wb-draw" x1="67" y1="67" x2="72" y2="72" style="stroke-dasharray:7;stroke-dashoffset:7;animation-delay:.75s;"/>'
+            + '<line class="wb-stroke wb-draw" x1="28" y1="72" x2="33" y2="67" style="stroke-dasharray:7;stroke-dashoffset:7;animation-delay:.8s;"/>'
+            + '<line class="wb-stroke wb-draw" x1="67" y1="33" x2="72" y2="28" style="stroke-dasharray:7;stroke-dashoffset:7;animation-delay:.85s;"/>'
+            + '</svg>';
+        themeToggleBtn.innerHTML = theme === 'dark' ? sunSvg : moonSvg;
     }
 
     // Language Toggle
