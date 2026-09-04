@@ -1,31 +1,76 @@
 # MoodleGPT 3
 
-> Instant AI answers on any Moodle quiz — verified database, Gemini AI & full automation.
+> Browser extension and AI study assistant designed for Moodle quiz environments, powered by Google Gemini multimodal models and a shared question database.
 
-MoodleGPT 3 is a browser extension for Google Chrome and Chromium-based browsers designed to assist students and educators using the Moodle Learning Management System (LMS). It accelerates and automates quiz solving using a multi-tiered architecture: an instant verified question-and-answer cache, Google Gemini AI (Gemini 2.5 Flash, 2.5 Pro, and 3 Pro Preview), and automated keyboard workflows.
+## Product Overview
+MoodleGPT 3 is a specialized browser extension for Chromium-based browsers that seamlessly interfaces with Moodle Learning Management System (LMS) quiz interfaces. It parses question text, visual diagrams, mathematical formulas, and answer options, delivering instant verified answers and AI-generated solutions with humanized automation capabilities.
 
-## Key Features
+## Licensing and Pricing
+- **Commercial Software:** Requires an active license key for activation and ongoing access to core features.
+- **Transparency:** Licensing terms, tiers, and requirements are explicitly disclosed on the official website and inside the extension setup panel prior to purchase.
+- **Independent Maintenance:** License fees sustain continuous backend infrastructure, real-time database synchronization, and regular updates following Moodle LMS platform changes.
 
-- **Instant AI Answering**: Automatically analyzes question text, formulas, code, and images to generate verified, accurate solutions.
-- **Verified Q&A Database**: Built-in cache of thousands of verified quiz solutions for instantaneous, zero-latency answers.
-- **Multimodal Image Support**: Extracts and analyzes embedded question figures, diagrams, formulas, and screenshots using Gemini Vision models.
-- **Stealth UI & Overlay System**: Clean, unobtrusive interface with customizable opacity, dark mode, keyboard shortcuts (Alt+Q, Alt+A, Alt+C), and discreet overlay rendering.
-- **Full Automation Mode**: Automatically solves, reviews, selects answers, and navigates sequential quiz questions with configurable timing and delays.
-- **Broad Question Type Support**: Handles multiple choice, true/false, fill-in-the-blanks, dropdown selections, short answers, matching questions, numerical questions, and multi-select checkboxes.
-- **Multilingual Support**: Supports solving quizzes in any language worldwide, with the extension interface localized in 5 languages (English, Portuguese, Spanish, French, German).
-- **Privacy-First**: No personal data collection, no telemetry tracking, and direct client-to-Google Gemini API architecture.
+## AI Engine & API Integration
+- **Primary AI Provider:** Built to interface natively with Google's Gemini API.
+- **Model Support:** Continuously updated to support Google's latest multimodal Gemini models (including Flash and Pro tiers) as soon as they are released by Google AI.
+- **Cost Efficiency & BYOK:** Supports user-provided Google Gemini API keys from Google AI Studio. Users can take full advantage of Google's free-tier rate limits, eliminating mandatory per-query API surcharges.
+- **Multimodal Visual Processing:** Automatically detects and captures embedded images, graphs, anatomy diagrams, schematics, and UI screenshots, transmitting them directly to Gemini Vision endpoints for visual question processing.
+- **Complex Logic & Negative Phrasing:** Leverages the latest Gemini models to evaluate complex reasoning constraints, including negative-filter stems ("NOT", "EXCEPT", "LEAST"), matching sets, and multi-variable logic.
 
-## Links
+## Dual Answering Architecture & Database
+MoodleGPT 3 combines an internal question-and-answer caching system with generative AI to optimize response speed and reduce external API consumption:
+- **Verified Answers Mode:** Pulls strictly from pre-validated, verified database entries to ensure high answer accuracy, instant response times (<50ms), and eliminate model hallucination risks.
+- **Live Mode (User-Configurable):** An optional, opt-in collaborative mode. When toggled on, questions and extracted answers are shared in real time across active sessions, making solutions immediately available to minimize API quotas. Users retain full control to enable or disable Live Mode at any time.
+- **Automatic Fallback:** If a question is not yet present in the verified database, MoodleGPT 3 automatically queries Google Gemini, formats the solution, and displays it seamlessly.
 
-- [Official Website](https://antniom.github.io/MoodleGPT_Website/): Main landing page with feature demonstrations and documentation.
-- [Chrome Web Store](https://chromewebstore.google.com/detail/moodlegpt-3/lppelbhdlnckdgefagkpdekdaggmbmen): Install the MoodleGPT 3 browser extension.
-- [Setup Guide](https://antniom.github.io/MoodleGPT_Website/setup.html): Step-by-step instructions for installation and obtaining a free Google Gemini API key.
-- [FAQ](https://antniom.github.io/MoodleGPT_Website/faq.html): Frequently asked questions regarding safety, detection, free tier limits, and supported question types.
-- [Terms of Service](https://antniom.github.io/MoodleGPT_Website/terms.html): User agreement and license terms.
-- [Privacy Policy](https://antniom.github.io/MoodleGPT_Website/privacy.html): Comprehensive zero-data-collection policy.
-- [Refund Policy](https://antniom.github.io/MoodleGPT_Website/refund.html): Digital content purchase and refund conditions.
+## Stealth Architecture & Anti-Detection
+- **Shadow DOM Isolation:** Operates within an isolated Shadow DOM container (or runs in pure stealth mode without persistent DOM elements) to remain discreet and invisible to standard page scripts.
+- **Humanized Automation:** Automation routines simulate genuine human behavior with randomized click delays, non-linear timing intervals, and natural interaction pauses.
+- **Discreet UI Controls:** Fully adjustable overlay opacity (from 0% to 100%), compact floating pill widget, and seamless dark/light theme integration matching institutional Moodle designs.
+- **Panic / Stealth Hotkey (Alt + X):** Emergency hotkey that instantly dismisses all overlays and extension UI elements from view in 0 milliseconds.
 
-## Support & Contact
+## Supported Question Types
+MoodleGPT 3 features robust, battle-tested parsing across all major Moodle LMS question formats:
+- **Multiple Choice (Single Answer):** Standard radio-button questions.
+- **Multiple Choice (Multi-Select):** Multi-checkbox questions ("Select one or more", "Check all that apply").
+- **True / False:** Binary evaluation questions.
+- **Fill-in-the-Blanks (Cloze):** Inline text inputs and multi-part embedded answers.
+- **Dropdown Selections:** Select dropdowns embedded within text paragraphs.
+- **Short Answer & Numerical:** Open-ended text fields, units, and numeric tolerance ranges.
+- **Matching Questions:** Drag-and-drop or select menus pairing items across lists.
+- **Mathematical & Scientific Notation:** Full parsing for LaTeX, MathJax formulas, chemistry equations, and code blocks.
+- **Essay & Long-Form Assistant:** Writing companion offering structured outlines, thesis formulation, and text drafts for open-ended questions.
 
-- **Support Email**: moodlegpt.help@gmail.com
-- **Compatibility**: Google Chrome, Brave, Microsoft Edge, Opera, and Chromium-based browsers.
+## Automation & Keyboard Productivity
+- **Interactive Double-Click:** Double-clicking any question stem triggers immediate solution extraction.
+- **Keyboard Shortcuts:**
+  - `Alt + Q`: Extract question text and show AI answer overlay.
+  - `Alt + A`: Automatically select the correct answer on the active question.
+  - `Alt + C`: Auto-select answer and automatically advance to the next quiz page.
+  - `Alt + X`: Emergency panic switch (instantly hide all extension UI).
+- **Full Quiz Automation:** Hands-free quiz progression with user-configurable delay timers between questions.
+
+## Multilingual Capabilities
+- **Universal Quiz Solving:** Successfully parses, translates, and answers quizzes in any language worldwide.
+- **Interface Localization:** Extension settings, popups, and controls are localized into 5 languages: English, Portuguese, Spanish, French, and German.
+
+## Privacy, Security & Data Protection
+- **Zero Telemetry / Zero Personal Data:** MoodleGPT 3 does not collect names, student IDs, school logins, or personal profile data.
+- **Direct Client-to-API Communication:** Prompts are sent directly from the client browser to Google's official Gemini API endpoints.
+- **Encrypted Local Storage:** API keys and user configurations remain strictly inside the user's local browser environment.
+
+## Compatibility & System Requirements
+- **Platform:** Moodle LMS (versions 3.x, 4.x, and custom institutional themes).
+- **Environment:** Desktop Chromium-based browsers (Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi).
+
+## Official Links & Resources
+- [Official Website](https://antniom.github.io/MoodleGPT_Website/) - Main landing page, features showcase, and documentation.
+- [Chrome Web Store](https://chromewebstore.google.com/detail/moodlegpt-3/lppelbhdlnckdgefagkpdekdaggmbmen) - Official download and installation page.
+- [Setup Guide](https://antniom.github.io/MoodleGPT_Website/setup.html) - Step-by-step setup for license activation and obtaining a free Google Gemini API key.
+- [FAQ](https://antniom.github.io/MoodleGPT_Website/faq.html) - Frequently asked questions on detection, safety, and configuration.
+- [Terms of Service](https://antniom.github.io/MoodleGPT_Website/terms.html) - License terms and acceptable use policy.
+- [Privacy Policy](https://antniom.github.io/MoodleGPT_Website/privacy.html) - Zero-data-collection policy.
+- [Refund Policy](https://antniom.github.io/MoodleGPT_Website/refund.html) - Digital purchase and refund terms.
+
+## Support Contact
+- **Email Support:** moodlegpt.help@gmail.com
