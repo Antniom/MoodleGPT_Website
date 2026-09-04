@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'nav-setup': t.navSetup,
             'nav-faq': t.navFaq,
             'open-tos-btn': t.navGetExt,
+            'mobile-get-ext': t.navGetExt,
             'hero-badge': t.heroBadge,
             'hero-title-prefix': t.heroTitlePrefix,
             'hero-subtitle': t.heroSubtitle,
@@ -499,6 +500,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 acceptBtn.classList.remove('btn-disabled');
                 scrollNotice.style.display = 'none';
                 scrollNotice.textContent = '';
+            }
+        });
+    }
+
+    // --- Mobile Menu Toggle Logic (Emil & Mobile Design Guidelines) ---
+    let mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
+
+    if (navbar && navLinks) {
+        // Fallback injection if not hardcoded in markup
+        if (!mobileMenuToggle) {
+            mobileMenuToggle = document.createElement('button');
+            mobileMenuToggle.id = 'mobile-menu-toggle';
+            mobileMenuToggle.className = 'icon-btn mobile-menu-toggle';
+            mobileMenuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+            const controls = navbar.querySelector('.controls');
+            if (controls) {
+                controls.appendChild(mobileMenuToggle);
+            } else {
+                navbar.appendChild(mobileMenuToggle);
+            }
+        }
+
+        const hamburgerSvg = '<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+        const closeSvg = '<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+
+        const setMobileMenu = (open) => {
+            if (open) {
+                navLinks.classList.add('mobile-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                mobileMenuToggle.innerHTML = closeSvg;
+            } else {
+                navLinks.classList.remove('mobile-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.innerHTML = hamburgerSvg;
+            }
+        };
+
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navLinks.classList.contains('mobile-open');
+            setMobileMenu(!isOpen);
+        });
+
+        // Close on link navigation
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => setMobileMenu(false));
+        });
+
+        // Close on click outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                setMobileMenu(false);
+            }
+        });
+
+        // Close when resizing above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('mobile-open')) {
+                setMobileMenu(false);
             }
         });
     }
