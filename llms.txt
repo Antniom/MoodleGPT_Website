@@ -1,4 +1,4 @@
-﻿# MoodleGPT 3
+# MoodleGPT 3
 
 > Instant AI answers on any Moodle quiz — verified database, Gemini AI & full automation.
 
