@@ -1,7 +1,6 @@
 const translations = {
     en: {
         navFeatures: "Features",
-        navLocal: "Local Mode",
         navSetup: "Setup Guide",
         navFaq: "FAQ",
         navGetExt: "Get Extension",
@@ -36,7 +35,7 @@ const translations = {
         // Setup
         setupTitle: "Installation Guide",
         step1Title: "Download Extension",
-        step1Desc: "Download MoodleGPT 3 from the Chrome Web Store. It costs a <strong>one-time payment of 7€ ($8.30)</strong> for a lifetime license.",
+        step1Desc: "Download MoodleGPT 3 from the Chrome Web Store. It costs a <strong>subscription of 5€ every 2 months</strong> to unlock all features.",
         step2Title: "Get API Key",
         step2Desc: "Go to Google AI Studio and generate a free API Key. Supported models include <strong>Gemini 3.0 Pro Preview</strong>, <strong>Gemini 2.5 Pro</strong>, and <strong>Gemini 2.5 Flash</strong>.",
         step2Btn: "Get Free Key",
@@ -58,29 +57,10 @@ const translations = {
         footerPrivacy: "Terms of Service",
         footerContact: "Contact Support",
         tosTitle: "Terms of Service",
-        tosAcceptBtn: "Accept & Go to Web Store",
-
-        // Local Page
-        localBadge: "BETA",
-        localTitle: "Local Runtime",
-        localSubtitle: "Supercharge your extension with offline, strictly confidential AI computation securely hosted on your own machine.",
-        localBetaBanner: "MoodleGPT Local is currently in Beta. You may experience occasional bugs or unoptimized performance. Help us improve by reporting unexpected behavior.",
-        localFeat1Title: "Private 100% Local Inference",
-        localFeat1Desc: "Leverage Local LLMs (like Llama 3 via Ollama) directly on your device. Absolutely zero queries, answers, or quiz data are transmitted to external servers. Your academic integrity and data remain entirely isolated on your machine.",
-        localFeat2Title: "Zero API Costs",
-        localFeat2Desc: "No need for paid Gemini or OpenAI subscription keys. The Local Runtime uses your hardware to generate responses efficiently, enabling unlimited solving without counting tokens.",
-        localFeat3Title: "RAG System (Knowledge Base)",
-        localFeat3Desc: "The Local Runtime includes a custom Knowledge Base (Retrieval-Augmented Generation) system. Drop texts and course documents into the app, and the AI will scan your lectures to construct highly accurate, course-specific answers.",
-        localFeat4Title: "Seamless Extension Integration",
-        localFeat4Desc: "It acts as a backend bridge for your MoodleGPT 3 Chrome Extension. Just keep it running in the background. The extension will automatically detect it and route queries through Native Messaging.",
-        localDownloadBtn: '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;" aria-hidden="true"><path d="M8 3v7M4 7l4 4 4-4"/><line x1="2" y1="13" x2="14" y2="13"/></svg>Download MoodleGPT Local Setup (Windows)',
-        localDownloadInfo: "Version 2.0.0 | ~95MB | Requires a 64-bit Windows system",
-        localConnectTitle: "How does it connect?",
-        localConnectDesc: "Install the application, open it, and leave it running. The Chrome extension utilizes a Native Messaging protocol to securely interact with the local client, bypassing traditional web requests entirely."
+        tosAcceptBtn: "Accept & Go to Web Store"
     },
     pt: {
         navFeatures: "Funcionalidades",
-        navLocal: "Modo Local",
         navSetup: "Guia de Instalação",
         navFaq: "FAQ",
         navGetExt: "Obter Extensão",
@@ -115,7 +95,7 @@ const translations = {
         // Setup
         setupTitle: "Guia de Instalação",
         step1Title: "Baixar Extensão",
-        step1Desc: "Baixe o MoodleGPT 3 da Chrome Web Store. Custa um <strong>pagamento único de 7€ ($8.30)</strong> para uma licença vitalícia.",
+        step1Desc: "Baixe o MoodleGPT 3 da Chrome Web Store. Custa uma <strong>subscrição de 5€ a cada 2 meses</strong> para desbloquear todas as funcionalidades.",
         step2Title: "Obter Chave API",
         step2Desc: "Vá ao Google AI Studio e gere uma chave API gratuita. Modelos suportados incluem <strong>Gemini 3.0 Pro Preview</strong>, <strong>Gemini 2.5 Pro</strong> e <strong>Gemini 2.5 Flash</strong>.",
         step2Btn: "Obter Chave Grátis",
@@ -137,25 +117,7 @@ const translations = {
         footerPrivacy: "Termos de Serviço",
         footerContact: "Contactar Suporte",
         tosTitle: "Termos de Serviço",
-        tosAcceptBtn: "Aceitar e Ir para Web Store",
-
-        // Local Page
-        localBadge: "BETA",
-        localTitle: "Runtime Local",
-        localSubtitle: "Potencie a sua extensão com computação de IA offline, estritamente confidencial e alojada na sua própria máquina.",
-        localBetaBanner: "MoodleGPT Local está atualmente em Beta. Pode encontrar erros ocasionais ou performance não otimizada. Ajude-nos a melhorar reportando comportamentos inesperados.",
-        localFeat1Title: "Inferência 100% Local e Privada",
-        localFeat1Desc: "Use LLMs locais (como Llama 3 via Ollama) diretamente no seu dispositivo. Zero queries, respostas ou dados de quiz são transmitidos para servidores externos. A sua integridade académica e dados ficam totalmente isolados na sua máquina.",
-        localFeat2Title: "Zero Custos de API",
-        localFeat2Desc: "Sem necessidade de chaves de subscrição pagas do Gemini ou OpenAI. O Runtime Local usa o seu hardware para gerar respostas eficientemente, permitindo resolução ilimitada sem contar tokens.",
-        localFeat3Title: "Sistema RAG (Base de Conhecimento)",
-        localFeat3Desc: "O Runtime Local inclui um sistema de Base de Conhecimento personalizado (Retrieval-Augmented Generation). Adicione textos e documentos de curso na app, e a IA irá analisar as suas aulas para construir respostas altamente precisas e específicas.",
-        localFeat4Title: "Integração Perfeita com a Extensão",
-        localFeat4Desc: "Funciona como uma ponte de backend para a sua Extensão Chrome MoodleGPT 3. Basta mantê-lo a correr em segundo plano. A extensão irá detetá-lo automaticamente e encaminhar as queries via Native Messaging.",
-        localDownloadBtn: '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;" aria-hidden="true"><path d="M8 3v7M4 7l4 4 4-4"/><line x1="2" y1="13" x2="14" y2="13"/></svg>Descarregar MoodleGPT Local Setup (Windows)',
-        localDownloadInfo: "Versão 2.0.0 | ~95MB | Requer sistema Windows 64-bit",
-        localConnectTitle: "Como é que se liga?",
-        localConnectDesc: "Instale a aplicação, abra-a e deixe-a a correr. A extensão Chrome utiliza um protocolo de Native Messaging para interagir com o cliente local de forma segura, contornando completamente os pedidos web tradicionais."
+        tosAcceptBtn: "Aceitar e Ir para Web Store"
     }
 };
 
